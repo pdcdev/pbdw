@@ -1,0 +1,89 @@
+@font-face {
+  font-family: 'fontello';
+  src: url('../font/fontello.eot?88946704');
+  src: url('../font/fontello.eot?88946704#iefix') format('embedded-opentype'),
+       url('../font/fontello.woff?88946704') format('woff'),
+       url('../font/fontello.ttf?88946704') format('truetype'),
+       url('../font/fontello.svg?88946704#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'fontello';
+    src: url('../font/fontello.svg?88946704#fontello') format('svg');
+  }
+}
+*/
+ 
+ [class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+ 
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+ 
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+     
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+ 
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+ 
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+ 
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+ 
+.icon-grid:before { content: '\e816'; } /* '' */
+.icon-right-circle:before { content: '\e80d'; } /* '' */
+.icon-pin:before { content: '\e81d'; } /* '' */
+.icon-pages:before { content: '\e80e'; } /* '' */
+.icon-settings:before { content: '\e81e'; } /* '' */
+.icon-cancel-circled-1:before { content: '\e81c'; } /* '' */
+.icon-angle-left:before { content: '\e81a'; } /* '' */
+.icon-angle-right:before { content: '\e819'; } /* '' */
+.icon-right-circled:before { content: '\e80b'; } /* '' */
+.icon-linkedin-1:before { content: '\e814'; } /* '' */
+.icon-pinterest-squared:before { content: '\e80f'; } /* '' */
+.icon-menu:before { content: '\e80c'; } /* '' */
+.icon-down-open:before { content: '\e817'; } /* '' */
+.icon-up-open:before { content: '\e818'; } /* '' */
+.icon-left-open-big:before { content: '\e807'; } /* '' */
+.icon-right-open-big:before { content: '\e808'; } /* '' */
+.icon-vimeo:before { content: '\e806'; } /* '' */
+.icon-vimeo-circled:before { content: '\e811'; } /* '' */
+.icon-list:before { content: '\e81b'; } /* '' */
+.icon-facebook-circled-1:before { content: '\e822'; } /* '' */
+.icon-gplus-circled:before { content: '\e824'; } /* '' */
+.icon-pinterest-circled:before { content: '\e823'; } /* '' */
+.icon-linkedin-circled:before { content: '\e81f'; } /* '' */
+.icon-pinterest-1:before { content: '\e813'; } /* '' */
+.icon-facebook-1:before { content: '\e812'; } /* '' */
+.icon-facebook-circled:before { content: '\e815'; } /* '' */
+.icon-download:before { content: '\e809'; } /* '' */
+.icon-download-alt:before { content: '\e80a'; } /* '' */
+.icon-right-open:before { content: '\e803'; } /* '' */
+.icon-play-circled:before { content: '\e820'; } /* '' */
+.icon-facebook:before { content: '\e804'; } /* '' */
+.icon-linkedin:before { content: '\e802'; } /* '' */
+.icon-pinterest:before { content: '\e805'; } /* '' */
+.icon-twitter:before { content: '\e810'; } /* '' */
+.icon-cancel:before { content: '\e800'; } /* '' */
+.icon-down-circle:before { content: '\e801'; } /* '' */
+.icon-twitter-circled:before { content: '\e821'; } /* '' */

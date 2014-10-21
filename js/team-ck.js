@@ -1,0 +1,1 @@
+jQuery(document).ready(function(e){function t(t,n){var r=t.length,i=Math.ceil(t.length/2);while(i<r){e(t[i]).appendTo(n);i++}}t(e(".staff_architects ul"),e(".staff_architects_spillover > div"))});

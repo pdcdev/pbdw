@@ -1,0 +1,272 @@
+{
+  "name": "",
+  "css_prefix_text": "icon-",
+  "css_use_suffix": false,
+  "hinting": true,
+  "units_per_em": 1000,
+  "ascent": 850,
+  "glyphs": [
+    {
+      "uid": "db77071afbabaaee110b4bfdeffc7b65",
+      "css": "grid",
+      "code": 59414,
+      "src": "custom_icons",
+      "selected": true,
+      "svg": {
+        "path": "M55.6 198.4H198.4V341.3H55.6V198.4ZM55.6 484.1H198.4V627H55.6V484.1ZM55.6 769.9H198.4V912.8H55.6V769.9ZM341.2 198.4H484.1V341.3H341.2V198.4ZM341.2 484.1H484.1V627H341.2V484.1ZM341.2 769.9H484.1V912.8H341.2V769.9ZM627 198.4H769.9V341.3H627V198.4ZM627 484.1H769.9V627H627V484.1ZM627 769.9H769.9V912.8H627V769.9ZM912.7 198.4H1055.6V341.3H912.7V198.4ZM912.7 484.1H1055.6V627H912.7V484.1ZM912.7 769.9H1055.6V912.8H912.7V769.9Z",
+        "width": 1000
+      },
+      "search": [
+        "grid_icon"
+      ]
+    },
+    {
+      "uid": "2556fc9ccecd000552977ae9db6a0cd3",
+      "css": "list",
+      "code": 59419,
+      "src": "custom_icons",
+      "selected": true,
+      "svg": {
+        "path": "M55.6 198.4H198.4V341.3H55.6V198.4ZM55.6 484.1H198.4V627H55.6V484.1ZM55.6 769.9H198.4V912.8H55.6V769.9ZM341.2 198.4H1055.6V341.3H341.2V198.4ZM341.2 484.1H1055.6V627H341.2V484.1ZM341.2 769.9H1055.6V912.8H341.2V769.9Z",
+        "width": 1000
+      },
+      "search": [
+        "list_icon"
+      ]
+    },
+    {
+      "uid": "73c75aa6b35014253a00457f7ebe6c2f",
+      "css": "pin",
+      "code": 59421,
+      "src": "custom_icons",
+      "selected": true,
+      "svg": {
+        "path": "M917.4 353.6L839.2 431.8L684 432L567.4 548.6L567.2 703.9L489.7 781.3L372.9 664.6L139.5 898.1L81.5 917.8L101.2 859.8L334.7 626.4L218 509.6L295.5 432.1L450.7 431.9L567.3 315.3L567.5 160.1L645.7 81.9L917.4 353.6Z",
+        "width": 1000
+      },
+      "search": [
+        "pin"
+      ]
+    },
+    {
+      "uid": "d28cb34877ddf30e7e5df7dbf4b095e7",
+      "css": "pages",
+      "code": 59406,
+      "src": "custom_icons",
+      "selected": true,
+      "svg": {
+        "path": "M858 776H307V59H858V776ZM141 941H692V831H251V224H141V941Z",
+        "width": 1000
+      },
+      "search": [
+        "pages"
+      ]
+    },
+    {
+      "uid": "35a3439cbb26b57e732950f58d8b845c",
+      "css": "settings",
+      "code": 59422,
+      "src": "custom_icons",
+      "selected": true,
+      "svg": {
+        "path": "M911.3 56.2H87.7L24.4 119.8V880.2L87.7 943.8H911.3L974.6 880.2V119.8L911.3 56.2ZM404.2 690.5H341.5V817.2H277.6V690.5H214.9V563.9H277.6V182.8H341.5V563.9H404.2V690.5ZM784.1 436.1H721.4V817.2H657.5V436.1H594.8V309.5H657.5V182.8H721.4V309.4H784.1V436.1Z",
+        "width": 1000
+      },
+      "search": [
+        "settings"
+      ]
+    },
+    {
+      "uid": "0f4cae16f34ae243a6144c18a003f2d8",
+      "css": "cancel-circled-1",
+      "code": 59420,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "f3f90c8c89795da30f7444634476ea4f",
+      "css": "angle-left",
+      "code": 59418,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "7bf14281af5633a597f85b061ef1cfb9",
+      "css": "angle-right",
+      "code": 59417,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "19b04848ae7332d2c0ea2a9e19064037",
+      "css": "right-circled",
+      "code": 59403,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "e9107949dd6c9e8ab2b29ae07156e38c",
+      "css": "linkedin-1",
+      "code": 59412,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "79689c4c425b7cdaa2746f510e81e27a",
+      "css": "pinterest-squared",
+      "code": 59407,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "2cfb3f2b46b34a1790aec0aa846297b6",
+      "css": "menu",
+      "code": 59404,
+      "src": "entypo"
+    },
+    {
+      "uid": "8704cd847a47b64265b8bb110c8b4d62",
+      "css": "down-open",
+      "code": 59415,
+      "src": "entypo"
+    },
+    {
+      "uid": "9c7ff134960bb5a82404e4aeaab366d9",
+      "css": "up-open",
+      "code": 59416,
+      "src": "entypo"
+    },
+    {
+      "uid": "884cfc3e6e2d456dd2a2ca0dbb9e6337",
+      "css": "left-open-big",
+      "code": 59399,
+      "src": "entypo"
+    },
+    {
+      "uid": "004882ab2d5c418c5b2060e80596279b",
+      "css": "right-open-big",
+      "code": 59400,
+      "src": "entypo"
+    },
+    {
+      "uid": "538531af0e023b15882c505ee2297cbe",
+      "css": "vimeo",
+      "code": 59398,
+      "src": "entypo"
+    },
+    {
+      "uid": "6569bd1801e232180221ba0f6a4b8b27",
+      "css": "vimeo-circled",
+      "code": 59409,
+      "src": "entypo"
+    },
+    {
+      "uid": "0419da6446cb4f31093e2022793571ca",
+      "css": "twitter-circled",
+      "code": 59425,
+      "src": "entypo"
+    },
+    {
+      "uid": "ce1d525f3f31024c6a6b38f5e9a88953",
+      "css": "facebook-circled-1",
+      "code": 59426,
+      "src": "entypo"
+    },
+    {
+      "uid": "818a6c2a76c89800632c0335e9cdafee",
+      "css": "gplus-circled",
+      "code": 59428,
+      "src": "entypo"
+    },
+    {
+      "uid": "2e9c0fdd4d59598cb122801ab80222e7",
+      "css": "pinterest-circled",
+      "code": 59427,
+      "src": "entypo"
+    },
+    {
+      "uid": "21adad41ffebf469b2370d26bcb8a3c4",
+      "css": "linkedin-circled",
+      "code": 59423,
+      "src": "entypo"
+    },
+    {
+      "uid": "178c8af85364e12fe70b959c7c055bc6",
+      "css": "pinterest-1",
+      "code": 59411,
+      "src": "typicons"
+    },
+    {
+      "uid": "w42gjpwdzqeszptpy1xqp8r77o6gcasj",
+      "css": "facebook-1",
+      "code": 59410,
+      "src": "modernpics"
+    },
+    {
+      "uid": "96aafeab29734d1510805687f7695f8f",
+      "css": "facebook-circled",
+      "code": 59413,
+      "src": "mfglabs"
+    },
+    {
+      "uid": "61a783a38ab7b1e312fc5cd9b13fd349",
+      "css": "download",
+      "code": 59401,
+      "src": "elusive"
+    },
+    {
+      "uid": "05a2f4c4839012434774cc1ceb4c0f9b",
+      "css": "download-alt",
+      "code": 59402,
+      "src": "elusive"
+    },
+    {
+      "uid": "dc4a03854ef986d64565143bea4241aa",
+      "css": "right-open",
+      "code": 59395,
+      "src": "elusive"
+    },
+    {
+      "uid": "fc006ff27e50163bdec3a7588226171b",
+      "css": "play-circled",
+      "code": 59424,
+      "src": "elusive"
+    },
+    {
+      "uid": "c99e966e3d22ec0b9d8678fd524e5512",
+      "css": "facebook",
+      "code": 59396,
+      "src": "elusive"
+    },
+    {
+      "uid": "09cad6e46ec29b279626434802012bba",
+      "css": "linkedin",
+      "code": 59394,
+      "src": "elusive"
+    },
+    {
+      "uid": "1b813c4a33217fc20f46f3c157a9c90c",
+      "css": "pinterest",
+      "code": 59397,
+      "src": "elusive"
+    },
+    {
+      "uid": "26969cfbd811730075e4c657cc9fda2a",
+      "css": "twitter",
+      "code": 59408,
+      "src": "elusive"
+    },
+    {
+      "uid": "8da3ac534210aae9c0f0e13804c1df97",
+      "css": "cancel",
+      "code": 59392,
+      "src": "websymbols"
+    },
+    {
+      "uid": "e160a7e42e4e818463fd5a8607b9f608",
+      "css": "down-circle",
+      "code": 59393,
+      "src": "websymbols"
+    },
+    {
+      "uid": "d30928620bda0d5eaa85d3b65bf19963",
+      "css": "right-circle",
+      "code": 59405,
+      "src": "websymbols"
+    }
+  ]
+}

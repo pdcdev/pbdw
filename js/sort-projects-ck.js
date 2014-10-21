@@ -1,0 +1,1 @@
+jQuery(document).ready(function(e){function o(t,n){var r=e("#projects_grid"),i=r.children(".project_item").get();i.sort(function(n,r){var i=e(n).attr(t).toUpperCase(),s=e(r).attr(t).toUpperCase();return i<s?-1:i>s?1:0});n||i.reverse();e.each(i,function(e,t){r.append(t)})}var t=!0,n=!1,r=e(".list_header"),i=e(".alpha-btn"),s=e(".year-btn");o("title",t)});

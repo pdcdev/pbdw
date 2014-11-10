@@ -74,7 +74,8 @@ jQuery(document).ready(function($) {
     }
     function size_foursix() {
         foursix.each(function(){
-            $(this).css("height", Math.round($(this).width()/0.6667) + "px");
+            // $(this).css("height", Math.round($(this).width()/0.6667) + "px");
+            $(this).css("height", Math.round($(this).width()) + "px");
         });
     }
     function size_sixfive() {

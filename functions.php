@@ -42,8 +42,15 @@ function theme_js() {
 }
 
 function pbdw_remove_menus(){
-    remove_menu_page( 'edit-comments.php' );          //Comments
+    remove_menu_page( 'edit.php' );            // Posts
+    remove_menu_page( 'edit-comments.php' );   // Comments
 }
+
+function get_image($field, $the_size) {
+    $the_image = wp_get_attachment_image_src( $field, $the_size );
+    echo $the_image[0];
+}
+
 add_action( 'admin_menu', 'pbdw_remove_menus' );
 add_action( 'wp_enqueue_scripts', 'theme_styles' );
 add_action( 'wp_enqueue_scripts', 'theme_js' );

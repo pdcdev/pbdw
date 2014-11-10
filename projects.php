@@ -35,7 +35,6 @@ get_header(); ?>
             </span></p>
         <div class="grid-list-btn-container">
             <a id="grid-list-btn" class="active" data-state="0" title="View Projects as list or grid">
-                <!-- <p id="grid-list-btn" class="list_btn active" data-state="0"></p> -->
                 <p id="grid_btn" class="icon-grid active" data-state="0"><span> Projects by Grid</span></p>
                 <p id="list_btn" class="icon-list active" data-state="0"><span> Projects by List</span></p>
             </a>
@@ -77,12 +76,18 @@ get_header(); ?>
             
             <?php if ( have_posts() ) : while( $the_query->have_posts() ) : $the_query->the_post(); ?>
                 <?php
-                    $attachment_id = get_field('featured_image');
-                    $size = "Work Thumbnail";
+
+                    $this_cat_image = wp_get_attachment_image_src( get_field( $the_category . '_image' ), "Work Thumbnail" );
+                    if ( $this_cat_image ) {
+                        $image = $this_cat_image;
+                    } else {
+                        $image = wp_get_attachment_image_src( get_field( 'featured_image' ), "Work Thumbnail" );
+                    }
                     
-                    $image = wp_get_attachment_image_src( $attachment_id, $size );
+
                 ?>
                 <div class="project_item grid foursix global_hidden" title="<?php the_title(); ?>" data-order="<?php if(!$count) { echo "0"; } else { echo $count; }?>" data-completed="<?php the_field( 'date_completed' ); ?>" data-category="<?php echo implode(' ', get_field('project_category')) ; ?>" style="background-image: url(<?php echo $image[0]; ?>)">
+                    <?php // print_r($image); ?>
                     <a href="<?php the_permalink(); ?>">
                         <div class="project_info">
                             <p class="title truncate"><?php the_title(); ?></p>

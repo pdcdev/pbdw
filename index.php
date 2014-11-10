@@ -1,9 +1,4 @@
 <?php get_header(); ?>
-<script type="text/javascript">
-    if (screen.width <= 320) {
-        document.location = "/mobile-home";
-    }
-</script>
     <div class="wait global_hidden">
         <div id="header_container" class="header_gradient">
             <header class="home-nav tablet_nav_shrunk">
@@ -23,20 +18,29 @@
             </header>
         </div>
         <article id="home">
-            <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+            <?php if ( have_posts() ) : ?>
                 <?php $images = get_field('home_slider');
                     if( $images ): ?>
                         <div id="homeslider" class="home-flexslider preload">
                             <ul class="slides">
-                                <?php foreach( $images as $image ): ?>
+                                <?php while ( have_rows('home_featured') ) : the_row(); ?>
                                     <li class="slide">
-                                        <div class="window_size" style="background-image: url( <?php echo $image['url']; ?> );"></div>
+                                        <?php $project = get_sub_field("project"); ?>
+                                        <div class="window_size" style="background-image: url( <?php get_image( get_sub_field('home_page_image'), "cover_nocrop"); ?> );">
+                                            <div class="project_title">
+                                                <h3>
+                                                    <a href="<?php echo get_permalink( $project->ID ); ?>">
+                                                        <?php echo $project->post_title; ?>
+                                                    </a>
+                                                </h3>
+                                            </div>
+                                        </div>
                                     </li>
-                                <?php endforeach; ?>
+                                <?php endwhile; ?>
                             </ul>
                         </div>
                     <?php endif;?>
-                <?php endwhile; endif;  ?>
+                <?php endif;  ?>
         </article>
         <div class="home_logo window_size">
         </div>

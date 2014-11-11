@@ -16,7 +16,7 @@ jQuery(document).ready(function($) {
             keyboard: true,
             animation: "fade",
             slideshow: true,
-            slideshowSpeed: 3000,
+            slideshowSpeed: 5000,
             animationSpeed: 1000,
             touch: Modernizr.touch ? "true" : "false",
             video: false,

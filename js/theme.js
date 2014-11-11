@@ -74,8 +74,7 @@ jQuery(document).ready(function($) {
     }
     function size_foursix() {
         foursix.each(function(){
-            // $(this).css("height", Math.round($(this).width()/0.6667) + "px");
-            $(this).css("height", Math.round($(this).width()) + "px");
+            $(this).css("height", Math.round($(this).width()/0.6667) + "px");
         });
     }
     function size_sixfive() {
@@ -183,15 +182,6 @@ jQuery(document).ready(function($) {
         }, 1000, "easeInOutQuart");
     });
 
-    function rot13(s) {
-        return (s ? s : this).split('').map(function(_) {
-            if (!_.match(/[A-za-z]/)) return _;
-            c = Math.floor(_.charCodeAt(0) / 97);
-            k = (_.toLowerCase().charCodeAt(0) - 83) % 26 || 26;
-            return String.fromCharCode(k + ((c == 0) ? 64 : 96));
-        }).join('');
-    }
-
     $(window).resize(function(){
         size_square();
         size_foursix();
@@ -200,6 +190,7 @@ jQuery(document).ready(function($) {
         size_half_window();
         position_below_window();
         position_gallery_nav();
+        // activate_flexslider();
         heavy_object();
     });
 
@@ -211,6 +202,7 @@ jQuery(document).ready(function($) {
     size_half_window();
     position_below_window();
     position_gallery_nav();
+    // activate_flexslider();
     heavy_object();
 
 });

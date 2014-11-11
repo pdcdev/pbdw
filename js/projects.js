@@ -14,6 +14,13 @@ var asc = false,
 
     var foursix = $(".foursix");
 
+    function size_foursix() {
+        foursix.each(function(){
+            height = Math.round($(this).width()/0.6667);
+            $(this).css("height", height + "px");
+        });
+    }
+
     function sortProjects(attribute, order, number) {
 
         var mylist = $('#projects_grid');

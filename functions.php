@@ -23,7 +23,13 @@ function theme_js() {
     wp_register_script( 'single-projects', get_template_directory_uri() . '/js/single-projects.js', array('jquery','theme_js','modernizr'), '', true );
 
     wp_register_script( 'team', get_template_directory_uri() . '/js/team.js', array('jquery','theme_js','modernizr'), '', true );
+    wp_register_script( 'map', get_template_directory_uri() . '/js/map.js', array('jquery','google_maps'), '', true );
+    wp_register_script( 'google_maps','https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false','', '', true );
 
+    if(is_page('contact')) {
+        wp_enqueue_script( 'map' );
+        wp_enqueue_script( 'google_maps' );
+    }
     if(is_page('team')) {
         wp_enqueue_script( 'team' );
     }

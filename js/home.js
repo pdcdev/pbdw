@@ -8,7 +8,7 @@ jQuery(document).ready(function($) {
                 // animation: Modernizr.touch ? "slide" : "fade",
                 animation: "fade",
                 slideshow: true,
-                slideshowSpeed: 3000,
+                slideshowSpeed: 4500,
                 animationSpeed: 1000,
                 // touch: Modernizr.touch ? "true" : "false",
                 touch: "true",

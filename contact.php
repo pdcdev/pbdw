@@ -25,9 +25,15 @@ get_header(); ?>
         </div>
     </div>
     <section id="contact">
-        <a href="<?php the_field( 'map_link' ); ?>" target="_blank">
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+        
+            <article class="contact_map">
+                <div id="map-canvas"></div>
+            </article>
+<!--         <a href="<?php the_field( 'map_link' ); ?>" target="_blank">
             <article class="contact_map"></article>
         </a>
+ -->
         <div class="toprule">
             <article class="contact_info">
                 <div class="contact_web">
@@ -58,7 +64,17 @@ get_header(); ?>
         <?php if( get_field('artwork_credit') ) : ?>
         <article class="credits">
         <h4>Artist Credits</h4><h4>Website Design</h4>
-        <ul class="artists">
+
+        <div class="artists">
+        <?php while( has_sub_field('artwork_credit') ): ?>
+                <?php if(get_sub_field('artist_url')): ?>
+                    <a href="<?php the_sub_field('artist_url'); ?>" target="_blank"><?php the_sub_field('name-entity'); ?></a>, 
+                <?php else: ?>
+                    <?php the_sub_field('name-entity'); ?>,
+                <?php endif; ?>
+        <?php endwhile; ?>
+        </div>
+<!--         <ul class="artists">
         <?php while( has_sub_field('artwork_credit') ): ?>
             <li>
                 <?php if(get_sub_field('artist_url')): ?>
@@ -68,7 +84,8 @@ get_header(); ?>
                 <?php endif; ?>
             </li>
         <?php endwhile; ?>
-        </ul>
+        </ul> -->
+
         <ul class="website">
         <?php while( has_sub_field('website_credit') ): ?>
             <li>

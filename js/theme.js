@@ -74,7 +74,6 @@ jQuery(document).ready(function($) {
     }
     function size_foursix() {
         foursix.each(function(){
-            // $(this).css("height", Math.round($(this).width()/0.6667) + "px");
             $(this).css("height", Math.round($(this).width()) + "px");
         });
     }
@@ -169,11 +168,11 @@ jQuery(document).ready(function($) {
     var mobile_map_link = "http://maps.apple.com/?q=Platt+Byard+Dovell+White+Architects";
     var the_map_link = desktop_map_link;
 
-    if($(window).width() < 768) {
-        the_map_link = mobile_map_link;
-    } else {
-        the_map_link = desktop_map_link;
-    }
+    // if($(window).width() < 768) {
+    //     the_map_link = mobile_map_link;
+    // } else {
+    //     the_map_link = desktop_map_link;
+    // }
 
     $("#menu-primary-navigation > li:nth-of-type(3)").append("<div class=\"contact_info\"><address><p class=\"address\"><a href="+the_map_link+" target=\"_blank\">20 W 22nd Street<br />New York, NY 10010</a></p></address><p class=\"phone\"><br /><a href=\"tel:212-691-2440\">212 691 2440</a></p><p class=\"email\"><br /><a href=\"tel:212-691-2440\">info@pbdw.com</a></p></div>");
 
@@ -182,15 +181,6 @@ jQuery(document).ready(function($) {
             scrollTop: $("#projectslider").height() + 48
         }, 1000, "easeInOutQuart");
     });
-
-    function rot13(s) {
-        return (s ? s : this).split('').map(function(_) {
-            if (!_.match(/[A-za-z]/)) return _;
-            c = Math.floor(_.charCodeAt(0) / 97);
-            k = (_.toLowerCase().charCodeAt(0) - 83) % 26 || 26;
-            return String.fromCharCode(k + ((c == 0) ? 64 : 96));
-        }).join('');
-    }
 
     $(window).resize(function(){
         size_square();

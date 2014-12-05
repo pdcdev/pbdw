@@ -1,20 +1,21 @@
 <?php get_header(); ?>
-
-    <header class="team-single-nav tablet_nav_shrunk">
-        <h1><a href="<?php echo home_url(); ?>">PBDW <span>ARCHITECTS</span></a></h1>
-                <div class="mobile_menu_btn">
-                    <div class="menu_icon"></div>
-                </div>
-        <nav data-visibility="0" class="nav_hidden">
-            <?php
-                $args = array(
-                    'menu' => 'main-menu',
-                    'echo' => false
-                );
-                echo wp_nav_menu( $args );
-            ?>
-        </nav>
-    </header>
+    <div id="header_container" class="relative">
+        <header class="team-single-nav tablet_nav_shrunk">
+            <h1><a href="<?php echo home_url(); ?>">PBDW <span>ARCHITECTS</span></a></h1>
+                    <div class="mobile_menu_btn">
+                        <div class="menu_icon"></div>
+                    </div>
+            <nav data-visibility="0" class="nav_hidden">
+                <?php
+                    $args = array(
+                        'menu' => 'main-menu',
+                        'echo' => false
+                    );
+                    echo wp_nav_menu( $args );
+                ?>
+            </nav>
+        </header>
+    </div>
     <div class="team_breadcrumbs">
         <div>
             <p><span>TEAM</span> / <span><?php wp_title( '', true ); ?></span></p>

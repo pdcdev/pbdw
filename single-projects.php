@@ -1,6 +1,6 @@
     <?php get_header(); ?>
     <div class="wait global_hidden">
-        <div id="header_container" class="header_gradient">
+        <div id="header_container" class="absolute">
             <header class="project-single-nav tablet_nav_shrunk">
                 <h1><a href="<?php echo home_url(); ?>">PBDW <span>ARCHITECTS</span></a></h1>
                 <div class="mobile_menu_btn">
@@ -52,7 +52,7 @@
                     <?php endforeach; ?>
                 </ul>
             </div>
-                <div class="gallery_nav_container"></div>
+            <div class="gallery_nav_container"></div>
         <?php endif;?>
         </div>
         <div class="expand_view_container">

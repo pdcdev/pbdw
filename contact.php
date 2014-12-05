@@ -19,22 +19,11 @@ get_header(); ?>
             ?>
         </nav>
     </header>
-    <div class="contact_breadcrumbs">
-        <div>
-            <p><span><?php wp_title( '', true ); ?></span></p>
-        </div>
-    </div>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    <article class="contact_map">
+        <div id="map-canvas"></div>
+    </article>
     <section id="contact">
-        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
-        
-            <article class="contact_map">
-                <div id="map-canvas"></div>
-            </article>
-<!--         <a href="<?php the_field( 'map_link' ); ?>" target="_blank">
-            <article class="contact_map"></article>
-        </a>
- -->
-        <div class="toprule">
             <article class="contact_info">
                 <div class="contact_web">
                     <h4>Connect With Us</h4>
@@ -58,7 +47,6 @@ get_header(); ?>
                         <p><a href="<?php the_field( 'map_link' ); ?>" target="_blank"><?php the_field( 'address' ); ?></a></p>
                         <p><?php the_field( 'phone' ); ?></p>
                     <?php endwhile; endif; ?>
-                </div>
             </article>
         <?php if ( have_posts() ) : while( have_posts() ) : the_post(); ?>
         <?php if( get_field('artwork_credit') ) : ?>

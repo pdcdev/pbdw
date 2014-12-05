@@ -189,7 +189,7 @@ function initialize() {
 google.maps.event.addDomListener(window, 'load', initialize);
  
   google.maps.event.addDomListener(window, "resize", function() {
-    $('#map-canvas').css({height:'440px'}); 
+    // $('#map-canvas').css({height:'700px'}); 
     var center = map.getCenter();
 
     google.maps.event.trigger(map, "resize");

@@ -101,4 +101,30 @@ var asc = false,
         sortToggle($(this),"data-completed");
     });
 
+    $('.featured_projects_flexslider').flexslider({
+        keyboard: true,
+        animation: "fade",
+        slideshow: true,
+        slideshowSpeed: 5000,
+        animationSpeed: 1000,
+        touch: Modernizr.touch ? "true" : "false",
+        video: false,
+        controlNav: true,
+        directionNav: false,
+        controlsContainer: ".gallery_nav_container",
+        useCSS: true,
+        startAt: 0,
+        pauseOnAction: true,
+        start: function(slider) {
+            $(".slides").show();
+            $('.flex').click(function(){
+                if ($(this).hasClass('next')) {
+                    slider.flexAnimate(slider.getTarget("next"), true);
+                } else {
+                    slider.flexAnimate(slider.getTarget("prev"), true);
+                }
+            });
+        }
+    });
+
 });

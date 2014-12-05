@@ -12,8 +12,6 @@ var asc = false,
     project_item = $(".project_item"),
     gallery_nav = $(".flex-control-nav");
 
-    var foursix = $(".foursix");
-
     function sortProjects(attribute, order, number) {
 
         var mylist = $('#projects_grid');
@@ -86,7 +84,7 @@ var asc = false,
         }
     }
 
-    $("#list_btn, #grid_btn").click(function(){
+    $(document).on("click","#list_btn, #grid_btn",function(){
         listToggle();
     });
 

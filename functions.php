@@ -17,12 +17,12 @@ function theme_js() {
     wp_enqueue_script( 'flexslider', get_template_directory_uri() . '/js/flexslider.js', '', '', true );
     wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/js/modernizr.js', '', '', true );
     wp_enqueue_script( 'easing', get_template_directory_uri() . '/js/jquery.easing.js', array('jquery'), '', true );
-    wp_enqueue_script( 'theme_js', get_template_directory_uri() . '/js/theme.js', array('jquery'), '', true );
+    wp_enqueue_script( 'theme', get_template_directory_uri() . '/js/theme.js', array('jquery'), '', true );
     wp_enqueue_script( 'waitforimages', get_template_directory_uri() . '/js/jquery.waitforimages.min.js', array('jquery'), '', true );
-    wp_register_script( 'projects', get_template_directory_uri() . '/js/projects.js', array('jquery','theme_js'), '', true );
-    wp_register_script( 'single-projects', get_template_directory_uri() . '/js/single-projects.js', array('jquery','theme_js','modernizr'), '', true );
+    wp_register_script( 'projects', get_template_directory_uri() . '/js/projects.js', array('jquery','theme'), '', true );
+    wp_register_script( 'single-projects', get_template_directory_uri() . '/js/single-projects.js', array('jquery','theme','modernizr'), '', true );
 
-    wp_register_script( 'team', get_template_directory_uri() . '/js/team.js', array('jquery','theme_js','modernizr'), '', true );
+    wp_register_script( 'team', get_template_directory_uri() . '/js/team.js', array('jquery','theme','modernizr'), '', true );
     wp_register_script( 'map', get_template_directory_uri() . '/js/map.js', array('jquery','google_maps'), '', true );
     wp_register_script( 'google_maps','https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false','', '', true );
 
@@ -47,14 +47,35 @@ function theme_js() {
     }
 }
 
+
+
+// ajax begin
+
+function localize_ajax() {
+    wp_enqueue_script( 'localize_ajax', get_template_directory_uri() . '/js/ajax_calls.js', array('jquery'), '', true );
+    wp_localize_script( 'localize_ajax', 'my_ajax_script', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
+}
+
+$dirName = dirname(__FILE__);
+$baseName = basename(realpath($dirName));
+require_once ("$dirName/ajax_functions.php");
+
+add_action('template_redirect', 'localize_ajax');
+add_action("wp_ajax_nopriv_query_projects", "query_projects");
+add_action("wp_ajax_query_projects", "query_projects");
+
+// ajax end
+
+
+
 function pbdw_remove_menus(){
     remove_menu_page( 'edit.php' );            // Posts
     remove_menu_page( 'edit-comments.php' );   // Comments
 }
 
-function get_image($field, $the_size) {
+function get_image($field, $the_size, $output) {
     $the_image = wp_get_attachment_image_src( $field, $the_size );
-    echo $the_image[0];
+    return $the_image[0];
 }
 
 add_action( 'admin_menu', 'pbdw_remove_menus' );
@@ -65,7 +86,7 @@ add_action( 'wp_enqueue_scripts', 'theme_js' );
 add_theme_support( 'menus' );
 add_theme_support( 'post-thumbnails' );
 
-add_image_size( "grid", 0, 800 );
+add_image_size( "grid", 0, 800, false );
 add_image_size( "cube" , 0, 400 );
 
 ?>

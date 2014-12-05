@@ -44,7 +44,7 @@ get_header(); ?>
             <ul class="slides">
                 <?php while( $the_query->have_posts() ) : $the_query->the_post(); ?>
                 <li class="slide">
-                    <div class="featured_project" style="background-image: url('<?php get_image( get_field("featured_image"), "full"); ?>');">
+                    <div class="featured_project" style="background-image: url('<?php echo get_image( get_field("featured_image"), "full"); ?>');">
                         <div class="featured_title_container">
                             <div>
                                 <div class="featured_title">
@@ -94,14 +94,14 @@ get_header(); ?>
             <!-- <p>Projects</p> -->
         </h3>
     </div>
-<!--     <div class="projects_grid_breadcrumbs">
+    <div class="projects_grid_breadcrumbs">
         <div class="grid-list-btn-container">
             <a id="grid-list-btn" class="active" data-state="0" title="View Projects as list or grid">
                 <p id="grid_btn" class="icon-grid active" data-state="0"><span> Projects by Grid</span></p>
                 <p id="list_btn" class="icon-list active" data-state="0"><span> Projects by List</span></p>
             </a>
         </div>
-    </div> -->
+    </div>
     <div class="list_header list_header_hidden">
         <div>
             <p class="alpha-btn active" data-state="1">
@@ -116,56 +116,6 @@ get_header(); ?>
         </div>
     </div>
     <section id="projects_grid">
-            <?php
-                if( $the_category == 'all' || $the_category == 'projects' ) {
-                    $args = array(
-                        'post_type' => 'projects'
-                        );
-                } else {
-                    $args = array(
-                        'post_type' => 'projects',
-                        'meta_query' => array(
-                            array(
-                                    'key'     => 'project_category',
-                                    'value'   => $the_category,
-                                    'compare' => 'LIKE'
-                                )
-                            )
-                        );
-                    }
-                $the_query = new WP_Query( $args );
-            ?>
-            
-            <?php if ( have_posts() ) : while( $the_query->have_posts() ) : $the_query->the_post(); ?>
-                <?php
-
-                    $this_cat_image = wp_get_attachment_image_src( get_field( $the_category . '_image' ), "Work Thumbnail" );
-                    if ( $this_cat_image ) {
-                        $image = $this_cat_image;
-                    } else {
-                        $image = wp_get_attachment_image_src( get_field( 'featured_image' ), "Work Thumbnail" );
-                    }
-
-                ?>
-                <div class="project_item grid foursix global_hidden" title="<?php the_title(); ?>" data-order="<?php if(!$count) { echo "0"; } else { echo $count; }?>" data-completed="<?php the_field( 'date_completed' ); ?>" data-category="<?php echo implode(' ', get_field('project_category')) ; ?>" style="background-image: url(<?php echo $image[0]; ?>)">
-                    <a href="<?php the_permalink(); ?>">
-                        <div class="project_info">
-                            <p class="title truncate"><?php the_title(); ?></p>
-                        <?php if(get_field('project_category')) : ?>
-                            <p class="cat truncate"><?php echo implode(', ', get_field('project_category')); ?></p>
-                        <?php endif; ?>
-
-                        <?php if(get_field('date_completed')) : ?>
-                            <p class="date_completed truncate">
-                                <?php
-                                    the_field( 'date_completed' );
-                                ?>
-                            </p>
-                        <?php endif; ?>  
-                        </div>
-                    </a>
-                </div>
-            <?php $count++; endwhile; endif; ?>
     </section>
 </div>
 <?php get_footer(); ?>

@@ -9,4 +9,5 @@ jQuery(document).ready(function($) {
         }
     }
     column_spill($(".staff_architects ul"),$(".staff_architects_spillover > div") );
+    
 });

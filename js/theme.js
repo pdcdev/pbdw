@@ -166,7 +166,6 @@ jQuery(document).ready(function($) {
     });
 
     var desktop_map_link = "http://goo.gl/maps/9DOvO";
-    var mobile_map_link = "http://maps.apple.com/?q=Platt+Byard+Dovell+White+Architects";
     var the_map_link = desktop_map_link;
 
     $(".mobile_down").click(function(){

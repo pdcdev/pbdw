@@ -1,22 +1,5 @@
     <?php get_header(); ?>
     <div class="wait global_hidden">
-        <div id="header_container" class="absolute">
-            <header class="project-single-nav tablet_nav_shrunk">
-                <h1><a href="<?php echo home_url(); ?>">PBDW <span>ARCHITECTS</span></a></h1>
-                <div class="mobile_menu_btn">
-                    <div class="menu_icon"></div>
-                </div>
-                <nav data-visibility="0" class="nav_hidden">
-                    <?php
-                        $args = array(
-                            'menu' => 'main-menu',
-                            'echo' => false
-                        );
-                        echo wp_nav_menu( $args );
-                    ?>
-                </nav>
-            </header>
-        </div>
         <div id="projectslider" class="window_size">
             <div class="mobile_project_header">
                 <!-- <div class="mobile_project_header_inner "> -->

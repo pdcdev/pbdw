@@ -77,6 +77,34 @@
       ]
     },
     {
+      "uid": "d571db1a3d6bdeca81d5a5a669d25737",
+      "css": "close",
+      "code": 59431,
+      "src": "custom_icons",
+      "selected": true,
+      "svg": {
+        "path": "M919.2 169L830.8 80.6 500 411.4 169.2 80.6 80.8 169 411.6 499.8 80.8 830.6 169.2 919 500 588.2 830.8 919 919.2 830.6 588.4 499.8 919.2 169Z",
+        "width": 1000
+      },
+      "search": [
+        "close"
+      ]
+    },
+    {
+      "uid": "ef5bdbe3bbdbd6a76017c276af3080df",
+      "css": "menu-1",
+      "code": 59430,
+      "src": "custom_icons",
+      "selected": true,
+      "svg": {
+        "path": "M0 438H1000V563H0V438ZM0 125.5H1000V250.5H0V125.5ZM0 750.5H1000V875.5H0V750.5Z",
+        "width": 1000
+      },
+      "search": [
+        "menu"
+      ]
+    },
+    {
       "uid": "0f4cae16f34ae243a6144c18a003f2d8",
       "css": "cancel-circled-1",
       "code": 59420,
@@ -113,9 +141,9 @@
       "src": "fontawesome"
     },
     {
-      "uid": "2cfb3f2b46b34a1790aec0aa846297b6",
-      "css": "menu",
-      "code": 59404,
+      "uid": "52725ff4d4042964bd3a60609bf3695b",
+      "css": "right-circled-1",
+      "code": 59392,
       "src": "entypo"
     },
     {
@@ -249,12 +277,6 @@
       "css": "twitter",
       "code": 59408,
       "src": "elusive"
-    },
-    {
-      "uid": "8da3ac534210aae9c0f0e13804c1df97",
-      "css": "cancel",
-      "code": 59392,
-      "src": "websymbols"
     },
     {
       "uid": "e160a7e42e4e818463fd5a8607b9f608",

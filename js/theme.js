@@ -165,16 +165,14 @@ jQuery(document).ready(function($) {
         }
     });
 
-    var desktop_map_link = "http://goo.gl/maps/9DOvO";
-    var the_map_link = desktop_map_link;
-
     $(".mobile_down").click(function(){
         $('html, body').animate({
             scrollTop: $("#projectslider").height() + 48
         }, 1000, "easeInOutQuart");
     });
 
-    $(window).resize(function(){
+    // $(window).resize(function(){
+    $(window).on('resize', function(){
         size_square();
         size_foursix();
         size_sixfive();

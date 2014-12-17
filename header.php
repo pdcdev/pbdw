@@ -22,3 +22,53 @@
     </head>
     <body>
         <div class="wrap">
+          <?php 
+            $the_post_type = get_post_type();
+            if ( $the_post_type == "projects" ) {
+              $nav_class = "transparent";
+            } else if ( $the_post_type == "team" ) {
+              $nav_class = "dark";
+            } else if ( is_page("home") ) {
+              $nav_class = "home";
+            } else if ( is_page("projects") ) {
+              $nav_class = "projects";
+            }
+          ?>
+          <!-- solid bar condition for team single. should probably grab post type -->
+          <div id="header_container" class="<?php echo $nav_class; ?>">
+            <header>
+                <div class="logo_container header_expanded">
+                    <h1 class="black"><a href="<?php echo home_url(); ?>">PBDW <span>ARCHITECTS</span></a></h1>
+                </div>
+                <nav class="main_nav inactive" data-state="0">
+                    <a class="nav_btn"></a>
+                    <?php
+                            $args = array(
+                                'menu' => 'main-menu',
+                                'echo' => false
+                            );
+                            echo wp_nav_menu( $args );
+                        ?>
+                </nav>
+            </header>
+          </div>
+          <?php if(is_page("projects") || is_page("contact")): ?>
+            <div class="header_ghost"></div>
+          <?php endif; ?>
+  <!--           <div id="header_container" class="relative">
+            <header class="main_nav">
+                <h1 class="black"><a href="<?php echo home_url(); ?>">PBDW <span>ARCHITECTS</span></a></h1>
+                <div class="mobile_menu_btn">
+                    <div class="menu_icon"></div>
+                </div>
+                <nav data-visibility="0" class="nav_hidden">
+                    <?php
+                        $args = array(
+                            'menu' => 'main-menu',
+                            'echo' => false
+                        );
+                        echo wp_nav_menu( $args );
+                    ?>
+                </nav>
+            </header>
+        </div> -->

@@ -3,29 +3,11 @@
     Template Name: Project Page
 */
 get_header(); ?>
-<div class="fadein global_hidden">
-    <div id="header_container" class="relative">
-    <header class="projects-nav tablet_nav_shrunk">
-        <h1 class="black"><a href="<?php echo home_url(); ?>">PBDW <span>ARCHITECTS</span></a></h1>
-        <div class="mobile_menu_btn">
-            <div class="menu_icon"></div>
-        </div>
-        <nav data-visibility="0" class="nav_hidden">
-            <?php
-                $args = array(
-                    'menu' => 'main-menu',
-                    'echo' => false
-                );
-                echo wp_nav_menu( $args );
-            ?>
-        </nav>
-    </header>
-</div>
+<!-- <div class="fadein global_hidden"> -->
     <?php
         global $post;
         $the_category = $post->post_name;
     ?>
-    <?php if ( is_page('all') ) : ?>
     <?php
         $args = array(
             'post_type' => 'projects',
@@ -49,7 +31,7 @@ get_header(); ?>
                             <div>
                                 <div class="featured_title">
                                     <p>Featured Project</p>
-                                    <p class="project_title"><?php the_title(); ?></p>
+                                    <p class="project_title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
                                     <?php if(get_field('project_category')) : ?>
                                     <p class="cats"><?php echo implode(', ', get_field('project_category')); ?></p>
                                     <?php endif; ?>
@@ -59,9 +41,9 @@ get_header(); ?>
                         <div class="gradient"></div>
                     </div>
                 </li>
-            <?php endwhile; ?>
+                <?php endwhile; ?>
             </ul>
-            <div class="gallery_nav_container">controllers</div>
+            <div class="gallery_nav_container"></div>
         </div>
         <div class="featured_nav">
             <div class="prev vertical_center_parent flex">
@@ -74,32 +56,26 @@ get_header(); ?>
             </div>
         </div>
     </div>
-<?php endif; ?>
-
-    <!-- <?php rewind_posts(); ?> -->
-    <?php wp_reset_query(); ?>
-    <div class="subheader">
-        <h3>
-            <!-- <p>Filter: </p> -->
-            <div class="cat_dropdown">
-                <p class="showing"><?php echo $the_category; ?><span class="arrow-down"></span></p>
-                <?php
-                    $args = array(
-                        'menu' => 'project_categories',
-                        'echo' => false
-                    );
-                    echo wp_nav_menu( $args );
-                ?>
+<?php rewind_posts(); ?>
+<?php wp_reset_query(); ?>
+    <div class="filter_controls">
+        <div class="cat_dropdown">
+            <p>Category</p>
+            <div class="drop arrow-down"><span id="cat_showing">All</span>
+                <div class="project_categories_container" data-state="active">
+                    <ul>
+                        <li id="proj_all_btn">All</li>
+                        <li id="proj_cultural_btn">Cultural</li>
+                        <li id="proj_commercial_btn">Commercial</li>
+                        <li id="proj_education_btn">Education</li>
+                        <li id="proj_preservation_btn">Preservation</li>
+                        <li id="proj_residential_btn">Residential</li>
+                    </ul>
+                </div>
             </div>
-            <!-- <p>Projects</p> -->
-        </h3>
-    </div>
-    <div class="projects_grid_breadcrumbs">
-        <div class="grid-list-btn-container">
-            <a id="grid-list-btn" class="active" data-state="0" title="View Projects as list or grid">
-                <p id="grid_btn" class="icon-grid active" data-state="0"><span> Projects by Grid</span></p>
-                <p id="list_btn" class="icon-list active" data-state="0"><span> Projects by List</span></p>
-            </a>
+        </div>
+        <div class="grid_list">
+            <p>View By</p><span class="grid_btn active">Grid</span> <span class="list_btn">List</span>
         </div>
     </div>
     <div class="list_header list_header_hidden">
@@ -115,7 +91,8 @@ get_header(); ?>
             </p>
         </div>
     </div>
-    <section id="projects_grid">
+    <section id="projects_grid" data-view="grid">
+
     </section>
-</div>
+<!-- </div> --> <!-- fadein -->
 <?php get_footer(); ?>

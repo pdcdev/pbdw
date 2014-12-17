@@ -7,11 +7,17 @@ var asc = false,
     category_btn = $(".category-btn"),
     grid_list_btn = $("#grid-list-btn"),
     year_btn = $(".year-btn"),
-    list_btn = $("#list_btn"),
-    grid_btn = $("#grid_btn"),
-    project_item = $(".project_item"),
+    list_btn = $(".list_btn"),
+    grid_btn = $(".grid_btn"),
     gallery_nav = $(".flex-control-nav");
 
+    function size_foursix() {
+        foursix.each(function(){
+            // $(this).css("height", Math.round($(this).width()) + "px");
+            $(this).css("height", Math.round($(this).width()*1.5) + "px");
+        });
+    }
+    
     function sortProjects(attribute, order, number) {
 
         var mylist = $('#projects_grid');
@@ -28,7 +34,7 @@ var asc = false,
                 compB = Number(compB);
             }
 
-           return (compA < compB) ? -1 : (compA > compB) ? 1 : 0;
+            return (compA < compB) ? -1 : (compA > compB) ? 1 : 0;
         });
 
         if (order) {
@@ -57,15 +63,12 @@ var asc = false,
         }
     }
 
-    function listToggle() {
-        state = grid_list_btn.attr("data-state") == 1 ? true : false ;
+    function listToggle(state) {
         if (state) {
             // list to grid
             project_item.removeClass("list").addClass("grid");
-            grid_list_btn.attr("data-state", 0);
-            
-            grid_btn.hide();
-            list_btn.show();
+            list_btn.removeClass("active");
+            grid_btn.addClass("active");
 
             list_header.removeClass('list_header_visible').addClass("list_header_hidden");
             size_foursix();
@@ -74,29 +77,48 @@ var asc = false,
         } else {
             // grid to list
             project_item.removeClass("grid").addClass("list");
-            grid_list_btn.attr("data-state", 1);
-
-            list_btn.hide();
-            grid_btn.show();
+            grid_btn.removeClass("active");
+            list_btn.addClass("active");
 
             list_header.removeClass('list_header_hidden').addClass("list_header_visible");
-            sortToggle(alpha_btn,"title");
+            // sortToggle(alpha_btn,"title");
+
+            alpha_btn.removeClass("inactive").addClass("active");
+
+            $(".list_header p").not(alpha_btn).removeClass("active ascending descending").addClass("inactive").attr("data-state", 1);
+
+            alpha_btn.removeClass("descending").addClass("ascending").attr("data-state", 0);
+            sortProjects("title", asc);
+
         }
     }
 
-    $(document).on("click","#list_btn, #grid_btn",function(){
-        listToggle();
+    $(".list_btn").on("click",function(){
+        listToggle(false);
+        $("#projects_grid").attr("data-view","list");
     });
-
-    alpha_btn.click(function(){
+    $(".grid_btn").on("click",function(){
+        listToggle(true);
+        $("#projects_grid").attr("data-view","grid");
+    });
+    alpha_btn.on("click", function(){
         sortToggle($(this),"title");
     });
 
-    category_btn.click(function(){
+    category_btn.on("click", function(){
         sortToggle($(this),"data-category");
     });
-    year_btn.click(function(){
+    year_btn.on("click", function(){
         sortToggle($(this),"data-completed");
+    });
+    $("#cat_showing").click(function(){
+        if($(this).attr("data-state") == "active") {
+            $(".project_categories_container").removeClass("active").addClass("hidden");
+            $(this).attr("data-state","hidden");
+        } else {
+            $(".project_categories_container").removeClass("hidden").addClass("active");
+            $(this).attr("data-state","active");
+        }
     });
 
     $('.featured_projects_flexslider').flexslider({

@@ -5,23 +5,6 @@
 */
 get_header(); ?>
 <div class="wait global_hidden">
-    <header class="awards-nav tablet_nav_shrunk">
-        <h1>
-            <a href="<?php echo home_url(); ?>">PBDW <span>ARCHITECTS</span></a>
-        </h1>
-        <div class="mobile_menu_btn">
-            <div class="menu_icon"></div>
-        </div>
-        <nav data-visibility="0" class="nav_hidden">
-            <?php
-                $args = array(
-                    'menu' => 'main-menu',
-                    'echo' => false
-                );
-                echo wp_nav_menu( $args );
-            ?>
-        </nav>
-    </header>
     <div class="awards_breadcrumbs">
         <div>
             <p><span><a href="<?php echo get_permalink( 52 ); ?>">Office</a></span> / <span><?php wp_title( '', true ); ?></span></p>

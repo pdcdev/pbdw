@@ -4,21 +4,6 @@
 */
 get_header(); ?>
 <div class="wait global_hidden">
-    <header class="contact-nav tablet_nav_shrunk">
-        <h1><a href="<?php echo home_url(); ?>">PBDW <span>ARCHITECTS</span></a></h1>
-        <div class="mobile_menu_btn">
-            <div class="menu_icon"></div>
-        </div>
-        <nav data-visibility="0" class="nav_hidden">
-            <?php
-                $args = array(
-                    'menu' => 'main-menu',
-                    'echo' => false
-                );
-                echo wp_nav_menu( $args );
-            ?>
-        </nav>
-    </header>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
     <article class="contact_map">
         <div id="map-canvas"></div>

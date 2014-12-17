@@ -19,25 +19,28 @@ function theme_js() {
     wp_enqueue_script( 'easing', get_template_directory_uri() . '/js/jquery.easing.js', array('jquery'), '', true );
     wp_enqueue_script( 'theme', get_template_directory_uri() . '/js/theme.js', array('jquery'), '', true );
     wp_enqueue_script( 'waitforimages', get_template_directory_uri() . '/js/jquery.waitforimages.min.js', array('jquery'), '', true );
+    wp_enqueue_script( 'headroom', get_template_directory_uri() . '/js/headroom.js', array('jquery'), '', true );
+    wp_enqueue_script( 'nav', get_template_directory_uri() . '/js/nav.js', array('jquery','headroom'), '', true );
     wp_register_script( 'projects', get_template_directory_uri() . '/js/projects.js', array('jquery','theme'), '', true );
     wp_register_script( 'single-projects', get_template_directory_uri() . '/js/single-projects.js', array('jquery','theme','modernizr'), '', true );
-
-    wp_register_script( 'team', get_template_directory_uri() . '/js/team.js', array('jquery','theme','modernizr'), '', true );
+    wp_register_script( 'office', get_template_directory_uri() . '/js/office.js', array('jquery','theme','modernizr'), '', true );
     wp_register_script( 'map', get_template_directory_uri() . '/js/map.js', array('jquery','google_maps'), '', true );
+    wp_register_script( 'waypoints', get_template_directory_uri() . '/js/map.js', array('jquery'), '', true );
     wp_register_script( 'google_maps','https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false','', '', true );
 
     if(is_page('contact')) {
         wp_enqueue_script( 'map' );
         wp_enqueue_script( 'google_maps' );
     }
-    if(is_page('team')) {
-        wp_enqueue_script( 'team' );
-    }
     if(is_page('projects') || is_page('all') || is_page('cultural') || is_page('commercial') || is_page('education') || is_page('preservation') || is_page('residential')) {
         wp_enqueue_script( 'projects' );
     }
     if(!is_page('projects') && !is_page('all')  && !is_page('cultural')  && !is_page('commercial')  && !is_page('education')  && !is_page('preservation')  && !is_page('residential')) {
         wp_enqueue_script( 'transitions' );
+    }
+    if( is_page('office') ) {
+        wp_enqueue_script( 'office' );
+        wp_enqueue_script( 'waypoints' );
     }
     if( is_front_page() ) {
         wp_enqueue_script( 'home_js' );
@@ -65,8 +68,6 @@ add_action("wp_ajax_nopriv_query_projects", "query_projects");
 add_action("wp_ajax_query_projects", "query_projects");
 
 // ajax end
-
-
 
 function pbdw_remove_menus(){
     remove_menu_page( 'edit.php' );            // Posts

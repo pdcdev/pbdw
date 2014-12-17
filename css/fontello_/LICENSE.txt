@@ -10,13 +10,13 @@ Font license info
    Homepage:  http://www.justbenicestudio.com/
 
 
-## Font Awesome
+## Elusive
 
-   Copyright (C) 2012 by Dave Gandy
+   Copyright (C) 2013 by Aristeides Stathopoulos
 
-   Author:    Dave Gandy
-   License:   SIL ()
-   Homepage:  http://fortawesome.github.com/Font-Awesome/
+   Author:    Aristeides Stathopoulos
+   License:   SIL (http://scripts.sil.org/OFL)
+   Homepage:  http://aristeides.com/
 
 
 ## Entypo
@@ -24,17 +24,17 @@ Font license info
    Copyright (C) 2012 by Daniel Bruce
 
    Author:    Daniel Bruce
-   License:   CC BY-SA (http://creativecommons.org/licenses/by-sa/2.0/)
+   License:   SIL (http://scripts.sil.org/OFL)
    Homepage:  http://www.entypo.com
 
 
-## Typicons
+## Font Awesome
 
-   (c) Stephen Hutchings 2012
+   Copyright (C) 2012 by Dave Gandy
 
-   Author:    Stephen Hutchings
-   License:   CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0/)
-   Homepage:  http://typicons.com/
+   Author:    Dave Gandy
+   License:   SIL ()
+   Homepage:  http://fortawesome.github.com/Font-Awesome/
 
 
 ## Modern Pictograms
@@ -46,6 +46,15 @@ Font license info
    Homepage:  http://thedesignoffice.org/project/modern-pictograms/
 
 
+## Typicons
+
+   (c) Stephen Hutchings 2012
+
+   Author:    Stephen Hutchings
+   License:   SIL (http://scripts.sil.org/OFL)
+   Homepage:  http://typicons.com/
+
+
 ## MFG Labs
 
    Copyright (C) 2012 by Daniel Bruce
@@ -53,14 +62,5 @@ Font license info
    Author:    MFG Labs
    License:   SIL (http://scripts.sil.org/OFL)
    Homepage:  http://www.mfglabs.com/
-
-
-## Elusive
-
-   Copyright (C) 2013 by Aristeides Stathopoulos
-
-   Author:    Aristeides Stathopoulos
-   License:   SIL (http://scripts.sil.org/OFL)
-   Homepage:  http://aristeides.com/
 
 

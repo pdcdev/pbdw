@@ -221,22 +221,6 @@ header, section, aside, .project_breadcrumbs, #team_page {
         }
     }
 }
-.nav_btn {
-    background-color: lime;
-    position: absolute;
-    top: 0;
-    right: 0;
-    display: none;
-    @include pad(.5em 1em);
-    @include media($tablet) {
-        display: block;
-    }
-    &:after {
-        content: "\e826";
-        font-family: fontello;
-        font-size: 1.5em;
-    }
-}
 .slideDown {
     margin-top: 0;
 }
@@ -280,10 +264,26 @@ header {
         }
     }
     nav {
-        /*main definition*/
+        /*main declaration*/
         position: relative;
         @include span-columns(8);
         @include shift(4);
+        .nav_btn {
+            background-color: lime;
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: none;
+            @include pad(.5em 1em);
+            @include media($tablet) {
+                display: block;
+            }
+            &:after {
+                content: "\e826";
+                font-family: fontello;
+                font-size: 1.5em;
+            }
+        }
         div.menu-primary-navigation-container {
             ul#menu-primary-navigation {
                 > li {
@@ -315,15 +315,25 @@ header {
             }
         }
         @include media($tablet) {
+            &.active {
+                > div {
+                    display: inherit;
+                }
+            }
+            &.inactive {
+                > div {
+                    display: none;
+                }
+            }
             @include shift(0);
             @include pad(0);
             top:0;
             left:0;
             position: fixed;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(#fff, .7);
             div.menu-primary-navigation-container {
+                width: 100%;
+                height: 100%;
+                background-color: rgba(#fff, .7);
                 ul#menu-primary-navigation {
                     > li {
                         display: block;
@@ -1474,7 +1484,7 @@ ol.flex-control-nav {
 }
 #team_grid {
     @include outer-container;
-    @include pad(6em 30px 1em 30px);
+    @include pad(0 30px 1em 30px);
     @include media($tablet) {
         @include pad(3em 30px);
     }
@@ -1523,7 +1533,7 @@ ol.flex-control-nav {
                 pointer-events: none;
                 padding: 8/16*1em 0 2em 0;
                 color: #000;
-                text-align: center;
+                /*text-align: center;*/
                 p {
                     font-weight: 700;
                     span {
@@ -1542,7 +1552,8 @@ ol.flex-control-nav {
                 background-position: center;
                 height: 400/16 * 1em;
                 width: 80%;
-                margin: 0 auto;
+                /*margin: 0 auto;*/
+                /*border-radius: 200px;*/
             }
         }
     }
@@ -1798,10 +1809,9 @@ article.section_anchor {
         &:hover {
             .flipper {
                 .pub_cover, .pub_info {
-                    @include transform(rotateY(180deg));
                 }
                 .pub_info {
-                    @include transform(rotateY(0));
+
                 }
             }
         }
@@ -1815,11 +1825,9 @@ article.section_anchor {
                 height: 250px;
                 position: absolute;
                 top: 0;
-                backface-visibility: hidden;
             }
             div.pub_cover {
                 background-color: #fff;
-                z-index: 1;
                 img {
                     height: 100%;
                     /*margin: 0 auto;*/
@@ -1829,13 +1837,19 @@ article.section_anchor {
                 height: 150px; 
                 cursor: pointer;
                 display: block;
-                background-color: #eee;
-                @include transform(rotateY(180deg));
+                background-color: rgba(#000, .5);
+                z-index: 1;
+                opacity: 0;
                 @include pad(1em);
+                @include transition (all .3s ease-in-out);
+                &:hover {
+                    opacity: 1;
+                }
                 li {
-                    text-align: center;
+                    /*text-align: center;*/
+                    color: #fff;
                     &:nth-of-type(1) {
-                        font-size: 1.25em;
+                        font-size: 1em;
                         font-weight: 600;
                     }
                     &:nth-of-type(2) {
@@ -1844,8 +1858,7 @@ article.section_anchor {
                     a {
                         display: block;
                         @include pad(.5em 0 0 0);
-                        font-size: 2em;
-                        color: $gray;
+                        font-size: 1.25em;
                         i {
                             font-family: fontello;
                         }
@@ -2028,10 +2041,10 @@ article.contact_map {
 }
 .subsection_title {
     @include outer-container();
-    @include pad(30px);
+    @include pad(3em 30px);
     h2 {
-        text-align: center;
-        color: $gray;
+        /*text-align: center;*/
+        color: black;
         font-weight: 600;
         font-size: 2em;
         text-transform: capitalize;

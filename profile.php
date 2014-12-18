@@ -39,6 +39,9 @@ get_header(); ?>
     ?>
 
     <?php if ( have_posts() ) : ?>
+    <div class="subsection_title">
+        <h2>Leadership Team</h2>
+    </div>
     <section id="team_grid">
         <article>
         <?php while( $the_query->have_posts() ) : $the_query->the_post(); ?>
@@ -156,7 +159,6 @@ get_header(); ?>
                             </ul>
                         </div>
                     </div>
-
                 <?php endwhile; ?>
             <?php endif ?>
         <?php endwhile; endif; ?>

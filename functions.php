@@ -25,7 +25,7 @@ function theme_js() {
     wp_register_script( 'single-projects', get_template_directory_uri() . '/js/single-projects.js', array('jquery','theme','modernizr'), '', true );
     wp_register_script( 'office', get_template_directory_uri() . '/js/office.js', array('jquery','theme','modernizr'), '', true );
     wp_register_script( 'map', get_template_directory_uri() . '/js/map.js', array('jquery','google_maps'), '', true );
-    wp_register_script( 'waypoints', get_template_directory_uri() . '/js/map.js', array('jquery'), '', true );
+    wp_register_script( 'waypoints', get_template_directory_uri() . '/js/waypoints.js', array('jquery','office'), '', true );
     wp_register_script( 'google_maps','https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false','', '', true );
 
     if(is_page('contact')) {

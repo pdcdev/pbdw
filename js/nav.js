@@ -26,10 +26,8 @@ jQuery(document).ready(function($) {
 
     function nav_toggle () {
         if(nav.attr("data-state") === "0") {
-            disabler.disable_scrolling();
             nav.removeClass("inactive").addClass("active").attr("data-state",1);
         } else {
-            disabler.enable_scrolling();
             nav.removeClass("active").addClass("inactive").attr("data-state",0);
         }
     }

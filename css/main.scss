@@ -30,7 +30,6 @@ $arch-spacing: .25em;
     opacity: .5;
 }
 * {padding:0;margin:0;border:0;text-decoration:none;color:inherit;line-height: 1.2em;list-style: none;}
-
 html, body {
     height: 100%;
 }
@@ -468,7 +467,7 @@ header.home-nav {
             a {
                 border: 0;
             }
-        }   
+        }
     }
     nav {
         ul.menu {
@@ -963,8 +962,21 @@ header.contact-nav {
     }
 }
 #mobile_home {
-    /*@include media($mobile) {*/
+    &:before {
+        content: "";
         display: block;
+        position: relative;
+        background-color: #000;
+        height: 50px;
+    }
+    @include media($mobile) {
+        &:before {
+            content: "";
+            display: none;
+        }
+    }
+        display: block;
+
         div.featured_project_item {
             position: relative;
             border-bottom: 3px solid black;
@@ -979,7 +991,7 @@ header.contact-nav {
                 p {
                     @include transition (all .3s ease-in-out);
                     text-shadow: 0px 0px 30px rgba(0,0,0,.5);
-                    padding: 0 0 0 8px;
+                    @include pad(1em);
                     font-weight: normal;
                     color: #FFF;
                     text-transform: capitalize;

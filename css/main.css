@@ -953,36 +953,44 @@ header.contact-nav nav ul.menu {
             color: #FFF; }
 
 #mobile_home {
-  display: none; }
+  display: block;
+  /*}*/ }
+  #mobile_home:before {
+    content: "";
+    display: block;
+    position: relative;
+    background-color: #000;
+    height: 50px; }
   @media screen and (max-width: 480px) {
-    #mobile_home {
-      display: block; }
-      #mobile_home div.featured_project_item {
-        position: relative;
-        border-bottom: 3px solid black;
-        height: 25em;
-        background-size: cover;
-        background-position: center; }
-        #mobile_home div.featured_project_item div.featured_project_info {
-          -webkit-transition: all 0.3s ease-in-out;
-          -moz-transition: all 0.3s ease-in-out;
-          transition: all 0.3s ease-in-out;
-          position: absolute;
-          width: 100%;
-          height: 3em; }
-          #mobile_home div.featured_project_item div.featured_project_info p {
-            -webkit-transition: all 0.3s ease-in-out;
-            -moz-transition: all 0.3s ease-in-out;
-            transition: all 0.3s ease-in-out;
-            text-shadow: 0px 0px 30px rgba(0, 0, 0, 0.5);
-            padding: 0 0 0 8px;
-            font-weight: normal;
-            color: #FFF;
-            text-transform: capitalize;
-            font-size: 1em; }
-            #mobile_home div.featured_project_item div.featured_project_info p:first-child {
-              padding: 8px 0 0 8px;
-              font-weight: 600; } }
+    #mobile_home:before {
+      content: "";
+      display: none; } }
+  #mobile_home div.featured_project_item {
+    position: relative;
+    border-bottom: 3px solid black;
+    height: 25em;
+    background-size: cover;
+    background-position: center; }
+    #mobile_home div.featured_project_item div.featured_project_info {
+      -webkit-transition: all 0.3s ease-in-out;
+      -moz-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
+      position: absolute;
+      width: 100%;
+      height: 3em; }
+      #mobile_home div.featured_project_item div.featured_project_info p {
+        -webkit-transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+        text-shadow: 0px 0px 30px rgba(0, 0, 0, 0.5);
+        padding: 1em;
+        font-weight: normal;
+        color: #FFF;
+        text-transform: capitalize;
+        font-size: 1em; }
+        #mobile_home div.featured_project_item div.featured_project_info p:first-child {
+          padding: 8px 0 0 8px;
+          font-weight: 600; }
 
 .project_categories {
   display: none;

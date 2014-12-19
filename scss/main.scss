@@ -125,6 +125,9 @@ header, section, aside, .project_breadcrumbs, #team_page {
         background-color: rgba(#fff, .9);
     }
     background-color: rgba(#fff, .9);
+    @include media($tablet) {
+        position: absolute;
+    }
     &.home {
         background-color: transparent;
         h1 {
@@ -136,6 +139,9 @@ header, section, aside, .project_breadcrumbs, #team_page {
                 ul#menu-primary-navigation {
                     > li {
                         @include span-columns(2 of 8);
+                        > a {
+                            color: #fff;
+                        }
                         &.current-menu-parent, &.current-menu-item {
                             > a {
                                 color: #000;
@@ -151,7 +157,7 @@ header, section, aside, .project_breadcrumbs, #team_page {
             }
         }
         &:hover {
-            background-color: rgba(#fff, .9);
+            background-color: rgba(#000, .25);
         }
     }
     &.dark {
@@ -188,6 +194,7 @@ header, section, aside, .project_breadcrumbs, #team_page {
         nav {
             color: #fff;
             div.menu-primary-navigation-container {
+                display: relative;
                 ul#menu-primary-navigation {
                     > li {
                         @include span-columns(2 of 8);
@@ -268,13 +275,16 @@ header {
         position: relative;
         @include span-columns(8);
         @include shift(4);
+        height: 100%;
+        @extend .vertical_center_parent;
         .nav_btn {
-            background-color: lime;
+            /*background-color: lime;*/
+            pointer-events: all;
             position: absolute;
             top: 0;
             right: 0;
             display: none;
-            @include pad(.5em 1em);
+            @include pad(1em 1em);
             @include media($tablet) {
                 display: block;
             }
@@ -286,9 +296,15 @@ header {
         }
         div.menu-primary-navigation-container {
             ul#menu-primary-navigation {
+                width: 100%;
+                @extend .vertical_center;
+                &:after {
+                    content: "";
+                    display: block;
+                    @extend .divhelper;
+                }
                 > li {
                     @include span-columns(2 of 8);
-                    height: $header_height;
                     &.current-menu-parent, &.current-menu-item {
                         > a {
                             color: #000;
@@ -301,6 +317,7 @@ header {
                         line-height: $header_height;
                         font-weight: 500;
                         color: $gray;
+                        width: 100%;
                     }
                     &:hover {
                         ul {
@@ -316,17 +333,20 @@ header {
         }
         @include media($tablet) {
             &.active {
+                pointer-events: all;
                 > div {
                     display: inherit;
                 }
             }
             &.inactive {
+                pointer-events: none;
                 > div {
                     display: none;
                 }
             }
             @include shift(0);
             @include pad(0);
+            width: 100%;
             top:0;
             left:0;
             position: fixed;
@@ -335,24 +355,30 @@ header {
                 height: 100%;
                 background-color: rgba(#fff, .7);
                 ul#menu-primary-navigation {
+                    display: block;
+                    @extend .vertical_align;
                     > li {
                         display: block;
                         width: 100%;
                         > a {
                             /* main nav */
-                            background-color: rgba(maroon, .5);
+                            @include clearfix;
+                            @include pad(1em 0);
                             display: block;
                             text-align: center;
                             font-weight: 500;
-                            color: $gray;
+                            color: #000;
                             font-size: 2em;
                         }
                         &:hover {
                             ul {
                                 opacity: 1;
                                 pointer-events: all;
+                                li {
+                                }
                             }
                             > a {
+                                background-color: rgba(#fff, 1);
                                 color: #000;
                             }
                         }
@@ -409,6 +435,7 @@ header {
     position: relative;
     z-index: 10;
     div.grid_list {
+        z-index: 1;
         position: relative;
         @include span-columns(4);
         @include pad(4em 0);
@@ -439,6 +466,7 @@ header {
         }
     }
     div.cat_dropdown {
+        z-index: 2;
         @include span-columns(4);
         @include shift(4);
         @include pad(4em 0);
@@ -1486,10 +1514,10 @@ ol.flex-control-nav {
     @include outer-container;
     @include pad(0 30px 1em 30px);
     @include media($tablet) {
-        @include pad(3em 30px);
+        @include pad(1em 30px);
     }
     @include media($mobile) {
-        @include pad(3em 10px 0 10px);
+        @include pad(0 10px);
     }
     article {
         height: auto;
@@ -1533,7 +1561,11 @@ ol.flex-control-nav {
                 pointer-events: none;
                 padding: 8/16*1em 0 2em 0;
                 color: #000;
-                /*text-align: center;*/
+                width: 80%;
+                @include media($tablet) {
+                    margin: 0 auto;
+                }
+                        
                 p {
                     font-weight: 700;
                     span {
@@ -1552,8 +1584,9 @@ ol.flex-control-nav {
                 background-position: center;
                 height: 400/16 * 1em;
                 width: 80%;
-                /*margin: 0 auto;*/
-                /*border-radius: 200px;*/
+                @include media($tablet) {
+                    margin: 0 auto;
+                }
             }
         }
     }
@@ -1609,7 +1642,7 @@ aside.staff_container {
     @include media($mobile) {
         @include span-columns(4);
         @include shift(0);
-        @include pad(10px);
+        @include pad(2em);
     }
     > div {
         border-top: 1px solid $gray;
@@ -1741,7 +1774,6 @@ article.section_anchor {
         @include pad(0 10px);
     }
     background-color: #eee;
-    margin-bottom: 2em;
     h3 {
         font-weight: 600;
         color: $gray;
@@ -1752,8 +1784,8 @@ article.section_anchor {
         @include span-columns(16 of 16);
         border-top: 1px solid $gray;
         margin: 0 0 .5em 0;
-        &:first-child {
-            border-top: 0;
+        &:last-child {
+            border-bottom: 1px solid $gray;
         }
         > h4 {
             @include span-columns(8 of 16);
@@ -1983,16 +2015,20 @@ article.section_anchor {
 }
 article.contact_map {
     @include clearfix;
-    @include media($tablet) {
+/*    @include media($tablet) {
         height: 400px;
     }
     @include media($mobile) {
        height: 282px;
-   }
+   }*/
     #map-canvas {
         width: 100%;
         height: 600px;
-    }                      
+        @include media($mobile) {
+            height: 300px;
+        }
+                
+    }
 }
 .gmnoprint img {
     max-width: none;
@@ -2048,6 +2084,10 @@ article.contact_map {
         font-weight: 600;
         font-size: 2em;
         text-transform: capitalize;
+        @include media($tablet) {
+            text-align: center;
+        }
+                
     }
 }
 footer {

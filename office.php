@@ -137,7 +137,8 @@ get_header(); ?>
                 <?php endif ?>
             <?php endwhile; endif; ?>
         </section>
-    </div>
+    </div> <!-- end gray container -->
+    
     <div id="pub_anchor" class="subsection_title">
         <h2>Publications</h2>
     </div>

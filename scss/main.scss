@@ -193,24 +193,40 @@ header, section, aside, .project_breadcrumbs, #team_page {
         }
         nav {
             color: #fff;
-            div.menu-primary-navigation-container {
-                display: relative;
+            /*div.menu-primary-navigation-container {
+                width: 100%;
+                height: 100%;
+                background-color: rgba(#fff, .7);
                 ul#menu-primary-navigation {
+                    display: block;
+                    @extend .vertical_align;
                     > li {
-                        @include span-columns(2 of 8);
-                        &.current-menu-parent, &.current-menu-item {
-                            > a {
-                                color: #000;
-                            }
+                        display: block;
+                        width: 100%;
+                        > a {
+
+                            @include clearfix;
+                            @include pad(1em 0);
+                            display: block;
+                            text-align: center;
+                            font-weight: 500;
+                            color: #000;
+                            font-size: 2em;
                         }
                         &:hover {
+                            ul {
+                                opacity: 1;
+                                pointer-events: all;
+                                li {
+                                }
+                            }
                             > a {
-                                color: #fff;
+                                background-color: rgba(#fff, 1);
                             }
                         }
                     }
                 }
-            }
+            }*/
         }
         &:hover {
             background-color: rgba(#000, .6);
@@ -272,11 +288,11 @@ header {
     }
     nav {
         /*main declaration*/
-        position: relative;
         @include span-columns(8);
         @include shift(4);
-        height: 100%;
         @extend .vertical_center_parent;
+        height: 100%;
+        position: relative;
         .nav_btn {
             /*background-color: lime;*/
             pointer-events: all;
@@ -431,7 +447,12 @@ header {
 }
 .filter_controls {
     /*@include outer-container;*/
-    background-color: aqua;
+    @include pad(30px);
+    @include media($mobile) {
+        @include pad(10px);
+    }
+    font-size: 1em !important;
+    /*background-color: aqua;*/
     position: relative;
     z-index: 10;
     div.grid_list {
@@ -446,7 +467,7 @@ header {
         @include media($mobile) {
             @include span-columns(4);
             @include pad(2em 0 1em 0);
-        }  
+        }
         text-transform: uppercase;
         p, span {
             line-height: 35px;
@@ -532,12 +553,12 @@ header {
                             color: #000;
                         }
                         &:first-child {
-                            border-top-left-radius: 2px;
-                            border-top-right-radius: 2px;
+                            /*border-top-left-radius: 2px;*/
+                            /*border-top-right-radius: 2px;*/
                         }
                         &:last-child {
-                            border-bottom-left-radius: 2px;
-                            border-bottom-right-radius: 2px;
+                            /*border-bottom-left-radius: 2px;*/
+                            /*border-bottom-right-radius: 2px;*/
                         }
                     }
                 }
@@ -726,11 +747,14 @@ header {
         .featured_project {
             background-size: cover;
             background-position: center;
-            height: 700px;
+            height: 600px;
             width: 100%;
             position: relative;
             @include media($tablet) {
-                height: 100%;
+                height: 500px;
+            }
+            @include media($mobile) {
+                height: 400px;
             }
             .featured_title_container {
                 @include outer-container;
@@ -742,10 +766,13 @@ header {
                     height: 100%;
                     width: 100%;
                     div.featured_title {
-                        @include pad(36em 30px 0 30px);
+                        @include pad(500px 30px 0 30px);
                         /*position: absolute;*/
-                        bottom: 80px;
                         @include span-columns(16);
+                        @include media($mobile) {
+                            @include pad(0 30px 0 30px);
+                            /*background-color: rgba(aqua, .5);*/
+                        }  
                         p {
                             width: 100%;
                             text-align: center;
@@ -766,6 +793,10 @@ header {
                             text-align: center;
                             font-weight: 600;
                             font-size: 2.5em;
+                            @include media($mobile) {
+                                font-size: 1.5em;
+                            }
+                                    
                         }
                     }
                 }
@@ -857,16 +888,16 @@ header {
         height: auto;
         padding-bottom: 10px;
         box-shadow: 0 0 5px rgba(0,0,0,.2);
-        border-top-right-radius: 2px;
-        border-top-left-radius: 2px;
+        /*border-top-right-radius: 2px;*/
+        /*border-top-left-radius: 2px;*/
     }
     @include media($mobile) {
         background-color: rgba(255,255,255,.85);
         height: auto;
         padding-bottom: 10px;
         box-shadow: 0 0 5px rgba(0,0,0,.2);
-        border-top-right-radius: 2px;
-        border-top-left-radius: 2px;
+        /*border-top-right-radius: 2px;*/
+        /*border-top-left-radius: 2px;*/
     }
     div.project_info {
         @include transition (all .3s ease-in-out);
@@ -938,7 +969,6 @@ header {
     @include media($mobile) {
         @include pad(0 10px);
         margin-bottom: 0;
-        background-color: #eee;
     }
     > div {
         p {
@@ -1162,12 +1192,12 @@ header {
     height: 2.5em;
     @include transition (all .3s ease-in-out);
     @include media($mobile) {
-        @include pad(10px);
-        display: block;
-        position: absolute;
+        @include pad(3em 0 10px 0);
+        display: none;
+        /*position: absolute;*/
         width: 100%;
         z-index: 1000;
-        height: 2.5em;
+        height: 5em;
         background-color: rgba(0,0,0,.5);
         color: #FFF;
         h2 {
@@ -1405,7 +1435,7 @@ ol.flex-control-nav {
                 @include media($mobile) {
                     height: 250px;
                     margin: 0;
-                }  
+                }
             }
         }
     }
@@ -1636,6 +1666,11 @@ ol.flex-control-nav {
         }
     }
 }
+/*"how about this, hit cancel because you messed it all up"*/
+.staff_rule {
+    border-top: 1px solid $gray;
+    @include pad(1.5em 0 0 0);
+}
 aside.staff_container {
     @include outer-container;
     @include pad(0 30px 30px 30px);
@@ -1645,12 +1680,10 @@ aside.staff_container {
         @include pad(2em);
     }
     > div {
-        border-top: 1px solid $gray;
-        @include pad(2.5em  0);
+        @include pad(0 0 2.5em 0);
         @include media($mobile) {
             @include pad(1em 0 1em 0);
         }
-                
         @include clearfix;
         h4 {
             margin: .5em 0 .5em 0;
@@ -1723,6 +1756,12 @@ article.section_anchor {
     height: 750px;
     background-size: cover;
     background-position: center center;
+    @include media($mobile) {
+        height: 500px;
+    }
+    @include media($mobile) {
+        height: 400px;
+    }
     > div {
         height: 100%;
         width: 99%;
@@ -1732,6 +1771,9 @@ article.section_anchor {
             color: #fff;
             font-size: 4em;
             font-weight: 600;
+            @include media($mobile) {
+                font-size: 2em;
+            }
         }
     }
 }
@@ -2094,7 +2136,7 @@ footer {
     background-color: #222;
     color: #fff;
     @include media($mobile) {
-        height: 216px;
+        height: 230px !important;
         color: #fff;
         background-color: #000;
     }

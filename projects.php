@@ -58,7 +58,7 @@ get_header(); ?>
     </div>
 <?php rewind_posts(); ?>
 <?php wp_reset_query(); ?>
-    <div class="filter_controls">
+    <section class="filter_controls">
         <div class="cat_dropdown">
             <p>Category</p>
             <div class="drop arrow-down"><span id="cat_showing">All</span>
@@ -77,7 +77,7 @@ get_header(); ?>
         <div class="grid_list">
             <p>View By</p><span class="grid_btn active">Grid</span> <span class="list_btn">List</span>
         </div>
-    </div>
+    </section>
     <div class="list_header list_header_hidden">
         <div>
             <p class="alpha-btn active" data-state="1">

@@ -146,5 +146,15 @@ var asc = false,
             });
         }
     });
+    var featured_title = $(".featured_title");
+    function reposition_feature_title() {
+        slider_height = Math.round($(".featured_projects_flexslider").height());
+        featured_title_height = featured_title.height();
 
+        featured_title.css("padding-top",slider_height-featured_title_height*1.5+"px");
+    }
+    $(window).resize(function(){
+        reposition_feature_title();
+    });
+    reposition_feature_title();
 });

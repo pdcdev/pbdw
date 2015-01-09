@@ -25,9 +25,9 @@
           <?php 
             $the_post_type = get_post_type();
             if ( $the_post_type == "projects" ) {
-              $nav_class = "transparent";
+              $nav_class = "dark_transparent";
             } else if ( $the_post_type == "team" ) {
-              $nav_class = "dark";
+              $nav_class = "projects";
             } else if ( is_page("home") ) {
               $nav_class = "home";
             } else if ( is_page("projects") ) {
@@ -40,14 +40,20 @@
                 <div class="logo_container header_expanded">
                     <h1 class="black"><a href="<?php echo home_url(); ?>">PBDW <span>ARCHITECTS</span></a></h1>
                 </div>
-                <nav class="main_nav inactive" data-state="0">
+                <nav class="main_nav inactive vertical_center_parent" data-state="0">
                     <a class="nav_btn"></a>
                     <?php
                             $args = array(
                                 'menu' => 'main-menu',
-                                'echo' => false
+                                'echo' => false,
+                                'container_class' => 'menu-primary-navigation-container'
                             );
-                            echo wp_nav_menu( $args );
+                            // echo wp_nav_menu( $args );
+                            wp_nav_menu(array(
+                                'container'       => 'div',
+                                'container_class' => 'nav_container',
+                                'menu_class' => 'active'
+                            )); 
                         ?>
                 </nav>
             </header>

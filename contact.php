@@ -36,10 +36,10 @@ get_header(); ?>
         <?php if ( have_posts() ) : while( have_posts() ) : the_post(); ?>
         <?php if( get_field('artwork_credit') ) : ?>
         <article class="credits">
-        <h4>Artist Credits</h4><h4>Website Design</h4>
+        <h4>Artist Credits</h4><h4>Website Development</h4>
 
         <div class="artists">
-        <?php while( has_sub_field('artwork_credit') ): ?>
+        <?php while( has_sub_field('artwork_credit') ):?>
                 <?php if(get_sub_field('artist_url')): ?>
                     <a href="<?php the_sub_field('artist_url'); ?>" target="_blank"><?php the_sub_field('name-entity'); ?></a>, 
                 <?php else: ?>

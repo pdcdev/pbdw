@@ -80,32 +80,38 @@ jQuery(document).ready(function($) {
     all_btn.click(function(){
         remove_objects($("#projects_grid > div"));
         get_projects();
-        $("#cat_showing").text("All");
+        $(".cats ul li").not($(this)).removeClass("selected");
+        $(this).addClass("selected");
     });
     cultural_btn.click(function(){
         remove_objects($("#projects_grid > div"));
         get_projects("cultural");
-        $("#cat_showing").text("Cultural");
+        $(".cats ul li").not($(this)).removeClass("selected");
+        $(this).addClass("selected");
     });
     commercial_btn.click(function(){
         remove_objects($("#projects_grid > div"));
         get_projects("commercial");
-        $("#cat_showing").text("Commercial");
+        $(".cats ul li").not($(this)).removeClass("selected");
+        $(this).addClass("selected");
     });
     education_btn.click(function(){
         remove_objects($("#projects_grid > div"));
         get_projects("education");
-        $("#cat_showing").text("Education");
+        $(".cats ul li").not($(this)).removeClass("selected");
+        $(this).addClass("selected");
     });
     preservation_btn.click(function(){
         remove_objects($("#projects_grid > div"));
         get_projects("preservation");
-        $("#cat_showing").text("Preservation");
+        $(".cats ul li").not($(this)).removeClass("selected");
+        $(this).addClass("selected");
     });
     residential_btn.click(function(){
         remove_objects($("#projects_grid > div"));
         get_projects("residential");
-        $("#cat_showing").text("Residential");
+        $(".cats ul li").not($(this)).removeClass("selected");
+        $(this).addClass("selected");
     });
 
     // ajax_test();

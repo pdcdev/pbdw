@@ -105,6 +105,34 @@
       ]
     },
     {
+      "uid": "bfb40dbcb21209e3e4d21c266a316ffc",
+      "css": "grid-sq",
+      "code": 59404,
+      "src": "custom_icons",
+      "selected": true,
+      "svg": {
+        "path": "M200.4 200H0.4V0H200.4V200ZM600.4 0H400.4V200H600.4V0ZM1000.4 0H800.4V200H1000.4V0ZM200.4 400H0.4V600H200.4V400ZM600.4 400H400.4V600H600.4V400ZM1000.4 400H800.4V600H1000.4V400ZM200.4 800H0.4V1000H200.4V800ZM600.4 800H400.4V1000H600.4V800ZM1000.4 800H800.4V1000H1000.4V800Z",
+        "width": 1000
+      },
+      "search": [
+        "grid"
+      ]
+    },
+    {
+      "uid": "9ee603a31048c2c04c0890d1b55eca20",
+      "css": "list-sq",
+      "code": 59432,
+      "src": "custom_icons",
+      "selected": true,
+      "svg": {
+        "path": "M1000 200H0V0H1000V200ZM1000 400H0V600H1000V400ZM1000 800H0V1000H1000V800Z",
+        "width": 1000
+      },
+      "search": [
+        "list"
+      ]
+    },
+    {
       "uid": "0f4cae16f34ae243a6144c18a003f2d8",
       "css": "cancel-circled-1",
       "code": 59420,

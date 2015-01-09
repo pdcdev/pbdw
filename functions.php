@@ -74,7 +74,7 @@ function pbdw_remove_menus(){
     remove_menu_page( 'edit-comments.php' );   // Comments
 }
 
-function get_image($field, $the_size, $output) {
+function get_image($field, $the_size) {
     $the_image = wp_get_attachment_image_src( $field, $the_size );
     return $the_image[0];
 }

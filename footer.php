@@ -2,7 +2,7 @@
     </div> <!-- wrap -->
         <footer>
             <div>
-                <p class="name">Platt Byard Dovell White Architects LLP <br /> All rights reserved, 2014<p>
+                <p class="name">Platt Byard Dovell White Architects LLP <br /> All rights reserved, <?php echo date("Y"); ?><p>
                 <nav class="footer_nav">
                     <?php
                         $args = array(

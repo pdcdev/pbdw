@@ -28,7 +28,7 @@ get_header(); ?>
     </section>
     <article id="team_anchor" class="section_anchor" style="background-image: url('<?php echo get_image(get_field('team_bg_image'),"full"); ?>')">
         <div class="vertical_center_parent">
-            <p class="vertical_center">Our Team</p>
+            <p class="vertical_center"></p>
             <div class="divhelper"></div>
         </div>
     </article>
@@ -61,7 +61,7 @@ get_header(); ?>
 
     <?php endif; ?>
     <?php if ( have_posts() ) : while( have_posts() ) : the_post(); ?>
-    <div class="subsection_title">
+    <div class="subsection_title staff_title">
         <h2 class="staff_rule">Staff</h2>
     </div>
     <aside class="staff_container">
@@ -92,7 +92,8 @@ get_header(); ?>
                     <?php endwhile; ?>
                 <?php endif; ?>
                 </div>
-
+            </div>
+            <div class="staff_operations">
                 <h4>Operations</h4>
                 <div class="list_container">
                 <?php if( get_field('operations') ) : ?>
@@ -106,7 +107,7 @@ get_header(); ?>
         </div>
     </aside>
     <?php endwhile; endif; ?>
-    <div class="gray_container">
+    <div class="gray_container">  <!-- begin gray container -->
         <div id="awards_anchor" class="subsection_title">
             <h2>Awards</h2>
         </div>
@@ -150,17 +151,16 @@ get_header(); ?>
             <?php if( get_field('publications') ) : ?>
                 <?php while( has_sub_field('publications') ): ?>
                     <div class="pub_item">
-                        <div class="flipper" target="_blank">
-                            <div class="pub_cover">
-                                <img src="<?php the_sub_field('publication_image'); ?>" />
-                            </div>
+                        <div class="pub_cover">
+                            <img src="<?php the_sub_field('publication_image'); ?>" />
+                        </div>
+                        <a href="<?php the_sub_field('url'); ?>" target="_blank">
                             <ul class="pub_info">
                                 <li><?php the_sub_field('book_name'); ?></li>
                                 <li><?php the_sub_field('press'); ?></li>
                                 <li><?php the_sub_field('year'); ?></li>
-                                <li><a href="<?php the_sub_field('url'); ?>" target="_blank"><i class="icon-right-circled-1"></i></a></li>
                             </ul>
-                        </div>
+                        </a>
                     </div>
                 <?php endwhile; ?>
             <?php endif ?>

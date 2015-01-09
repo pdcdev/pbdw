@@ -44,7 +44,7 @@
         <section id="project_page"><!-- class="underworld" -->
             <div class="project_breadcrumbs">
                 <h3>
-                <?php echo implode(' and ', get_field( 'project_category' )); ?>
+                <?php echo implode(' &amp; ', get_field( 'project_category' )); ?>
                 </h3>
             </div>
 

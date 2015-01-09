@@ -111,6 +111,7 @@ var asc = false,
     year_btn.on("click", function(){
         sortToggle($(this),"data-completed");
     });
+    
     $("#cat_showing").click(function(){
         if($(this).attr("data-state") == "active") {
             $(".project_categories_container").removeClass("active").addClass("hidden");
@@ -146,6 +147,15 @@ var asc = false,
             });
         }
     });
+
+    $(".cats ul li").click(function(){
+        if($("#projects_grid").offset().top - $(window).height() > $(window).scrollTop()) {
+            $('html, body').animate({
+                scrollTop: $(".featured_project").height() * .75
+            }, 1000, "easeInOutQuart");
+        }
+    });
+
     var featured_title = $(".featured_title");
     function reposition_feature_title() {
         slider_height = Math.round($(".featured_projects_flexslider").height());

@@ -5,27 +5,27 @@ var loc = new google.maps.LatLng(40.741387,-73.991672);
 
 var MY_MAPTYPE_ID = 'custom_style';
 
-var lightgray = "#eeeeee";
-var mediumgray = "#aaaaaa";
-var darkgray = "#888888";
-var white = "#ffffff";
-var black = "#000000";
+// Leandra, the values below control the basic colors in the map
 
-var parks = "#90d690";
+var landbg   = "#eeeeee";
+var highways = "#aaaaaa";
+var roads    = "#ffffff";
+var water    = "#ffffff";
+var parks    = "#90d690";
 
 function initialize() {
 
           var featureOpts = [{
               featureType: "water",
               stylers: [{
-                  color: white
+                  color: water
               }, {
                   visibility: "on"
               }]
           }, {
               featureType: "landscape",
               stylers: [{
-                  color: lightgray
+                  color: landbg
               }]
           }, {
               featureType: "administrative",
@@ -44,13 +44,13 @@ function initialize() {
               featureType: "road",
               elementType: "geometry.fill",
               stylers: [{
-                  color: white
+                  color: roads
               }]
           }, {
               featureType: "road",
               elementType: "geometry.stroke",
               stylers: [{
-                  color: mediumgray
+                  color: highways
               }, {
                   weight: 0
               }, {
@@ -60,7 +60,7 @@ function initialize() {
               featureType: "road",
               elementType: "labels.text.stroke",
               stylers: [{
-                  color: mediumgray
+                  color: highways
               }, {
                   weight: 4
               }]
@@ -93,7 +93,7 @@ function initialize() {
               featureType: "road.highway",
               elementType: "geometry",
               stylers: [{
-                  color: mediumgray
+                  color: highways
               }]
           }, {
               featureType: "road",
@@ -157,7 +157,7 @@ function initialize() {
 
   var mapOptions = {
     scrollwheel: false,
-    zoom: 16,
+    zoom: 15,
     center: loc,
     streetViewControl: false,
     draggable: false,

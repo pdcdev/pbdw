@@ -141,6 +141,12 @@
       "src": "fontawesome"
     },
     {
+      "uid": "52725ff4d4042964bd3a60609bf3695b",
+      "css": "right-circled-1",
+      "code": 59392,
+      "src": "entypo"
+    },
+    {
       "uid": "8704cd847a47b64265b8bb110c8b4d62",
       "css": "down-open",
       "code": 59415,

@@ -25,7 +25,10 @@
                     <?php endif;?>
                 <?php endif;  ?>
         </article>
-        <div class="home_logo window_size">
+        <div class="home_logo_container">
+            <div class="home_logo window_size">
+                <img src="<?php bloginfo('stylesheet_directory'); ?>/images/pbdw_logo.png">
+            </div>
         </div>
     </div>
         <?php wp_footer(); ?>

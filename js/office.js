@@ -65,11 +65,22 @@ jQuery(document).ready(function($) {
 
     $(window).load(function(){
         $(".pub_item").each(function(){
-            cover_width = $(".pub_cover img", this).width();
-            cover_height = $(".pub_cover img", this).height();
-            $(this).css({"width":cover_width,"height":cover_height});
-            $(".pub_info", this).css({"width":cover_width,"height":cover_height});
+            // cover_width = $(".pub_cover img", this).width();
+            // cover_height = $(".pub_cover img", this).height();
+            // $(this).css({"width":cover_width,"height":cover_height});
+            // $(".pub_info", this).css({"width":cover_width});
         });
     });
+    var featured_title = $(".featured_title");
+    function reposition_feature_title() {
+        slider_height = Math.round($(".featured_projects_flexslider").height());
+        featured_title_height = featured_title.height();
+
+        featured_title.css("padding-top",slider_height-featured_title_height*1.5+"px");
+    }
+    $(window).resize(function(){
+        reposition_feature_title();
+    });
+    reposition_feature_title();
 
 });

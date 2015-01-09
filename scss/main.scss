@@ -119,14 +119,45 @@ header, section, aside, .project_breadcrumbs, #team_page {
 #header_container {
     width: 100%;
     z-index: 1000;
+    height: 50px;
     position: fixed;
     @include transition (all .3s ease-in-out);
     &:hover {
-        background-color: rgba(#fff, .9);
+        background-color: rgba(#fff, .75);
     }
-    background-color: rgba(#fff, .9);
+    background-color: rgba(#fff, .75);
     @include media($tablet) {
         position: absolute;
+    }
+    &.dark_transparent {
+        background-color: transparent;
+        h1 {
+            color: #fff;
+        }
+        nav {
+            div {
+                ul#menu-primary-navigation {
+                    > li {
+                        > a {
+                            color: #fff;
+                        }
+                        &.current-menu-parent, &.current-menu-item {
+                            > a {
+                                color: #fff;
+                            }
+                        }
+                        &:hover {
+                            > a {
+                                color: $gray;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &:hover {
+            background-color: rgba(#000, .25);
+        }
     }
     &.home {
         background-color: transparent;
@@ -135,10 +166,9 @@ header, section, aside, .project_breadcrumbs, #team_page {
         }
         nav {
             color: #fff;
-            div.menu-primary-navigation-container {
+            div {
                 ul#menu-primary-navigation {
                     > li {
-                        @include span-columns(2 of 8);
                         > a {
                             color: #fff;
                         }
@@ -149,7 +179,7 @@ header, section, aside, .project_breadcrumbs, #team_page {
                         }
                         &:hover {
                             > a {
-                                color: #fff;
+                                color: $gray;
                             }
                         }
                     }
@@ -170,7 +200,6 @@ header, section, aside, .project_breadcrumbs, #team_page {
             div.menu-primary-navigation-container {
                 ul#menu-primary-navigation {
                     > li {
-                        @include span-columns(2 of 8);
                         &.current-menu-parent, &.current-menu-item {
                             > a {
                                 color: #000;
@@ -193,40 +222,23 @@ header, section, aside, .project_breadcrumbs, #team_page {
         }
         nav {
             color: #fff;
-            /*div.menu-primary-navigation-container {
-                width: 100%;
-                height: 100%;
-                background-color: rgba(#fff, .7);
+            div.menu-primary-navigation-container {
                 ul#menu-primary-navigation {
-                    display: block;
-                    @extend .vertical_align;
                     > li {
-                        display: block;
-                        width: 100%;
-                        > a {
-
-                            @include clearfix;
-                            @include pad(1em 0);
-                            display: block;
-                            text-align: center;
-                            font-weight: 500;
-                            color: #000;
-                            font-size: 2em;
+                        @include span-columns(2 of 8);
+                        &.current-menu-parent, &.current-menu-item {
+                            > a {
+                                color: #000;
+                            }
                         }
                         &:hover {
-                            ul {
-                                opacity: 1;
-                                pointer-events: all;
-                                li {
-                                }
-                            }
                             > a {
-                                background-color: rgba(#fff, 1);
+                                color: #fff;
                             }
                         }
                     }
                 }
-            }*/
+            }
         }
         &:hover {
             background-color: rgba(#000, .6);
@@ -257,6 +269,7 @@ header {
     z-index: 1000;
     @include outer-container;
     @include pad(0 30px);
+    height: 50px;
     &.white {
         h1 {
             color: #FFF;
@@ -286,116 +299,142 @@ header {
             text-transform: uppercase;
         }
     }
-    nav {
-        /*main declaration*/
+    nav.main_nav {
         @include span-columns(8);
         @include shift(4);
-        @extend .vertical_center_parent;
-        height: 100%;
-        position: relative;
-        .nav_btn {
-            /*background-color: lime;*/
-            pointer-events: all;
-            position: absolute;
-            top: 0;
-            right: 0;
-            display: none;
-            @include pad(1em 1em);
+        @include transition (all .3s ease-in-out);
+        &.inactive {
             @include media($tablet) {
-                display: block;
-            }
-            &:after {
-                content: "\e826";
-                font-family: fontello;
-                font-size: 1.5em;
-            }
-        }
-        div.menu-primary-navigation-container {
-            ul#menu-primary-navigation {
-                width: 100%;
-                @extend .vertical_center;
-                &:after {
-                    content: "";
-                    display: block;
-                    @extend .divhelper;
-                }
-                > li {
-                    @include span-columns(2 of 8);
-                    &.current-menu-parent, &.current-menu-item {
-                        > a {
-                            color: #000;
-                        }
+                .nav_container {
+                    @include media($tablet) {
+                        position: fixed;
+                        left: 0;
+                        top:0;
+                        height: 100%;
+                        width: 100%; 
+                        margin: 0 auto;
+                        pointer-events: none;
+                        opacity: 0;
                     }
-                    > a {
-                        /* main nav */
-                        display: block;
+                    ul {
+                        @include transform(scale(.9));
+                        opacity: 0;
+                    }
+                }
+                .nav_btn {
+                    cursor: pointer;
+                    @include pad(2em);
+                    &:after {
+                        /* menu icon */
+                        content: "\e826";
+                        position: absolute;
+                        @include pad(.75em);
+                        font-size: 1.5em;
+                        right: 0;
+                        top:0;
+                        font-family: fontello;
                         @include transition (all .1s ease-in-out);
-                        line-height: $header_height;
-                        font-weight: 500;
-                        color: $gray;
-                        width: 100%;
                     }
-                    &:hover {
-                        ul {
-                            opacity: 1;
-                            pointer-events: all;
-                        }
-                        > a {
-                            color: #000;
-                        }
+                }
+            }   
+        }
+        &.active {
+            @include media($tablet) {
+                .nav_container {
+                    @include media($tablet) {
+                        position: fixed;
+                        left: 0;
+                        top: 0;
+                        height: 100%;
+                        width: 100%;
+                        margin: 0 auto;
+                        background-color: rgba(#fff, .9);
+                        opacity: 1;
+                    }
+                    ul {
+                        pointer-events: all;
+                        @include transform(scale(1));
+                        opacity: 1;
+                    }
+                }
+                a.nav_btn {
+                    cursor: pointer;
+                    &:after {
+                        /* close icon */
+                        z-index: 100;
+                        cursor: pointer;
+                        content: "\e827";
+                        position: absolute;
+                        @include pad(.75em);
+                        font-size: 1.5em;
+                        right: 0;
+                        top:0;
+                        /*color: #fff;*/
+                        font-family: fontello;
+                        @include transition (all .1s ease-in-out);
                     }
                 }
             }
         }
-        @include media($tablet) {
-            &.active {
-                pointer-events: all;
-                > div {
-                    display: inherit;
-                }
+        .nav_container {
+            @include transition (all .3s ease-in-out);
+            &:before, ul { 
+              display: inline-block; 
+              vertical-align: middle; 
             }
-            &.inactive {
-                pointer-events: none;
-                > div {
-                    display: none;
-                }
+            &:before {
+                  content: ''; 
+                  display: inline-block; 
+                  width: 0; 
+                  height: 100%; 
+                  vertical-align: middle; 
+                  margin-left: -0.25em;
             }
-            @include shift(0);
-            @include pad(0);
-            width: 100%;
-            top:0;
-            left:0;
-            position: fixed;
-            div.menu-primary-navigation-container {
+            ul {
+                @include transition (all .3s ease-in-out);
                 width: 100%;
-                height: 100%;
-                background-color: rgba(#fff, .7);
-                ul#menu-primary-navigation {
-                    display: block;
-                    @extend .vertical_align;
-                    > li {
-                        display: block;
-                        width: 100%;
-                        > a {
-                            /* main nav */
-                            @include clearfix;
-                            @include pad(1em 0);
+                li {
+                    a {
+                        @include transition (all .1s ease-in-out);
+                        @include pad(0 2.5em 0 0);
+                        @include span-columns(2 of 8);
+                        font-weight: 600;
+                        font-size: 1em;
+                        cursor: pointer;
+                        line-height: 50px;
+                        color: $gray;
+                        @include media($tablet) {
+                            @include pad(.5em 0);
                             display: block;
+                            width: 100%;
+                            font-size: 3em;
                             text-align: center;
-                            font-weight: 500;
-                            color: #000;
+                            color: $gray;
+                            &:after {
+                                content:"";
+                                display: none;
+                            }
+                            &:hover {
+                                background-color: #fff;
+                                /*color: #000;*/
+                            }
+                        }
+                        @include media($mobile) {
                             font-size: 2em;
                         }
                         &:hover {
-                            ul {
-                                opacity: 1;
-                                pointer-events: all;
-                                li {
-                                }
-                            }
-                            > a {
-                                background-color: rgba(#fff, 1);
-                                color: #000;
+                            color: #000;
+                        }
+                    }
+                    &.current-menu-item, &.current_page_item {
+                        a {
+                            color: #000;
+                        }
+                    }
+                    &:last-child {
+                        a {
+                            &:after {
+                                content:"";
                             }
                         }
                     }
@@ -435,33 +474,53 @@ header {
         }
     }
 }
-.home_logo {
+.home_logo_container {
     @include outer-container;
-    @include pad(30px);
-    z-index: 10;
-    position: relative;
+    @include pad(0 30px);
     height: 100%;
-    background: url('../images/pbdw_logo.png') no-repeat center center;
-    background-size: 90%;
-    pointer-events: none;
+    .home_logo {
+        z-index: 10;
+        position: relative;
+        height: 100%;
+        width: 100%;
+        pointer-events: none;
+        img {
+            position: absolute;
+            display: block;
+            top: 40%;
+        }
+    }
+/*    .home_logo {
+        @include outer-container;
+        @include pad(30px);
+        z-index: 10;
+        position: relative;
+        height: 100%;
+        width: 100%;
+        background: url('../images/pbdw_logo.png') no-repeat;
+        background-size: 90%;
+        background-position: center center;
+        pointer-events: none;
+        border: 5px solid blue;
+    }*/
 }
+$random_gray: #d1d4d5;
+
 .filter_controls {
     /*@include outer-container;*/
-    @include pad(30px);
-    @include media($mobile) {
-        @include pad(10px);
-    }
-    font-size: 1em !important;
-    /*background-color: aqua;*/
+    @include pad(4em 30px);
+    font-size: 1em;
     position: relative;
     z-index: 10;
     div.grid_list {
         z-index: 1;
-        position: relative;
-        @include span-columns(4);
-        @include pad(4em 0);
+        position: absolute;
+        right: 0;
+        text-align: right;
+        @include pad(0 30px 0 0);
+        @include span-columns(2);
         @include media($tablet) {
-            @include span-columns(4);
+            @include span-columns(8);
             @include shift(0);
         }
         @include media($mobile) {
@@ -470,121 +529,88 @@ header {
         }
         text-transform: uppercase;
         p, span {
-            line-height: 35px;
-            width: 33.3333333%;
-            float: left;
-            text-align: center;
-            background-color: #eee;
+            width: 35px;
+            i {
+                font-family: fontello;
+                font-size: 30px;
+            }
         }
         span {
             cursor: pointer;
             font-weight: 500;
+            color: $random_gray;
             &.active, &:hover {
-                background-color: $gray;
-                color: #fff;
-                box-shadow: inset 0 0 10px rgba(#000, .2);
+                color: #000;
             }
         }
     }
-    div.cat_dropdown {
-        z-index: 2;
+    position: relative;
+    @include media($tablet) {
         @include span-columns(4);
-        @include shift(4);
-        @include pad(4em 0);
-        position: relative;
+        @include shift(0);
+    }
+    @include media($mobile) {
+        @include span-columns(4);
+        @include pad(1em 0);
+    }
+    p.cat_title {
+        width: 100%;
+        text-align: center;
+        font-weight: 600;
+        @include pad(0 0 1em 0);
+        color: $random_gray;
+        /*font-size: 1.25em;*/
+    }
+    div.cats {
+        @include span-columns(12);
+        @include shift(2);
         @include media($tablet) {
-            @include span-columns(4);
+            @include span-columns(8);
             @include shift(0);
         }
-        @include media($mobile) {
-            @include span-columns(4);
-            @include pad(1em 0);
-        }
-        height: 35px;
-        text-transform: uppercase;
-        p {
-            line-height: 35px;
-            width: 40%;
-            float: left;
-            text-align: center;
-            background-color: #eee;
-        }
-        div.drop {
-            line-height: 35px;
-            height: 35px;
-            width: 60%;
-            float: left;
-            background-color: #eee;
-            font-weight: 500;
-            position: relative;
-            @include pad(0 0 0 .5em);
-            &:before {
-                @include pad(0 .5em 0 0);
-                content: "\e825";
-                font-family: fontello;
+        ul {
+            @include media($mobile) {
+                //@include reset-display;
+                //@include pad(10px);
             }
-            #cat_showing {
-                @include pad(.25em);
-                cursor: pointer;
-                width: 100%;
-                height: 100%;
-                top: 0;
-                left: 1em;
-                position: absolute;
-                display: block;
-            }
-            div.project_categories_container {
-                @include pad(.5em 0 0 0);
-                cursor: pointer;
-                ul {
-                    @include transform(translateY(0));
-                    li {
-                        @include pad(.25em .5em);
-                        @include transition (all .3s ease-in-out);
-                        margin-left: .4em;
-                        opacity: 0;
-                        background-color: rgba($gray, 1);
-                        font-weight: 500;
-                        overflow: hidden;
-                        display: block;
-                        color: #fff;
-                        &:hover {
-                            /* on hover for each */
-                            color: #000;
-                        }
-                        &:first-child {
-                            /*border-top-left-radius: 2px;*/
-                            /*border-top-right-radius: 2px;*/
-                        }
-                        &:last-child {
-                            /*border-bottom-left-radius: 2px;*/
-                            /*border-bottom-right-radius: 2px;*/
-                        }
-                    }
+            display: block;
+            /*@include fill-parent();*/
+            @include row(table);
+            li {
+                @include pad(.4em .5em);
+                @include span-columns(2 of 12);
+                @include transition (all .3s ease-in-out);
+                @include media($tablet) {
+                    @include span-columns(4);
+                    @include omega(2n);
+                    margin-left: 0;
+                    margin-bottom: 10px;
                 }
-            }
-            div.project_categories_container {
-                &.active {
-                    ul {
-                        li {
-                            @include transition (all .3s ease-in-out);
-                            opacity: 1;
-                        }
-                    }
+                margin-left: .4em;
+                background-color: $random_gray;
+                font-weight: 600;
+                color: #fff;
+                cursor: pointer;
+                &:hover, &.selected {
+                    /* on hover for each */
+                    color: #fff;
+                    background-color: #000;
                 }
-                &.hidden {
-                    ul {
-                        li {
-                            opacity: 0;
-                        }
-                    }
+                &:first-child {
+                    /*border-top-left-radius: 2px;*/
+                    /*border-top-right-radius: 2px;*/
+                }
+                &:last-child {
+                    /*border-bottom-left-radius: 2px;*/
+                    /*border-bottom-right-radius: 2px;*/
+                    @include reset-display;
+                    @include omega();
                 }
             }
         }
     }
     color: $gray;
     text-transform: capitalize;
-    font-size: 1.25em;
     font-weight: 400;
 }
 #home {
@@ -603,7 +629,7 @@ header {
             li.slide {
                 position: relative;
                 width: 100%;
-                height: 100;
+                height: 100%;
                 div.project_title {
                     @include outer-container;
                     position: relative;
@@ -643,38 +669,7 @@ header {
         }
     }
 }
-#mobile_home {
-    display: none;
-    @include media($mobile) {
-        display: block;
-        div.featured_project_item {
-            position: relative;
-            border-bottom: 3px solid black;
-            height: 400/16 * 1em;
-            background-size: cover;
-            background-position: center;
-            div.featured_project_info {
-                @include transition (all .3s ease-in-out);
-                position: absolute;
-                width: 100%;
-                height: 3em;
-                p {
-                    @include transition (all .3s ease-in-out);
-                    text-shadow: 0px 0px 30px rgba(0,0,0,.5);
-                    padding: 0 0 0 8px;
-                    font-weight: normal;
-                    color: #FFF;
-                    text-transform: capitalize;
-                    font-size: 1em;
-                    &:first-child {
-                        padding: 8px 0 0 8px;
-                        font-weight: 600;
-                    }
-                }
-            }
-        }
-    }
-}
+
 .project_categories {
     display: none;
     @include outer-container;
@@ -747,7 +742,7 @@ header {
         .featured_project {
             background-size: cover;
             background-position: center;
-            height: 600px;
+            height: 700px;
             width: 100%;
             position: relative;
             @include media($tablet) {
@@ -772,12 +767,12 @@ header {
                         @include media($mobile) {
                             @include pad(0 30px 0 30px);
                             /*background-color: rgba(aqua, .5);*/
-                        }  
+                        }
                         p {
                             width: 100%;
                             text-align: center;
                             color: #fff;
-                            font-weight: 500;
+                            font-weight: 600;
                             /*background-color: rgba(#fff, .9);*/
                         }
                         p.cats {
@@ -913,6 +908,9 @@ header {
         position: relative;
         height: 100%;
         background-color: rgba(0,0,0,0);
+        .title {
+            font-weight: 600 !important;
+        }
         .cat {
             @include media($mobile) {
                 display: none;
@@ -976,6 +974,9 @@ header {
             line-height: 2em;
             color: #fff;
             padding-left: .5em !important;
+            span {
+                font-weight: 600;
+            }
             i {
                 display: none;
                 float: right;
@@ -1000,7 +1001,7 @@ header {
             background-color: #000;
         }
         p.inactive {
-            background-color: $gray;
+            background-color: $random_gray;
         }
         p.ascending {
             i.icon-up-open {
@@ -1117,6 +1118,7 @@ header {
         }
         .title {
             padding-left: .5em !important;
+
             @include span-columns(8 of 16);
             @include media($mobile) {
                 @include span-columns(4);
@@ -1257,13 +1259,13 @@ header {
                     @include span-columns(4);
                 }
                 -webkit-font-smoothing: antialiased;
-                text-transform: uppercase;
-                font-weight: 500;
+                font-weight: 600;
                 color: $gray;
             }
             border-bottom: 1px solid $gray;
             margin-bottom: .75em;
             padding-bottom: .75em;
+            text-transform: capitalize;
         }
         .project_title {
             @include span-columns(4);
@@ -1466,8 +1468,8 @@ ol.flex-control-nav {
     }
     h6 {
         @include pad(10px 0);
-        text-transform: uppercase;
-        font-weight: 700;
+        /*text-transform: uppercase;*/
+        font-weight: 600;
         color: $gray;
         font-size: .9;
         border-bottom: 1px solid $gray;
@@ -1584,6 +1586,13 @@ ol.flex-control-nav {
             @include span-columns(3);
             height: 100%;
             width: 100%;
+            &:hover {
+                .team_item_info {
+                    p {
+                        color: $gray;
+                    }
+                }
+            }
             .team_item_info {
                 position: relative;
                 display: block;
@@ -1595,9 +1604,9 @@ ol.flex-control-nav {
                 @include media($tablet) {
                     margin: 0 auto;
                 }
-                        
                 p {
-                    font-weight: 700;
+                    @include transition (all .2s ease-in-out);
+                    font-weight: 600;
                     span {
                         font-weight: 400;
                     }
@@ -1623,37 +1632,56 @@ ol.flex-control-nav {
 }
 #team_page {
     @include outer-container;
-    @include pad(0 30px);
+    @include pad(100px 30px 0 30px);
     @include media($tablet) {
         @include pad(0 30px);
     }
     @include media($mobile) {
         @include pad(0 10px);
     }
+    .project_breadcrumbs {
+        h3 {
+            @include span-columns(8);
+            @include media($tablet) {
+                @include span-columns(8);
+            }
+            @include media($mobile) {
+                @include span-columns(4);
+            }
+            -webkit-font-smoothing: antialiased;
+            font-weight: 600;
+            color: $gray;
+        }
+        border-bottom: 1px solid $gray;
+        margin-bottom: .75em;
+        padding-bottom: .75em;
+        text-transform: capitalize;
+    }
     .member {
-        @include pad(6em 0);
+        @include pad(0em 0);
         .member_image {
             @include span-columns(4);
             @include shift(1);
             background-size: cover;
             background-position: center;
         }
+        .member_header {
+            @include span-columns(4);
+            h3, p {
+                font-size: 1.2em;
+                font-weight: 700;
+                span {
+                    display: block;
+                    font-weight: 300;
+                }
+            }
+            p.position {
+                font-weight: 300;
+            }
+        }
         .member_description {
             /*@extend .text_column;*/
             @include span-columns(7);
-            @include shift(2);
-            .member_header {
-                h3, p {
-                    font-size: 24/16*1em;
-                    font-weight: 700;
-                    span {
-                        font-weight: 300;
-                    }
-                }
-                p.position {
-                    font-weight: 500;
-                }
-            }
             p {
                 font-size: 1.25em;
                 color: $gray;
@@ -1666,7 +1694,7 @@ ol.flex-control-nav {
         }
     }
 }
-/*"how about this, hit cancel because you messed it all up"*/
+
 .staff_rule {
     border-top: 1px solid $gray;
     @include pad(1.5em 0 0 0);
@@ -1680,6 +1708,7 @@ aside.staff_container {
         @include pad(2em);
     }
     > div {
+        border-top: 1px solid $gray;
         @include pad(0 0 2.5em 0);
         @include media($mobile) {
             @include pad(1em 0 1em 0);
@@ -1687,9 +1716,8 @@ aside.staff_container {
         @include clearfix;
         h4 {
             margin: .5em 0 .5em 0;
-            text-transform: uppercase;
             color: $gray;
-            font-weight: 500;
+            font-weight: 600;
         }
         .staff_architects_spillover {
             > div {
@@ -1701,11 +1729,11 @@ aside.staff_container {
                 }   
             }
         }
-        .staff_architects, .staff_architects_spillover, .staff_communications {
+        .staff_architects, .staff_architects_spillover, .staff_communications,.staff_operations {
             .list_container {
                 .list_item {
-                    @include pad(.25em 0);
-                    font-weight: 500;
+                    @include pad(.5em 0);
+                    font-weight: 600;
                 }
             }
             @include span-columns(4);
@@ -1744,7 +1772,7 @@ aside.staff_container {
             width: 12px;
             height: 12px;
             border: 2px solid rgba(#aaa, .8);
-            box-shadow: 0 0 10px rgba(#000, .2);
+            /*box-shadow: 0 0 10px rgba(#000, .2);*/
             border-radius: 30px;
             &.current, &:hover {
                 background-color: rgba(#aaa, .5);
@@ -1765,12 +1793,15 @@ article.section_anchor {
     > div {
         height: 100%;
         width: 99%;
+        position: relative;
         p {
+            position: absolute;
             width: 100%;
             text-align: center;
             color: #fff;
-            font-size: 4em;
+            font-size: 2.5em;
             font-weight: 600;
+            bottom: 2em;
             @include media($mobile) {
                 font-size: 2em;
             }
@@ -1805,6 +1836,7 @@ article.section_anchor {
 }
 .gray_container {
     background-color: #eee;
+    @include clearfix;
 }
 .dark_gray_container {
     background-color: $gray;
@@ -1880,66 +1912,43 @@ article.section_anchor {
         float: left;
         margin-right: 2em;
         margin-bottom: 2em;
-        &:hover {
-            .flipper {
-                .pub_cover, .pub_info {
-                }
-                .pub_info {
-
-                }
+        display: block;
+        position: relative;
+        div.pub_cover, ul.pub_info {
+            @include transition (all .3s ease-in-out); 
+            width: 300px;
+            height: 250px;
+        }
+        div.pub_cover {
+            background-color: #fff;
+            img {
+                height: 100%;
+                /*margin: 0 auto;*/
             }
         }
-        .flipper {
-            transform-style: preserve-3d;
-            display: block;
-            position: relative;
-            div.pub_cover, ul.pub_info {
-                @include transition (all .3s ease-in-out); 
-                width: 300px;
-                height: 250px;
-                position: absolute;
-                top: 0;
-            }
-            div.pub_cover {
-                background-color: #fff;
-                img {
-                    height: 100%;
-                    /*margin: 0 auto;*/
-                }
-            }
+        cursor: pointer;
+        &:hover {
             ul.pub_info {
-                height: 150px; 
-                cursor: pointer;
-                display: block;
-                background-color: rgba(#000, .5);
-                z-index: 1;
-                opacity: 0;
-                @include pad(1em);
-                @include transition (all .3s ease-in-out);
-                &:hover {
-                    opacity: 1;
-                }
                 li {
-                    /*text-align: center;*/
-                    color: #fff;
-                    &:nth-of-type(1) {
-                        font-size: 1em;
-                        font-weight: 600;
-                    }
-                    &:nth-of-type(2) {
-                        @include pad(.5em 0 0 0);
-                    }
-                    a {
-                        display: block;
-                        @include pad(.5em 0 0 0);
-                        font-size: 1.25em;
-                        i {
-                            font-family: fontello;
-                        }
-                        &:hover {
-                            color: #000;
-                        }
-                    }
+                    color: $gray;
+                }   
+            }
+            
+        }
+        ul.pub_info {
+            height: 150px; 
+            cursor: pointer;
+            display: block;
+            z-index: 1;
+            @include pad(1em 0 0 0);
+            li {
+                @include transition (all .2s ease-in-out);
+                color: #000;
+                &:nth-of-type(1) {
+                    font-size: 1em;
+                    font-weight: 600;
+                }
+                &:nth-of-type(2) {
                 }
             }
         }
@@ -1970,7 +1979,7 @@ article.section_anchor {
         .contact_web, .contact_address {
             @include span-columns(4 of 8);
             h4 {
-                font-weight: 500;
+                font-weight: 600;
                 @include pad(0 0 .5em 0);
             }
             p {
@@ -1996,7 +2005,6 @@ article.section_anchor {
                 @include pad(1em 0 0 0);
                 a {
                     font-size: 1.5em;
-                    margin-right: .25em;
                     @include media($mobile) {
                         font-size: 1.5em;
                     }
@@ -2021,7 +2029,7 @@ article.section_anchor {
         h4 {
             @include span-columns(4 of 8);
             @include pad(0 0 .5em 0);
-            font-weight: 500;
+            font-weight: 600;
             @include omega(2n);
         }
         .artists, ul.website {
@@ -2065,7 +2073,7 @@ article.contact_map {
    }*/
     #map-canvas {
         width: 100%;
-        height: 600px;
+        height: 700px;
         @include media($mobile) {
             height: 300px;
         }
@@ -2187,11 +2195,12 @@ footer {
                     a {
                         -webkit-font-smoothing: antialiased;
                         line-height: 1.6em;
-                        font-weight: 500;
-                        text-transform: uppercase;
+                        font-weight: 600;
                         letter-spacing: $nav-spacing;
+                        @include transition (all .2s ease-in-out);
+                                
                         &:hover {
-                            border-bottom: 2px solid black;
+                            color: $gray;
                             @include media($mobile) {
                                 border: 0;
                             }

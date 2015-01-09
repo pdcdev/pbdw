@@ -26,20 +26,22 @@ get_header(); ?>
             <ul class="slides">
                 <?php while( $the_query->have_posts() ) : $the_query->the_post(); ?>
                 <li class="slide">
-                    <div class="featured_project" style="background-image: url('<?php echo get_image( get_field("featured_image"), "full"); ?>');">
-                        <div class="featured_title_container">
-                            <div>
-                                <div class="featured_title">
-                                    <p>Featured Project</p>
-                                    <p class="project_title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
-                                    <?php if(get_field('project_category')) : ?>
-                                    <p class="cats"><?php echo implode(', ', get_field('project_category')); ?></p>
-                                    <?php endif; ?>
+                    <a href="<?php the_permalink(); ?>">
+                        <div class="featured_project" style="background-image: url('<?php echo get_image( get_field("featured_image"), "full"); ?>');">
+                            <div class="featured_title_container">
+                                <div>
+                                    <div class="featured_title">
+                                        <p>Featured Project</p>
+                                        <p class="project_title"><?php the_title(); ?></p>
+                                        <?php if(get_field('project_category')) : ?>
+                                        <p class="cats"><?php echo implode(', ', get_field('project_category')); ?></p>
+                                        <?php endif; ?>
+                                    </div>
                                 </div>
                             </div>
+                            <div class="gradient"></div>
                         </div>
-                        <div class="gradient"></div>
-                    </div>
+                    </a>
                 </li>
                 <?php endwhile; ?>
             </ul>
@@ -59,23 +61,19 @@ get_header(); ?>
 <?php rewind_posts(); ?>
 <?php wp_reset_query(); ?>
     <section class="filter_controls">
-        <div class="cat_dropdown">
-            <p>Category</p>
-            <div class="drop arrow-down"><span id="cat_showing">All</span>
-                <div class="project_categories_container" data-state="active">
-                    <ul>
-                        <li id="proj_all_btn">All</li>
-                        <li id="proj_cultural_btn">Cultural</li>
-                        <li id="proj_commercial_btn">Commercial</li>
-                        <li id="proj_education_btn">Education</li>
-                        <li id="proj_preservation_btn">Preservation</li>
-                        <li id="proj_residential_btn">Residential</li>
-                    </ul>
-                </div>
-            </div>
+        <p class="cat_title">Categories</p>
+        <div class="cats">
+            <ul>
+                <li id="proj_all_btn" class="selected">All</li>
+                <li id="proj_cultural_btn">Cultural</li>
+                <li id="proj_commercial_btn">Commercial</li>
+                <li id="proj_education_btn">Education</li>
+                <li id="proj_preservation_btn">Preservation</li>
+                <li id="proj_residential_btn">Residential</li>
+            </ul>
         </div>
         <div class="grid_list">
-            <p>View By</p><span class="grid_btn active">Grid</span> <span class="list_btn">List</span>
+            <span class="grid_btn active"><i class="icon-grid-sq"></i></span> <span class="list_btn"><i class="icon-list-sq"></i></span>
         </div>
     </section>
     <div class="list_header list_header_hidden">

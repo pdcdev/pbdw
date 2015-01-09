@@ -135,11 +135,22 @@ header, section, aside, .project_breadcrumbs, #team_page {
             color: #fff;
         }
         nav {
+            &.inactive {
+                a.nav_btn {
+                    &:after {
+                        color: #fff;
+                    }
+                }
+            }
             div {
                 ul#menu-primary-navigation {
                     > li {
                         > a {
                             color: #fff;
+                            @include media($tablet) {
+                                color: #000;
+                            }
+                                    
                         }
                         &.current-menu-parent, &.current-menu-item {
                             > a {
@@ -165,12 +176,22 @@ header, section, aside, .project_breadcrumbs, #team_page {
             color: #fff;
         }
         nav {
-            color: #fff;
+            &.inactive {
+                a.nav_btn {
+                    &:after {
+                        color: #fff;
+                    }
+                }
+            }
             div {
                 ul#menu-primary-navigation {
                     > li {
                         > a {
                             color: #fff;
+                            @include media($tablet) {
+                                color: #000;
+                            }
+                                    
                         }
                         &.current-menu-parent, &.current-menu-item {
                             > a {
@@ -197,7 +218,7 @@ header, section, aside, .project_breadcrumbs, #team_page {
         }
         nav {
             color: #fff;
-            div.menu-primary-navigation-container {
+            div {
                 ul#menu-primary-navigation {
                     > li {
                         &.current-menu-parent, &.current-menu-item {
@@ -222,7 +243,7 @@ header, section, aside, .project_breadcrumbs, #team_page {
         }
         nav {
             color: #fff;
-            div.menu-primary-navigation-container {
+            div {
                 ul#menu-primary-navigation {
                     > li {
                         @include span-columns(2 of 8);
@@ -269,6 +290,9 @@ header {
     z-index: 1000;
     @include outer-container;
     @include pad(0 30px);
+    @include media($mobile) {
+        @include pad(0 1em);
+    }
     height: 50px;
     &.white {
         h1 {
@@ -286,6 +310,7 @@ header {
         font-weight: 700;
         line-height: $header_height;
         letter-spacing: $nav-spacing;
+        /*z-index: 100;*/
         @include media($tablet) {
             @include span-columns(8);
         }
@@ -333,6 +358,7 @@ header {
                         right: 0;
                         top:0;
                         font-family: fontello;
+                        color: #000;
                         @include transition (all .1s ease-in-out);
                     }
                 }
@@ -341,6 +367,7 @@ header {
         &.active {
             @include media($tablet) {
                 .nav_container {
+                    z-index: 1;
                     @include media($tablet) {
                         position: fixed;
                         left: 0;
@@ -369,7 +396,7 @@ header {
                         font-size: 1.5em;
                         right: 0;
                         top:0;
-                        /*color: #fff;*/
+                        color: #000;
                         font-family: fontello;
                         @include transition (all .1s ease-in-out);
                     }
@@ -478,7 +505,7 @@ header {
     @include outer-container;
     @include pad(0 30px);
     height: 100%;
-    .home_logo {
+/*    .home_logo {
         z-index: 10;
         position: relative;
         height: 100%;
@@ -487,22 +514,23 @@ header {
         img {
             position: absolute;
             display: block;
-            top: 40%;
+            top: 45%;
         }
-    }
-/*    .home_logo {
-        @include outer-container;
-        @include pad(30px);
+    }*/
+    .home_logo {
+        /*@include outer-container;*/
         z-index: 10;
-        position: relative;
+        position: fixed;
         height: 100%;
         width: 100%;
         background: url('../images/pbdw_logo.png') no-repeat;
-        background-size: 90%;
-        background-position: center center;
+        background-size: 80%;
+        background-position: center;
         pointer-events: none;
-        border: 5px solid blue;
-    }*/
+        top: 0;
+        left: 0;
+        bottom: 0;
+    }
 }
 $random_gray: #d1d4d5;
 
@@ -512,6 +540,9 @@ $random_gray: #d1d4d5;
     font-size: 1em;
     position: relative;
     z-index: 10;
+    @include media($mobile) {
+        @include pad(2em 10px 1em 10px);
+    }
     div.grid_list {
         z-index: 1;
         position: absolute;
@@ -520,14 +551,15 @@ $random_gray: #d1d4d5;
         @include pad(0 30px 0 0);
         @include span-columns(2);
         @include media($tablet) {
+            position: relative;
+            text-align: center;
             @include span-columns(8);
-            @include shift(0);
+            @include pad(2em 0 1em 0);
         }
         @include media($mobile) {
             @include span-columns(4);
             @include pad(2em 0 1em 0);
         }
-        text-transform: uppercase;
         p, span {
             width: 35px;
             i {
@@ -545,21 +577,20 @@ $random_gray: #d1d4d5;
         }
     }
     position: relative;
-    @include media($tablet) {
-        @include span-columns(4);
+/*    @include media($tablet) {
+        @include span-columns(8);
         @include shift(0);
     }
     @include media($mobile) {
         @include span-columns(4);
         @include pad(1em 0);
-    }
+    }*/
     p.cat_title {
         width: 100%;
         text-align: center;
         font-weight: 600;
         @include pad(0 0 1em 0);
         color: $random_gray;
-        /*font-size: 1.25em;*/
     }
     div.cats {
         @include span-columns(12);
@@ -569,24 +600,22 @@ $random_gray: #d1d4d5;
             @include shift(0);
         }
         ul {
-            @include media($mobile) {
-                //@include reset-display;
-                //@include pad(10px);
-            }
-            display: block;
-            /*@include fill-parent();*/
-            @include row(table);
+            display: flex;
+            @include media($tablet) {
+                display: block;
+            }        
             li {
+                flex: 1 100%;
                 @include pad(.4em .5em);
-                @include span-columns(2 of 12);
+                /*@include span-columns(2 of 12);
+                @include omega();*/
                 @include transition (all .3s ease-in-out);
                 @include media($tablet) {
                     @include span-columns(4);
                     @include omega(2n);
                     margin-left: 0;
-                    margin-bottom: 10px;
+                    margin-bottom: 5px;
                 }
-                margin-left: .4em;
                 background-color: $random_gray;
                 font-weight: 600;
                 color: #fff;
@@ -596,13 +625,7 @@ $random_gray: #d1d4d5;
                     color: #fff;
                     background-color: #000;
                 }
-                &:first-child {
-                    /*border-top-left-radius: 2px;*/
-                    /*border-top-right-radius: 2px;*/
-                }
                 &:last-child {
-                    /*border-bottom-left-radius: 2px;*/
-                    /*border-bottom-right-radius: 2px;*/
                     @include reset-display;
                     @include omega();
                 }
@@ -762,18 +785,15 @@ $random_gray: #d1d4d5;
                     width: 100%;
                     div.featured_title {
                         @include pad(500px 30px 0 30px);
-                        /*position: absolute;*/
                         @include span-columns(16);
                         @include media($mobile) {
                             @include pad(0 30px 0 30px);
-                            /*background-color: rgba(aqua, .5);*/
                         }
                         p {
                             width: 100%;
                             text-align: center;
                             color: #fff;
                             font-weight: 600;
-                            /*background-color: rgba(#fff, .9);*/
                         }
                         p.cats {
                             text-transform: capitalize;
@@ -810,8 +830,7 @@ $random_gray: #d1d4d5;
     .featured_nav {
         @include media($tablet) {
             display: none;
-        }
-                
+        } 
         position: absolute;
         top: 0;
         width: 100%;
@@ -883,16 +902,12 @@ $random_gray: #d1d4d5;
         height: auto;
         padding-bottom: 10px;
         box-shadow: 0 0 5px rgba(0,0,0,.2);
-        /*border-top-right-radius: 2px;*/
-        /*border-top-left-radius: 2px;*/
     }
     @include media($mobile) {
         background-color: rgba(255,255,255,.85);
         height: auto;
         padding-bottom: 10px;
         box-shadow: 0 0 5px rgba(0,0,0,.2);
-        /*border-top-right-radius: 2px;*/
-        /*border-top-left-radius: 2px;*/
     }
     div.project_info {
         @include transition (all .3s ease-in-out);
@@ -1244,95 +1259,95 @@ $random_gray: #d1d4d5;
     z-index: 1000;
 }
 #project_page {
-        @include outer-container;
-        @include pad(15px 30px 0 30px);
+    @include outer-container;
+    @include pad(15px 30px 0 30px);
+    @include media($mobile) {
+        @include pad(10px);
+    }
+    .project_breadcrumbs {
+        h3 {
+            @include span-columns(8);
+            @include media($tablet) {
+                @include span-columns(8);
+            }
+            @include media($mobile) {
+                @include span-columns(4);
+            }
+            -webkit-font-smoothing: antialiased;
+            font-weight: 600;
+            color: $gray;
+        }
+        border-bottom: 1px solid $gray;
+        margin-bottom: .75em;
+        padding-bottom: .75em;
+        text-transform: capitalize;
+    }
+    .project_title {
+        @include span-columns(4);
+        @include media($tablet) {
+            @include span-columns(8);       
+        }
+                
         @include media($mobile) {
-            @include pad(10px);
-        }
-        .project_breadcrumbs {
-            h3 {
-                @include span-columns(8);
-                @include media($tablet) {
-                    @include span-columns(8);
-                }
-                @include media($mobile) {
-                    @include span-columns(4);
-                }
-                -webkit-font-smoothing: antialiased;
-                font-weight: 600;
-                color: $gray;
-            }
-            border-bottom: 1px solid $gray;
-            margin-bottom: .75em;
-            padding-bottom: .75em;
-            text-transform: capitalize;
-        }
-        .project_title {
             @include span-columns(4);
+        }
+        h2 {
+            font-size: 24/16*1em;
+            font-weight: 700;
             @include media($tablet) {
-                @include span-columns(8);       
-            }
-                    
-            @include media($mobile) {
-                @include span-columns(4);
-            }
-            h2 {
-                font-size: 24/16*1em;
-                font-weight: 700;
-                @include media($tablet) {
-                    @include pad(0 0 .5em 0);
-                }
+                @include pad(0 0 .5em 0);
             }
         }
-        .project_details {
+    }
+    .project_details {
+        @include span-columns(4);
+        @include shift(1);
+        @include media($tablet) {
+            @include span-columns(8);
+            @include pad(1em 0);
+            @include shift(0);    
+        }
+        @include media($mobile) {
             @include span-columns(4);
-            @include shift(1);
-            @include media($tablet) {
-                @include span-columns(8);
-                @include pad(1em 0);
-                @include shift(0);    
-            }
-            @include media($mobile) {
-                @include span-columns(4);
-                @include shift(0);
-                @include pad(5px 0 0 0);
-                border-top: 1px solid $gray;
-                margin-top: .5em;
-            }
-            h5 {
-                font-weight: 700;
-            }
-            p {
-                margin-bottom: 1em;
-                &:last-child {
-                    margin-bottom: 0;
-                }
-            }
-            .download_pdf {
-                &:hover {
-                    color:$gray;
-                }
+            @include shift(0);
+            @include pad(5px 0 0 0);
+            border-top: 1px solid $gray;
+            margin-top: .5em;
+        }
+        h5 {
+            font-weight: 700;
+        }
+        p {
+            margin-bottom: 1em;
+            &:last-child {
+                margin-bottom: 0;
             }
         }
-        .project_description {
-            @include span-columns(7);
-            @include media($tablet) {
-                @include span-columns(8);       
-            }
-            @include media($mobile) {
-                @include span-columns(4);
-            }
-            p {
-                margin-bottom: 1em;
-            }
-            .pullquote {
-                font-weight: 500;
-                font-size: 24/16 * 1em;
-                font-style: italic;
-                margin-bottom: .6em;
-                color: #B5BAC0;
+        .download_pdf {
+            &:hover {
+                color:$gray;
             }
         }
+    }
+    .project_description {
+        @include span-columns(7);
+        @include media($tablet) {
+            @include span-columns(8);       
+        }
+        @include media($mobile) {
+            @include span-columns(4);
+        }
+        p {
+            margin-bottom: 1em;
+        }
+        .pullquote {
+            font-weight: 500;
+            font-size: 24/16 * 1em;
+            font-style: italic;
+            margin-bottom: .6em;
+            color: #B5BAC0;
+        }
+    }
 }
 ol.flex-control-nav {
     position: absolute;
@@ -1361,7 +1376,6 @@ ol.flex-control-nav {
     }
 }
 #projectslider {
-    /*opacity: 0;*/
     top: 0;
     width: 100%;
     background-color: #000;
@@ -1382,12 +1396,9 @@ ol.flex-control-nav {
             position: relative;
             width: 100%;
             height: 100%;
-            /*display: none;*/
             @include media($mobile) {
                 display: block;
                 border-bottom: 4px solid #000;
-                &:last-child {
-                }
             }
             div {
                 background-size: cover;
@@ -1468,7 +1479,6 @@ ol.flex-control-nav {
     }
     h6 {
         @include pad(10px 0);
-        /*text-transform: uppercase;*/
         font-weight: 600;
         color: $gray;
         font-size: .9;
@@ -1634,10 +1644,10 @@ ol.flex-control-nav {
     @include outer-container;
     @include pad(100px 30px 0 30px);
     @include media($tablet) {
-        @include pad(0 30px);
+        @include pad(100px 30px 0 30px);
     }
     @include media($mobile) {
-        @include pad(0 10px);
+        @include pad(60px 30px 0 30px);
     }
     .project_breadcrumbs {
         h3 {
@@ -1664,9 +1674,17 @@ ol.flex-control-nav {
             @include shift(1);
             background-size: cover;
             background-position: center;
+            @include media($tablet) {
+                @include shift(0);
+                @include span-columns(4);
+            }     
         }
         .member_header {
             @include span-columns(4);
+            @include media($tablet) {
+                @include span-columns(8);
+            }
+                    
             h3, p {
                 font-size: 1.2em;
                 font-weight: 700;
@@ -1682,6 +1700,10 @@ ol.flex-control-nav {
         .member_description {
             /*@extend .text_column;*/
             @include span-columns(7);
+            @include media($tablet) {
+                @include span-columns(8);
+                @include pad(1em 0 0 0);
+            }
             p {
                 font-size: 1.25em;
                 color: $gray;
@@ -1824,7 +1846,6 @@ article.section_anchor {
             @include shift(0);
             @include span-columns(4);
         }
-                
         div {
             p {
                 font-size: 1.25em;
@@ -1905,7 +1926,6 @@ article.section_anchor {
     @include outer-container;
     @include pad(0 30px 30px 30px);
     height: auto;
-    perspective: 1000;
     .pub_item {
         position: relative;
         display: inline;
@@ -1916,14 +1936,13 @@ article.section_anchor {
         position: relative;
         div.pub_cover, ul.pub_info {
             @include transition (all .3s ease-in-out); 
-            width: 300px;
+            width: 290px;
             height: 250px;
         }
         div.pub_cover {
             background-color: #fff;
             img {
                 height: 100%;
-                /*margin: 0 auto;*/
             }
         }
         cursor: pointer;
@@ -1933,7 +1952,6 @@ article.section_anchor {
                     color: $gray;
                 }   
             }
-            
         }
         ul.pub_info {
             height: 150px; 
@@ -1965,7 +1983,6 @@ article.section_anchor {
         @include pad(10px);
     }
     article {
-        /*@include span-columns(8 of 16);*/
         @include media($tablet) {
             @include span-columns(8);
             margin-bottom: .5em;
@@ -2020,7 +2037,6 @@ article.section_anchor {
                 @include pad(0 0 1em 0);
                 @include span-columns(4);
             }
-                    
         }
     }
     article.credits {
@@ -2065,19 +2081,12 @@ article.section_anchor {
 }
 article.contact_map {
     @include clearfix;
-/*    @include media($tablet) {
-        height: 400px;
-    }
-    @include media($mobile) {
-       height: 282px;
-   }*/
     #map-canvas {
         width: 100%;
         height: 700px;
         @include media($mobile) {
             height: 300px;
         }
-                
     }
 }
 .gmnoprint img {

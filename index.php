@@ -9,7 +9,7 @@
                                 <?php while ( have_rows('home_featured') ) : the_row(); ?>
                                     <li class="slide">
                                         <?php $project = get_sub_field("project"); ?>
-                                        <div class="window_size" style="background-image: url( <?php echo get_image( get_sub_field('home_page_image'), "cover_nocrop"); ?> );">
+                                        <div class="" style="background-image: url( <?php echo get_image( get_sub_field('home_page_image'), "cover_nocrop"); ?> );">
                                             <div class="project_title">
                                                 <h3>
                                                     <a href="<?php echo get_permalink( $project->ID ); ?>">
@@ -26,8 +26,8 @@
                 <?php endif;  ?>
         </article>
         <div class="home_logo_container">
-            <div class="home_logo window_size">
-                <img src="<?php bloginfo('stylesheet_directory'); ?>/images/pbdw_logo.png">
+            <div class="home_logo">
+                <!-- <img src="<?php bloginfo('stylesheet_directory'); ?>/images/pbdw_logo.png"> -->
             </div>
         </div>
     </div>

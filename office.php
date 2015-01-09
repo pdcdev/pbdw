@@ -26,7 +26,7 @@ get_header(); ?>
             </div>
         </article>
     </section>
-    <article id="team_anchor" class="section_anchor" style="background-image: url('<?php echo get_image(get_field('team_bg_image'),"full"); ?>')">
+    <article class="section_anchor" style="background-image: url('<?php echo get_image(get_field('team_bg_image'),"full"); ?>')">
         <div class="vertical_center_parent">
             <p class="vertical_center"></p>
             <div class="divhelper"></div>
@@ -39,7 +39,7 @@ get_header(); ?>
     ?>
 
     <?php if ( have_posts() ) : ?>
-    <div class="subsection_title">
+    <div id="team_anchor" class="subsection_title">
         <h2>Leadership Team</h2>
     </div>
     <section id="team_grid">
@@ -151,10 +151,10 @@ get_header(); ?>
             <?php if( get_field('publications') ) : ?>
                 <?php while( has_sub_field('publications') ): ?>
                     <div class="pub_item">
-                        <div class="pub_cover">
-                            <img src="<?php the_sub_field('publication_image'); ?>" />
-                        </div>
                         <a href="<?php the_sub_field('url'); ?>" target="_blank">
+                            <div class="pub_cover">
+                                <img src="<?php the_sub_field('publication_image'); ?>" />
+                            </div>
                             <ul class="pub_info">
                                 <li><?php the_sub_field('book_name'); ?></li>
                                 <li><?php the_sub_field('press'); ?></li>

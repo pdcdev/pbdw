@@ -13,7 +13,6 @@ var asc = false,
 
     function size_foursix() {
         foursix.each(function(){
-            // $(this).css("height", Math.round($(this).width()) + "px");
             $(this).css("height", Math.round($(this).width()*1.5) + "px");
         });
     }
@@ -81,7 +80,6 @@ var asc = false,
             list_btn.addClass("active");
 
             list_header.removeClass('list_header_hidden').addClass("list_header_visible");
-            // sortToggle(alpha_btn,"title");
 
             alpha_btn.removeClass("inactive").addClass("active");
 
@@ -164,6 +162,9 @@ var asc = false,
         featured_title.css("padding-top",slider_height-featured_title_height*1.5+"px");
     }
     $(window).resize(function(){
+        reposition_feature_title();
+    });
+    $(window).load(function(){
         reposition_feature_title();
     });
     reposition_feature_title();

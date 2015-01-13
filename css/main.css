@@ -143,8 +143,13 @@ header, section, aside, .project_breadcrumbs, #team_page {
       position: absolute; } }
   #header_container.dark_transparent {
     background-color: transparent; }
+    @media screen and (max-width: 768px) {
+      #header_container.dark_transparent {
+        background-color: rgba(0, 0, 0, 0.25); } }
     #header_container.dark_transparent h1 {
       color: #fff; }
+      #header_container.dark_transparent h1 span {
+        color: #fff; }
     #header_container.dark_transparent nav.inactive a.nav_btn:after {
       color: #fff; }
     #header_container.dark_transparent nav div ul#menu-primary-navigation > li > a {
@@ -162,6 +167,8 @@ header, section, aside, .project_breadcrumbs, #team_page {
     background-color: transparent; }
     #header_container.home h1 {
       color: #fff; }
+      #header_container.home h1 span {
+        color: #fff; }
     #header_container.home nav.inactive a.nav_btn:after {
       color: #fff; }
     #header_container.home nav div ul#menu-primary-navigation > li > a {
@@ -236,10 +243,6 @@ header {
   @media screen and (max-width: 480px) {
     header {
       padding: 0 1em; } }
-  header.white h1 {
-    color: #FFF; }
-  header.black h1 {
-    color: #000; }
   header h1 {
     -webkit-font-smoothing: antialiased;
     display: block;
@@ -263,7 +266,8 @@ header {
     header h1 span {
       margin-left: .25em;
       font-weight: 500;
-      letter-spacing: 0.25em; }
+      letter-spacing: 0.25em;
+      color: #a3a9ac; }
     header h1 a {
       padding-top: 0.75em;
       text-transform: uppercase; }
@@ -516,6 +520,9 @@ header {
   color: #a3a9ac;
   text-transform: capitalize;
   font-weight: 400; }
+  @media screen and (max-width: 768px) {
+    .filter_controls {
+      padding: 2em 30px 1em 30px; } }
   @media screen and (max-width: 480px) {
     .filter_controls {
       padding: 2em 10px 1em 10px; } }
@@ -525,12 +532,7 @@ header {
     right: 0;
     text-align: right;
     padding: 0 30px 0 0;
-    display: block;
-    float: left;
-    margin-right: 0.62893%;
-    width: 11.94969%; }
-    .filter_controls div.grid_list:last-child {
-      margin-right: 0; }
+    /*@include span-columns(2);*/ }
     @media screen and (max-width: 768px) {
       .filter_controls div.grid_list {
         position: relative;
@@ -787,9 +789,9 @@ header {
     .featured_projects_container .featured_projects_flexslider .featured_project {
       background-size: cover;
       background-position: center;
-      height: 700px;
       width: 100%;
-      position: relative; }
+      position: relative;
+      height: 700px; }
       @media screen and (max-width: 768px) {
         .featured_projects_container .featured_projects_flexslider .featured_project {
           height: 500px; } }
@@ -801,7 +803,6 @@ header {
         max-width: 87.5em;
         margin-left: auto;
         margin-right: auto;
-        position: relative;
         z-index: 2000; }
         .featured_projects_container .featured_projects_flexslider .featured_project .featured_title_container:before, .featured_projects_container .featured_projects_flexslider .featured_project .featured_title_container:after {
           content: " ";
@@ -814,30 +815,67 @@ header {
           margin-right: 0.62893%;
           width: 100%;
           position: relative;
-          height: 100%;
-          width: 100%; }
+          width: 100%;
+          height: 700px;
+          /*                    div.featured_title {
+                                  @include pad(500px 30px 0 30px);
+                                  @include span-columns(16);
+                                  @include media($mobile) {
+                                      @include pad(0 30px 0 30px);
+                                  }
+                                  p {
+                                      width: 100%;
+                                      text-align: center;
+                                      color: #fff;
+                                      font-weight: 600;
+                                  }
+                                  p.cats {
+                                      text-transform: capitalize;
+                                      font-weight: 600;
+                                  }
+                                  p.project_title {
+                                      @include transition (all .2s ease-in-out);
+                                      @include pad(.20em 0 .25em 0);
+                                      margin: 0 auto;
+                                      cursor: pointer;
+                                      display: block;
+                                      text-align: center;
+                                      font-weight: 600;
+                                      font-size: 2.5em;
+                                      @include media($mobile) {
+                                          font-size: 1.5em;
+                                      }
+                                              
+                                  }
+                              }*/ }
           .featured_projects_container .featured_projects_flexslider .featured_project .featured_title_container > div:last-child {
             margin-right: 0; }
-          .featured_projects_container .featured_projects_flexslider .featured_project .featured_title_container > div div.featured_title {
-            padding: 500px 30px 0 30px;
-            display: block;
-            float: left;
-            margin-right: 0.62893%;
-            width: 100%; }
-            .featured_projects_container .featured_projects_flexslider .featured_project .featured_title_container > div div.featured_title:last-child {
-              margin-right: 0; }
+          @media screen and (max-width: 768px) {
+            .featured_projects_container .featured_projects_flexslider .featured_project .featured_title_container > div {
+              height: 500px; } }
+          @media screen and (max-width: 480px) {
+            .featured_projects_container .featured_projects_flexslider .featured_project .featured_title_container > div {
+              height: 400px; } }
+          .featured_projects_container .featured_projects_flexslider .featured_project .featured_title_container > div div.featured_project_title {
+            padding: 0 30px;
+            width: 100%;
+            position: absolute;
+            opacity: 1;
+            bottom: 3em;
+            height: 100px;
+            z-index: 100; }
             @media screen and (max-width: 480px) {
-              .featured_projects_container .featured_projects_flexslider .featured_project .featured_title_container > div div.featured_title {
-                padding: 0 30px 0 30px; } }
-            .featured_projects_container .featured_projects_flexslider .featured_project .featured_title_container > div div.featured_title p {
+              .featured_projects_container .featured_projects_flexslider .featured_project .featured_title_container > div div.featured_project_title {
+                bottom: 1em; } }
+            .featured_projects_container .featured_projects_flexslider .featured_project .featured_title_container > div div.featured_project_title p {
               width: 100%;
               text-align: center;
               color: #fff;
               font-weight: 600; }
-            .featured_projects_container .featured_projects_flexslider .featured_project .featured_title_container > div div.featured_title p.cats {
+            .featured_projects_container .featured_projects_flexslider .featured_project .featured_title_container > div div.featured_project_title p.cats {
               text-transform: capitalize;
               font-weight: 600; }
-            .featured_projects_container .featured_projects_flexslider .featured_project .featured_title_container > div div.featured_title p.project_title {
+            .featured_projects_container .featured_projects_flexslider .featured_project .featured_title_container > div div.featured_project_title p.project_title {
               -webkit-transition: all 0.2s ease-in-out;
               -moz-transition: all 0.2s ease-in-out;
               transition: all 0.2s ease-in-out;
@@ -849,7 +887,7 @@ header {
               font-weight: 600;
               font-size: 2.5em; }
               @media screen and (max-width: 480px) {
-                .featured_projects_container .featured_projects_flexslider .featured_project .featured_title_container > div div.featured_title p.project_title {
+                .featured_projects_container .featured_projects_flexslider .featured_project .featured_title_container > div div.featured_project_title p.project_title {
                   font-size: 1.5em; } }
       .featured_projects_container .featured_projects_flexslider .featured_project div.gradient {
         z-index: 1;
@@ -1836,7 +1874,7 @@ ol.flex-control-nav {
       padding: 100px 30px 0 30px; } }
   @media screen and (max-width: 480px) {
     #team_page {
-      padding: 60px 30px 0 30px; } }
+      padding: 60px 10px 0 10px; } }
   #team_page .project_breadcrumbs {
     border-bottom: 1px solid #a3a9ac;
     margin-bottom: .75em;
@@ -1887,6 +1925,14 @@ ol.flex-control-nav {
           float: left;
           margin-right: 1.26582%;
           width: 49.36709%; }
+          #team_page .member .member_image:last-child {
+            margin-right: 0; } }
+      @media screen and (max-width: 480px) {
+        #team_page .member .member_image {
+          display: block;
+          float: left;
+          margin-right: 2.5641%;
+          width: 100%; }
           #team_page .member .member_image:last-child {
             margin-right: 0; } }
     #team_page .member .member_header {
@@ -2042,7 +2088,7 @@ article.section_anchor {
       height: 500px; } }
   @media screen and (max-width: 480px) {
     article.section_anchor {
-      height: 400px; } }
+      height: 450px; } }
   article.section_anchor > div {
     height: 100%;
     width: 99%;
@@ -2057,7 +2103,8 @@ article.section_anchor {
       bottom: 2em; }
       @media screen and (max-width: 480px) {
         article.section_anchor > div p {
-          font-size: 2em; } }
+          font-size: 1.75em;
+          bottom: 1em; } }
 
 #profile {
   *zoom: 1;

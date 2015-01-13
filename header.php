@@ -61,20 +61,3 @@
           <?php if(is_page("projects") || is_page("contact")): ?>
             <div class="header_ghost"></div>
           <?php endif; ?>
-  <!--           <div id="header_container" class="relative">
-            <header class="main_nav">
-                <h1 class="black"><a href="<?php echo home_url(); ?>">PBDW <span>ARCHITECTS</span></a></h1>
-                <div class="mobile_menu_btn">
-                    <div class="menu_icon"></div>
-                </div>
-                <nav data-visibility="0" class="nav_hidden">
-                    <?php
-                        $args = array(
-                            'menu' => 'main-menu',
-                            'echo' => false
-                        );
-                        echo wp_nav_menu( $args );
-                    ?>
-                </nav>
-            </header>
-        </div> -->

@@ -39,25 +39,28 @@ get_header(); ?>
         <h4>Artist Credits</h4><h4>Website Development</h4>
 
         <div class="artists">
-        <?php while( has_sub_field('artwork_credit') ):?>
-                <?php if(get_sub_field('artist_url')): ?>
-                    <a href="<?php the_sub_field('artist_url'); ?>" target="_blank"><?php the_sub_field('name-entity'); ?></a>, 
-                <?php else: ?>
-                    <?php the_sub_field('name-entity'); ?>,
-                <?php endif; ?>
-        <?php endwhile; ?>
+
+        <?php
+            $artist_string = [];
+            while( has_sub_field('artwork_credit') ) {
+                if( get_sub_field('artist_url') ) {
+                    $artist_string[] = "<a href=" . get_sub_field('artist_url') . " target='_blank'>" . get_sub_field('name-entity') . "</a>";
+                } else {
+                    $artist_string[] = get_sub_field('name-entity');
+                }
+            }
+
+            $arist_count = count($artist_string);
+            $i = 0;
+            foreach( $artist_string as $artist ) {
+                if(++$i != $arist_count) {
+                    echo $artist . ", ";
+                } else {
+                    echo $artist . ".";
+                }
+            }
+        ?>
         </div>
-<!--         <ul class="artists">
-        <?php while( has_sub_field('artwork_credit') ): ?>
-            <li>
-                <?php if(get_sub_field('artist_url')): ?>
-                    <a href="<?php the_sub_field('artist_url'); ?>" target="_blank"><?php the_sub_field('name-entity'); ?></a>
-                <?php else: ?>
-                    <?php the_sub_field('name-entity'); ?>
-                <?php endif; ?>
-            </li>
-        <?php endwhile; ?>
-        </ul> -->
 
         <ul class="website">
         <?php while( has_sub_field('website_credit') ): ?>
@@ -78,16 +81,16 @@ get_header(); ?>
             <?php if( get_field('opportunities') ) : ?>
         <div class="contact_breadcrumbs">
             <div>
-                <p><span></span><span>Opportunities</span></p>
+                <p><span>Opportunities</span></p>
             </div>
         </div>
         <section id="jobs">
             <?php while( has_sub_field('opportunities') ): ?>
             <article class="jobs_item">
-                    <h4 class="pos_name"><?php the_sub_field('position_name'); ?></h4>
-                    <p><?php the_sub_field('position_description'); ?></p>
-                    <h4 class="qualifications">Qualifications</h4>
-                    <p><?php the_sub_field('position_qualifications'); ?></p>
+                <h4 class="pos_name"><?php the_sub_field('position_name'); ?></h4>
+                <p><?php the_sub_field('position_description'); ?></p>
+                <h4 class="qualifications">Qualifications</h4>
+                <p><?php the_sub_field('position_qualifications'); ?></p>
             </article>
             <?php endwhile; ?>
         </section>

@@ -131,8 +131,14 @@ header, section, aside, .project_breadcrumbs, #team_page {
     }
     &.dark_transparent {
         background-color: transparent;
+        @include media($tablet) {
+            background-color: rgba(#000, .25);
+        }
         h1 {
             color: #fff;
+            span {
+                color: #fff;
+            }
         }
         nav {
             &.inactive {
@@ -149,8 +155,7 @@ header, section, aside, .project_breadcrumbs, #team_page {
                             color: #fff;
                             @include media($tablet) {
                                 color: #000;
-                            }
-                                    
+                            }           
                         }
                         &.current-menu-parent, &.current-menu-item {
                             > a {
@@ -174,6 +179,9 @@ header, section, aside, .project_breadcrumbs, #team_page {
         background-color: transparent;
         h1 {
             color: #fff;
+            span {
+                color: #fff;
+            }
         }
         nav {
             &.inactive {
@@ -190,8 +198,7 @@ header, section, aside, .project_breadcrumbs, #team_page {
                             color: #fff;
                             @include media($tablet) {
                                 color: #000;
-                            }
-                                    
+                            }    
                         }
                         &.current-menu-parent, &.current-menu-item {
                             > a {
@@ -294,16 +301,6 @@ header {
         @include pad(0 1em);
     }
     height: 50px;
-    &.white {
-        h1 {
-            color: #FFF;
-        }
-    }
-    &.black {
-        h1 {
-            color: #000;
-        }
-    }
     h1 {
         -webkit-font-smoothing: antialiased;
         @include span-columns(4);
@@ -318,6 +315,7 @@ header {
             margin-left: .25em;
             font-weight: 500;
             letter-spacing: $arch-spacing;
+            color: $gray;
         }
         a {
             padding-top: 12/16*1em;
@@ -540,6 +538,9 @@ $random_gray: #d1d4d5;
     font-size: 1em;
     position: relative;
     z-index: 10;
+    @include media($tablet) {
+        @include pad(2em 30px 1em 30px);
+    }
     @include media($mobile) {
         @include pad(2em 10px 1em 10px);
     }
@@ -549,7 +550,7 @@ $random_gray: #d1d4d5;
         right: 0;
         text-align: right;
         @include pad(0 30px 0 0);
-        @include span-columns(2);
+        /*@include span-columns(2);*/
         @include media($tablet) {
             position: relative;
             text-align: center;
@@ -765,9 +766,9 @@ $random_gray: #d1d4d5;
         .featured_project {
             background-size: cover;
             background-position: center;
-            height: 700px;
             width: 100%;
             position: relative;
+            height: 700px;
             @include media($tablet) {
                 height: 500px;
             }
@@ -776,14 +777,55 @@ $random_gray: #d1d4d5;
             }
             .featured_title_container {
                 @include outer-container;
-                position: relative;
                 z-index: 2000;
                 > div {
                     @include span-columns(16);
                     position: relative;
-                    height: 100%;
                     width: 100%;
-                    div.featured_title {
+                    height: 700px;
+                    @include media($tablet) {
+                        height: 500px;
+                    }
+                    @include media($mobile) {
+                        height: 400px;
+                    }
+                    div.featured_project_title {
+                        @include pad(0 30px);
+                        @include media($mobile) {
+                            bottom: 1em;
+                        }
+                        width: 100%;
+                        position: absolute;
+                        opacity: 1;
+                        bottom: 3em;
+                        height: 100px;
+                        z-index: 100;
+                        p {
+                            width: 100%;
+                            text-align: center;
+                            color: #fff;
+                            font-weight: 600;
+                        }
+                        p.cats {
+                            text-transform: capitalize;
+                            font-weight: 600;
+                        }
+                        p.project_title {
+                            @include transition (all .2s ease-in-out);
+                            @include pad(.20em 0 .25em 0);
+                            margin: 0 auto;
+                            cursor: pointer;
+                            display: block;
+                            text-align: center;
+                            font-weight: 600;
+                            font-size: 2.5em;
+                            @include media($mobile) {
+                                font-size: 1.5em;
+                            }
+                                    
+                        }
+                    }
+/*                    div.featured_title {
                         @include pad(500px 30px 0 30px);
                         @include span-columns(16);
                         @include media($mobile) {
@@ -813,7 +855,7 @@ $random_gray: #d1d4d5;
                             }
                                     
                         }
-                    }
+                    }*/
                 }
             }
             div.gradient {
@@ -1526,9 +1568,6 @@ ol.flex-control-nav {
     &:hover {
         color: rgba(255,255,255,1);
     }
-    @include media($tablet) {
-        
-    }
     @include media($mobile) {
         display: none;
     }
@@ -1647,7 +1686,7 @@ ol.flex-control-nav {
         @include pad(100px 30px 0 30px);
     }
     @include media($mobile) {
-        @include pad(60px 30px 0 30px);
+        @include pad(60px 10px 0 10px);
     }
     .project_breadcrumbs {
         h3 {
@@ -1677,14 +1716,16 @@ ol.flex-control-nav {
             @include media($tablet) {
                 @include shift(0);
                 @include span-columns(4);
-            }     
+            }
+            @include media($mobile) {
+                @include span-columns(4);
+            }
         }
         .member_header {
             @include span-columns(4);
             @include media($tablet) {
                 @include span-columns(8);
             }
-                    
             h3, p {
                 font-size: 1.2em;
                 font-weight: 700;
@@ -1810,7 +1851,7 @@ article.section_anchor {
         height: 500px;
     }
     @include media($mobile) {
-        height: 400px;
+        height: 450px;
     }
     > div {
         height: 100%;
@@ -1825,7 +1866,8 @@ article.section_anchor {
             font-weight: 600;
             bottom: 2em;
             @include media($mobile) {
-                font-size: 2em;
+                font-size: 1.75em;
+                bottom: 1em;
             }
         }
     }

@@ -3,7 +3,7 @@
     Template Name: Office Page
 */
 get_header(); ?>
-<div class="wait global_hidden">
+<div>
     <div class="context vertical_center_parent">
         <div class="vertical_center">
             <div class="dot profile_btn current"></div>

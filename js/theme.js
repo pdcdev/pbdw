@@ -22,7 +22,7 @@ jQuery(document).ready(function($) {
             video: false,
             controlNav: false,
             directionNav: false,
-            useCSS: true,
+            useCSS: false,
             startAt: 0,
         });
 

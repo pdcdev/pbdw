@@ -84,79 +84,29 @@
             <?php if (get_field( 'project_pdf' )) : ?>
                 <h5><a href="<?php the_field( 'project_pdf' ); ?>" class="download_pdf" target="_blank">Project PDF <i class="icon-download"></i> </a></h5>
             <?php endif; ?>
-            
             </div>
-            <?php endwhile; endif; ?>
         </section>
-            <?php
-                $categories = get_field( 'project_category' );
 
-                if( $categories ):
-            ?>
-
-        <section class="cat_thumbs">
-            <h6>Similar Projects</h6>
-            <div class="more_cat_thumbs">
-            <?php
-
-                global $wp_query;
-                $thePostID = $wp_query->post->ID;
-
-                if(count($categories) > 1) {
-                    $cats = array(
-                        'relation' => 'OR',
-                        array(
-                            'key'     => 'project_category',
-                            'value'   => $categories[0],
-                            'compare' => 'LIKE'
-                        ),
-                        array(
-                            'key'     => 'project_category',
-                            'value'   => $categories[1],
-                            'compare' => 'LIKE'
-                        )
-                    );
-                } else {
-                    $cats = array(
-                        'relation' => 'OR',
-                        array(
-                            'key'     => 'project_category',
-                            'value'   => $categories[0],
-                            'compare' => 'LIKE'
-                        )
-                    );
-                }
-
-                $args = array(
-                    'post_type' => 'projects',
-                    'post__not_in' => array($thePostID),
-                    'meta_query' => $cats
-                );
-
-                $the_query = new WP_Query( $args );
-
-            ?>
-                <?php if ( $the_query->have_posts() ) : ?>
-
-                    <?php while( $the_query->have_posts() ) : $the_query->the_post(); ?>
-                    <?php
-                        $attachment_id = get_field('featured_image');
-                        $size = "thumbnail";
-
-                        $image = wp_get_attachment_image_src( $attachment_id, $size );
-                    ?>
+        <?php if( get_field('similar_projects') ) : ?>
+        <?php $related_posts = get_field('similar_projects'); ?>
+            <?php if( $related_posts ): ?>
+                <section class="cat_thumbs">
+                    <h6>Similar Projects</h6>
+                    <div class="more_cat_thumbs">
+                <?php foreach( $related_posts as $related_post ): ?>
+                <?php $post = $related_post; setup_postdata($post); ?>
                     <div>
-                        <div class="cat_cube square" style="background-image: url(<?php echo $image[0]; ?>)">
-                            <a href="<?php the_permalink(); ?>">
-                                <div class="cat_cube_info">
-                                    <p><?php the_title(); ?></p>
-                                </div>
-                            </a>
+                        <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+                        <div class="cat_cube square" style="background-image: url(<?php echo get_image( get_field("featured_image"), "cube"); ?>);">
                         </div>
+                        </a>
                     </div>
-                <?php endwhile; endif; ?>
-            </div>
-        </section>
-    <?php endif; ?>
+                <?php endforeach; ?>
+                    </div>
+                </section>
+            <?php endif; ?>
+        <?php endif; ?>
+
+        <?php endwhile; endif; ?>
 </div>
 <?php get_footer(); ?>

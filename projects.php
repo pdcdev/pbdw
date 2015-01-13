@@ -3,7 +3,6 @@
     Template Name: Project Page
 */
 get_header(); ?>
-<!-- <div class="fadein global_hidden"> -->
     <?php
         global $post;
         $the_category = $post->post_name;
@@ -30,13 +29,6 @@ get_header(); ?>
                         <div class="featured_project" style="background-image: url('<?php echo get_image( get_field("featured_image"), "full"); ?>');">
                             <div class="featured_title_container">
                                 <div>
-<!--                                     <div class="featured_title">
-                                        <p>Featured Project</p>
-                                        <p class="project_title"><?php the_title(); ?></p>
-                                        <?php if(get_field('project_category')) : ?>
-                                        <p class="cats"><?php echo implode(', ', get_field('project_category')); ?></p>
-                                        <?php endif; ?>
-                                    </div> -->
                                     <div class="featured_project_title">
                                         <p>Featured Project</p>
                                         <p class="project_title"><?php the_title(); ?></p>
@@ -99,5 +91,4 @@ get_header(); ?>
     <section id="projects_grid" data-view="grid">
 
     </section>
-<!-- </div> --> <!-- fadein -->
 <?php get_footer(); ?>

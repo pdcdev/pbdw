@@ -34,8 +34,14 @@
         <section class="cat_thumbs">
             <h6>Leaders</h6>
             <div class="more_cat_thumbs">
-                <?php 
-                    $args = array( 'post_type' => 'team' );
+                <?php
+                    global $wp_query;
+                    $thePostID = $wp_query->post->ID;
+
+                    $args = array(
+                        'post_type' => 'team',
+                        'post__not_in' => array($thePostID)
+                    );
 
                     $the_query = new WP_Query( $args );
                 ?>

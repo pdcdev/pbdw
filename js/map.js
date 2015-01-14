@@ -5,13 +5,11 @@ var loc = new google.maps.LatLng(40.741387,-73.991672);
 
 var MY_MAPTYPE_ID = 'custom_style';
 
-// Leandra, the values below control the basic colors in the map
-
-var landbg   = "#eeeeee";
-var highways = "#aaaaaa";
-var roads    = "#ffffff";
-var water    = "#ffffff";
-var parks    = "#90d690";
+var landbg   = "#f5f5f5";
+var highways = "#f5f5f5";
+var roads    = "#d6d6d6";
+var water    = "#d6d6d6";
+var parks    = "#ceedd6";
 
 function initialize() {
 

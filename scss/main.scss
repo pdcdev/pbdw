@@ -326,6 +326,7 @@ header {
         @include span-columns(8);
         @include shift(4);
         @include transition (all .3s ease-in-out);
+
         &.inactive {
             @include media($tablet) {
                 .nav_container {
@@ -405,15 +406,7 @@ header {
             @include transition (all .3s ease-in-out);
             &:before, ul { 
               display: inline-block; 
-              vertical-align: middle; 
-            }
-            &:before {
-                  content: ''; 
-                  display: inline-block; 
-                  width: 0; 
-                  height: 100%; 
-                  vertical-align: middle; 
-                  margin-left: -0.25em;
+              vertical-align: middle;
             }
             ul {
                 @include transition (all .3s ease-in-out);
@@ -428,6 +421,7 @@ header {
                         cursor: pointer;
                         line-height: 50px;
                         color: $gray;
+                        margin-left: .5em;
                         @include media($tablet) {
                             @include pad(.5em 0);
                             display: block;
@@ -435,10 +429,6 @@ header {
                             font-size: 3em;
                             text-align: center;
                             color: $gray;
-                            &:after {
-                                content:"";
-                                display: none;
-                            }
                             &:hover {
                                 background-color: #fff;
                                 /*color: #000;*/
@@ -601,15 +591,21 @@ $random_gray: #d1d4d5;
             @include shift(0);
         }
         ul {
-            display: flex;
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex; 
             @include media($tablet) {
                 display: block;
             }        
             li {
+                -webkit-box-flex: 1 100%;
+                -moz-box-flex: 1 100%;
+                -webkit-flex: 1 100%;
+                -ms-flex: 1 100%;
                 flex: 1 100%;
                 @include pad(.4em .5em);
-                /*@include span-columns(2 of 12);
-                @include omega();*/
                 @include transition (all .3s ease-in-out);
                 @include media($tablet) {
                     @include span-columns(4);
@@ -1976,9 +1972,19 @@ article.section_anchor {
         margin-bottom: 2em;
         display: block;
         position: relative;
+        @include span-columns(4);
+        @include omega(4n);
+        @include media($tablet) {
+            @include span-columns(4);
+            @include omega(2n);
+        }
+        @include media($mobile) {
+            @include span-columns(4);
+            @include omega();
+        }
+                
         div.pub_cover, ul.pub_info {
             @include transition (all .3s ease-in-out); 
-            width: 290px;
             height: 250px;
         }
         div.pub_cover {

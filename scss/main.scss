@@ -116,6 +116,15 @@ header, section, aside, .project_breadcrumbs, #team_page {
 .header_ghost {
     height: 50px;
 }
+.slideDown {
+    margin-top: 0;
+}
+.slideUp {
+    margin-top: $header_height * -1;
+    @include media($tablet) {
+        margin-top: 0;
+    }
+}
 #header_container {
     width: 100%;
     z-index: 1000;
@@ -284,15 +293,6 @@ header, section, aside, .project_breadcrumbs, #team_page {
         }
     }
 }
-.slideDown {
-    margin-top: 0;
-}
-.slideUp {
-    margin-top: $header_height * -1;
-    @include media($tablet) {
-        margin-top: 0;
-    }
-}
 header {
     z-index: 1000;
     @include outer-container;
@@ -326,7 +326,6 @@ header {
         @include span-columns(8);
         @include shift(4);
         @include transition (all .3s ease-in-out);
-
         &.inactive {
             @include media($tablet) {
                 .nav_container {
@@ -406,7 +405,15 @@ header {
             @include transition (all .3s ease-in-out);
             &:before, ul { 
               display: inline-block; 
-              vertical-align: middle;
+              vertical-align: middle; 
+            }
+            &:before {
+                  content: ''; 
+                  display: inline-block; 
+                  width: 0; 
+                  height: 100%; 
+                  vertical-align: middle; 
+                  margin-left: -0.25em;
             }
             ul {
                 @include transition (all .3s ease-in-out);
@@ -421,7 +428,7 @@ header {
                         cursor: pointer;
                         line-height: 50px;
                         color: $gray;
-                        margin-left: .5em;
+                        margin-left: .7em;
                         @include media($tablet) {
                             @include pad(.5em 0);
                             display: block;
@@ -429,6 +436,11 @@ header {
                             font-size: 3em;
                             text-align: center;
                             color: $gray;
+                            margin-left: 0;
+                            &:after {
+                                content:"";
+                                display: none;
+                            }
                             &:hover {
                                 background-color: #fff;
                                 /*color: #000;*/
@@ -818,7 +830,6 @@ $random_gray: #d1d4d5;
                             @include media($mobile) {
                                 font-size: 1.5em;
                             }
-                                    
                         }
                     }
 /*                    div.featured_title {

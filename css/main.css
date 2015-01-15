@@ -127,6 +127,15 @@ header, section, aside, .project_breadcrumbs, #team_page {
 .header_ghost {
   height: 50px; }
 
+.slideDown {
+  margin-top: 0; }
+
+.slideUp {
+  margin-top: -50px; }
+  @media screen and (max-width: 768px) {
+    .slideUp {
+      margin-top: 0; } }
+
 #header_container {
   width: 100%;
   z-index: 1000;
@@ -217,15 +226,6 @@ header, section, aside, .project_breadcrumbs, #team_page {
       color: #FFF; }
     #header_container.absolute nav li, #header_container.absolute nav a {
       color: #fff; }
-
-.slideDown {
-  margin-top: 0; }
-
-.slideUp {
-  margin-top: -50px; }
-  @media screen and (max-width: 768px) {
-    .slideUp {
-      margin-top: 0; } }
 
 header {
   z-index: 1000;
@@ -361,6 +361,13 @@ header {
       header nav.main_nav .nav_container:before, header nav.main_nav .nav_container ul {
         display: inline-block;
         vertical-align: middle; }
+      header nav.main_nav .nav_container:before {
+        content: '';
+        display: inline-block;
+        width: 0;
+        height: 100%;
+        vertical-align: middle;
+        margin-left: -0.25em; }
       header nav.main_nav .nav_container ul {
         -webkit-transition: all 0.3s ease-in-out;
         -moz-transition: all 0.3s ease-in-out;
@@ -380,7 +387,7 @@ header {
           cursor: pointer;
           line-height: 50px;
           color: #a3a9ac;
-          margin-left: .5em; }
+          margin-left: .7em; }
           header nav.main_nav .nav_container ul li a:last-child {
             margin-right: 0; }
           @media screen and (max-width: 768px) {
@@ -390,7 +397,11 @@ header {
               width: 100%;
               font-size: 3em;
               text-align: center;
-              color: #a3a9ac; }
+              color: #a3a9ac;
+              margin-left: 0; }
+              header nav.main_nav .nav_container ul li a:after {
+                content: "";
+                display: none; }
               header nav.main_nav .nav_container ul li a:hover {
                 background-color: #fff;
                 /*color: #000;*/ } }

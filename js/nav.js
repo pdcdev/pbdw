@@ -20,7 +20,7 @@ jQuery(document).ready(function($) {
             "notTop": "headroom--not-top"
         }
     });
- 
+    
     // initialise
     headroom.init();
 
@@ -31,6 +31,12 @@ jQuery(document).ready(function($) {
             nav.removeClass("active").addClass("inactive").attr("data-state",0);
         }
     }
+
+    $("nav .nav_container").not("#menu-primary-navigation").click(function(){
+        if(nav.attr("data-state") === "1") {
+            nav.removeClass("active").addClass("inactive").attr("data-state",0);
+        }
+    });
 
     nav_btn.click(function(){
         nav_toggle();

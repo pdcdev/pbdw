@@ -14,16 +14,10 @@
                     ?>
                 </nav>
                 <address>
-                        <p>20 West 22nd Street, 17th Floor</p>
-                        <p>New York, NY 10010</p>
-                        <p>212 691 2440</p>
-                    </address>
-               <!--  <div class="backtotop">
-
-                    <a>
-                        <img src="<?php bloginfo('stylesheet_directory'); ?>/images/backtotop.svg">
-                    </a>
-                </div> -->
+                    <p>20 West 22nd Street, 17th Floor</p>
+                    <p>New York, NY 10010</p>
+                    <p>212 691 2440</p>
+                </address>
             </div>
         </footer>
         <?php wp_footer(); ?>

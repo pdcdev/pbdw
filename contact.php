@@ -3,7 +3,7 @@
     Template Name: Contact Page
 */
 get_header(); ?>
-<div class="wait global_hidden">
+
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
     <article class="contact_map">
         <div id="map-canvas"></div>
@@ -96,5 +96,4 @@ get_header(); ?>
         </section>
     <?php endif ?>
 <?php endwhile; endif; ?>
-</div>
 <?php get_footer(); ?>

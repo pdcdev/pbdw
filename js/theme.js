@@ -23,7 +23,7 @@ jQuery(document).ready(function($) {
             controlNav: false,
             directionNav: false,
             useCSS: false,
-            startAt: 0,
+            startAt: 0
         });
 
     });

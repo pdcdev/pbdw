@@ -3,6 +3,7 @@
 @import "neat/neat";
 
 $gray: #A3A9AC;
+$random_gray: #d1d4d5;
 $nav_stroke: 4px;
 $footer_height: 125px;
 
@@ -297,6 +298,7 @@ header {
     z-index: 1000;
     @include outer-container;
     @include pad(0 30px);
+    -webkit-tap-highlight-color: transparent;
     @include media($mobile) {
         @include pad(0 1em);
     }
@@ -433,7 +435,7 @@ header {
                             @include pad(.5em 0);
                             display: block;
                             width: 100%;
-                            font-size: 3em;
+                            font-size: 2em;
                             text-align: center;
                             color: $gray;
                             margin-left: 0;
@@ -505,22 +507,9 @@ header {
     @include outer-container;
     @include pad(0 30px);
     height: 100%;
-/*    .home_logo {
-        z-index: 10;
-        position: relative;
-        height: 100%;
-        width: 100%;
-        pointer-events: none;
-        img {
-            position: absolute;
-            display: block;
-            top: 45%;
-        }
-    }*/
     .home_logo {
-        /*@include outer-container;*/
         z-index: 10;
-        position: fixed;
+        position: absolute;
         height: 100%;
         width: 100%;
         background: url('../images/pbdw_logo.png') no-repeat;
@@ -530,10 +519,29 @@ header {
         top: 0;
         left: 0;
         bottom: 0;
+        @include media($mobile) {
+            display: none;
+        }
     }
 }
-$random_gray: #d1d4d5;
-
+.home_footer {
+    position: relative;
+}
+.cat_description {
+    div {
+        @include pad(0 30px);
+        p {
+            @include span-columns(8);
+            @include shift(4);
+            @include pad(0 0 3em 0);
+            font-size: 1.25em;
+            color: $gray;
+            span {
+                font-weight: bold;
+            }
+        }
+    }
+}
 .filter_controls {
     /*@include outer-container;*/
     @include pad(4em 30px);
@@ -552,7 +560,7 @@ $random_gray: #d1d4d5;
         right: 0;
         text-align: right;
         @include pad(0 30px 0 0);
-        /*@include span-columns(2);*/
+        -webkit-tap-highlight-color: transparent;
         @include media($tablet) {
             position: relative;
             text-align: center;
@@ -664,20 +672,41 @@ $random_gray: #d1d4d5;
                 height: 100%;
                 div.project_title {
                     @include outer-container;
+                    @include pad(0 30px);
                     position: relative;
                     display: none;
+                    @include media($tablet) {
+                        @include pad(0);
+                    }       
                     h3 {
                         position: absolute;
                         @include pad(1em 1.25em);
-                        margin-left: 30px;
-                        bottom: 30px;
+                        @include media($tablet) {
+                            margin: 30px;
+                            &:after {
+                                content: "\e808"; 
+                                font-family: fontello;
+                                padding-left: .8em;
+                                font-size: 1.25em;
+                                float: right;
+                            }
+                        }
+                        @include media($mobile) {
+                            width: 100%;
+                            text-align: left;
+                            margin: 0;
+                        }
+                        bottom: 0;
                         cursor: pointer;
-                        background-color: rgba(#fff, .9);
+                        background-color: rgba(#000, .275);
                         display: inline;
                         text-align: center;
                         font-weight: 600;
                         font-size: 1em;
-                        color: #000;
+                        color: #fff;
+                        &:active {
+                            background-color: rgba(#000, .5em);
+                        }
                     }
                 }
                 div {

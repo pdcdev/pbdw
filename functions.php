@@ -21,6 +21,7 @@ function theme_js() {
     wp_enqueue_script( 'waitforimages', get_template_directory_uri() . '/js/jquery.waitforimages.min.js', array('jquery'), '', true );
     wp_enqueue_script( 'headroom', get_template_directory_uri() . '/js/headroom.js', array('jquery'), '', true );
     wp_enqueue_script( 'nav', get_template_directory_uri() . '/js/nav.js', array('jquery','headroom'), '', true );
+    wp_register_script( 'home_js', get_template_directory_uri() . '/js/home.js', array('jquery','theme','modernizr'), '', true );
     wp_register_script( 'projects', get_template_directory_uri() . '/js/projects.js', array('jquery','theme'), '', true );
     wp_register_script( 'single-projects', get_template_directory_uri() . '/js/single-projects.js', array('jquery','theme','modernizr'), '', true );
     wp_register_script( 'office', get_template_directory_uri() . '/js/office.js', array('jquery','theme','modernizr'), '', true );
@@ -49,8 +50,6 @@ function theme_js() {
         wp_enqueue_script( 'single-projects' );
     }
 }
-
-
 
 // ajax begin
 

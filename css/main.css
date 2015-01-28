@@ -234,6 +234,7 @@ header {
   margin-left: auto;
   margin-right: auto;
   padding: 0 30px;
+  -webkit-tap-highlight-color: transparent;
   height: 50px; }
   header:before, header:after {
     content: " ";
@@ -395,7 +396,7 @@ header {
               padding: 0.5em 0;
               display: block;
               width: 100%;
-              font-size: 3em;
+              font-size: 2em;
               text-align: center;
               color: #a3a9ac;
               margin-left: 0; }
@@ -472,28 +473,15 @@ header {
   margin-left: auto;
   margin-right: auto;
   padding: 0 30px;
-  height: 100%;
-  /*    .home_logo {
-          z-index: 10;
-          position: relative;
-          height: 100%;
-          width: 100%;
-          pointer-events: none;
-          img {
-              position: absolute;
-              display: block;
-              top: 45%;
-          }
-      }*/ }
+  height: 100%; }
   .home_logo_container:before, .home_logo_container:after {
     content: " ";
     display: table; }
   .home_logo_container:after {
     clear: both; }
   .home_logo_container .home_logo {
-    /*@include outer-container;*/
     z-index: 10;
-    position: fixed;
+    position: absolute;
     height: 100%;
     width: 100%;
     background: url("../images/pbdw_logo.png") no-repeat;
@@ -503,6 +491,28 @@ header {
     top: 0;
     left: 0;
     bottom: 0; }
+    @media screen and (max-width: 480px) {
+      .home_logo_container .home_logo {
+        display: none; } }
+
+.home_footer {
+  position: relative; }
+
+.cat_description div {
+  padding: 0 30px; }
+  .cat_description div p {
+    display: block;
+    float: left;
+    margin-right: 0.62893%;
+    width: 49.68553%;
+    margin-left: 25.15723%;
+    padding: 0 0 3em 0;
+    font-size: 1.25em;
+    color: #a3a9ac; }
+    .cat_description div p:last-child {
+      margin-right: 0; }
+    .cat_description div p span {
+      font-weight: bold; }
 
 .filter_controls {
   /*@include outer-container;*/
@@ -534,7 +544,7 @@ header {
     right: 0;
     text-align: right;
     padding: 0 30px 0 0;
-    /*@include span-columns(2);*/ }
+    -webkit-tap-highlight-color: transparent; }
     @media screen and (max-width: 768px) {
       .filter_controls div.grid_list {
         position: relative;
@@ -655,6 +665,7 @@ header {
           max-width: 87.5em;
           margin-left: auto;
           margin-right: auto;
+          padding: 0 30px;
           position: relative;
           display: none; }
           #home #homeslider ul.slides li.slide div.project_title:before, #home #homeslider ul.slides li.slide div.project_title:after {
@@ -662,18 +673,36 @@ header {
             display: table; }
           #home #homeslider ul.slides li.slide div.project_title:after {
             clear: both; }
+          @media screen and (max-width: 768px) {
+            #home #homeslider ul.slides li.slide div.project_title {
+              padding: 0; } }
           #home #homeslider ul.slides li.slide div.project_title h3 {
             position: absolute;
             padding: 1em 1.25em;
-            margin-left: 30px;
-            bottom: 30px;
+            bottom: 0;
             cursor: pointer;
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: rgba(0, 0, 0, 0.275);
             display: inline;
             text-align: center;
             font-weight: 600;
             font-size: 1em;
-            color: #000; }
+            color: #fff; }
+            @media screen and (max-width: 768px) {
+              #home #homeslider ul.slides li.slide div.project_title h3 {
+                margin: 30px; }
+                #home #homeslider ul.slides li.slide div.project_title h3:after {
+                  content: "\e808";
+                  font-family: fontello;
+                  padding-left: .8em;
+                  font-size: 1.25em;
+                  float: right; } }
+            @media screen and (max-width: 480px) {
+              #home #homeslider ul.slides li.slide div.project_title h3 {
+                width: 100%;
+                text-align: left;
+                margin: 0; } }
+            #home #homeslider ul.slides li.slide div.project_title h3:active {
+              background-color: rgba(0, 0, 0, 0.5); }
         #home #homeslider ul.slides li.slide div {
           position: absolute;
           width: 100%;

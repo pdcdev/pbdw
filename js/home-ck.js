@@ -1,1 +1,1 @@
-jQuery(document).ready(function(e){});
+jQuery(document).ready(function(e){e(window).load(function(){e(".home-flexslider").flexslider({keyboard:!0,animation:"fade",slideshow:!0,slideshowSpeed:5e3,animationSpeed:1e3,touch:Modernizr.touch?"true":"false",video:!1,controlNav:!1,directionNav:!1,useCSS:!1,startAt:0})})});

@@ -7,48 +7,35 @@ get_header(); ?>
         global $post;
         $the_category = $post->post_name;
     ?>
-    <?php
-        $args = array(
-            'post_type' => 'projects',
-            'meta_query' => array(
-                array(
-                        'key'     => 'featured',
-                        'value'   => true,
-                        'compare' => 'LIKE'
-                    )
-                )
-            );
-            $the_query = new WP_Query( $args );
-    ?>
+
     <div class="featured_projects_container">
-        <div class="featured_projects_flexslider">
-            <ul class="slides">
-                <?php while( $the_query->have_posts() ) : $the_query->the_post(); ?>
-                <li class="slide">
-                    <a href="<?php the_permalink(); ?>">
-                        <div class="featured_project" style="background-image: url('<?php echo get_image( get_field("featured_image"), "full"); ?>');">
-                            <div class="featured_title_container">
-                                <div>
-                                    <div class="featured_project_title">
-                                        <p>Featured Project</p>
-                                        <p class="project_title"><?php the_title(); ?></p>
-                                        <?php if(get_field('project_category')) : ?>
-                                        <p class="cats"><?php echo implode(', ', get_field('project_category')); ?></p>
-                                        <?php endif; ?>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="gradient"></div>
+            <article id="home">
+            <?php if ( have_posts() ) : ?>
+                <?php $images = get_field('projects_featured');
+                    if( $images ): ?>
+                        <div id="homeslider" class="home-flexslider preload">
+                            <ul class="slides">
+                                <?php while ( have_rows('projects_featured') ) : the_row(); ?>
+                                    <li class="slide">
+                                        <?php $project = get_sub_field("project"); ?>
+                                        <div class="" style="background-image: url( <?php echo get_image( get_sub_field('home_page_image'), "cover_nocrop"); ?> );">
+                                            <div class="project_title">
+                                                <a href="<?php echo get_permalink( $project->ID ); ?>">
+                                                    <h3>
+                                                        <?php echo $project->post_title; ?>
+                                                    </h3>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                <?php endwhile; ?>
+                            </ul>
                         </div>
-                    </a>
-                </li>
-                <?php endwhile; ?>
-            </ul>
-            <div class="gallery_nav_container"></div>
-        </div>
+                    <?php endif;?>
+                <?php endif;  ?>
         <div class="featured_nav">
             <div class="prev vertical_center_parent flex">
-                <div class="vertical_center "><i class="icon-left-open-big"></i></div>
+                <div class="vertical_center"><i class="icon-left-open-big"></i></div>
                 <div class="divhelper"></div>
             </div>
             <div class="next vertical_center_parent flex">
@@ -57,6 +44,8 @@ get_header(); ?>
             </div>
         </div>
     </div>
+
+
 <?php rewind_posts(); ?>
 <?php wp_reset_query(); ?>
     <section class="filter_controls">

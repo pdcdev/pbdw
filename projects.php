@@ -22,8 +22,8 @@ get_header(); ?>
                                     <div class="featured_project_title">
                                         <p>Featured Project</p>
                                         <p class="project_title"><?php echo $project->post_title; ?></p>
-                                        <?php if(get_field('project_category')) : ?>
-                                        <p class="cats"><?php echo implode(', ', get_field('project_category')); ?></p>
+                                        <?php if( get_field('project_category', $project->ID) ) : ?>
+                                        <p class="cats"><?php echo implode(', ', the_field('project_category', $project->ID) ); ?></p>
                                         <?php endif; ?>
                                     </div>
                                 </div>

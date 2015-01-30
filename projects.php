@@ -9,30 +9,34 @@ get_header(); ?>
     ?>
 
     <div class="featured_projects_container">
-            <article id="home">
-            <?php if ( have_posts() ) : ?>
-                <?php $images = get_field('projects_featured');
-                    if( $images ): ?>
-                        <div id="homeslider" class="home-flexslider preload">
-                            <ul class="slides">
-                                <?php while ( have_rows('projects_featured') ) : the_row(); ?>
-                                    <li class="slide">
-                                        <?php $project = get_sub_field("project"); ?>
-                                        <div class="" style="background-image: url( <?php echo get_image( get_sub_field('home_page_image'), "cover_nocrop"); ?> );">
-                                            <div class="project_title">
-                                                <a href="<?php echo get_permalink( $project->ID ); ?>">
-                                                    <h3>
-                                                        <?php echo $project->post_title; ?>
-                                                    </h3>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                <?php endwhile; ?>
-                            </ul>
+
+        <div class="featured_projects_flexslider">
+            <ul class="slides">
+                <?php while ( have_rows('pp_projects_featured') ) : the_row(); ?>
+                <?php $project = get_sub_field("pp_featured_project"); ?>
+                <li class="slide">
+                    <a href="<?php the_permalink(); ?>">
+                        <div class="featured_project" style="background-image: url('<?php echo get_image( get_sub_field("pp_project_image"), "full"); ?>');">
+                            <div class="featured_title_container">
+                                <div>
+                                    <div class="featured_project_title">
+                                        <p>Featured Project</p>
+                                        <p class="project_title"><?php echo $project->post_title; ?></p>
+                                        <?php if(get_field('project_category')) : ?>
+                                        <p class="cats"><?php echo implode(', ', get_field('project_category')); ?></p>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gradient"></div>
                         </div>
-                    <?php endif;?>
-                <?php endif;  ?>
+                    </a>
+                </li>
+                <?php endwhile; ?>
+            </ul>
+            <div class="gallery_nav_container"></div>
+        </div>
+
         <div class="featured_nav">
             <div class="prev vertical_center_parent flex">
                 <div class="vertical_center"><i class="icon-left-open-big"></i></div>
@@ -43,6 +47,7 @@ get_header(); ?>
                 <div class="divhelper"></div>
             </div>
         </div>
+
     </div>
 
 

@@ -147,11 +147,13 @@ var asc = false,
     });
 
     $(".cats ul li, .grid_list span").click(function(){
+        if ( $(window).width() > 770 )
         if($("#projects_grid").offset().top - $(window).height() > $(window).scrollTop()) {
             $('html, body').animate({
                 scrollTop: $(".featured_project").height() * .75
             }, 1000, "easeInOutQuart");
         }
+
     });
 
 });

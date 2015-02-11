@@ -1,13 +1,19 @@
     <?php get_header(); ?>
+    <div class="loader">
+        <p class="loaderdots">
+            <span class="ldr ldr1"></span>
+            <span class="ldr ldr2"></span>
+            <span class="ldr ldr3"></span>
+            <span class="ldr ldr4"></span>
+        </p>
+    </div>
     <div class="wait global_hidden">
         <div id="projectslider" class="window_size">
             <div class="mobile_project_header">
-                <!-- <div class="mobile_project_header_inner "> -->
                     <h2 class="truncate"><?php the_title(); ?></h2>
                     <div class="mobile_down">
                         <img src="<?php bloginfo('stylesheet_directory'); ?>/images/mobile_down.svg">
                     </div>
-                <!-- </div> -->
             </div>
             <div class="prev flexbtn"><i class="icon-left-open-big"></i><span></span></div>
             <div class="next flexbtn"><i class="icon-right-open-big"></i><span></span></div>

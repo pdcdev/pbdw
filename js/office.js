@@ -44,7 +44,7 @@ jQuery(document).ready(function($) {
     profile_anchor.waypoint(function(){
         $(".dot").removeClass("current");
         profile_btn.addClass("current");
-    }, { offset: 50 });
+    }, { offset: - 500 });
 
     team_anchor.waypoint(function(){
         $(".dot").removeClass("current");

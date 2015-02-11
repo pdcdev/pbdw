@@ -34,7 +34,6 @@ get_header(); ?>
                 </li>
                 <?php endwhile; ?>
             </ul>
-            <div class="gallery_nav_container"></div>
         </div>
 
         <div class="featured_nav">
@@ -46,8 +45,8 @@ get_header(); ?>
                 <div class="vertical_center"><i class="icon-right-open-big"></i></div>
                 <div class="divhelper"></div>
             </div>
+            <div class="featured_nav_container"></div>
         </div>
-
     </div>
 
 
@@ -69,14 +68,6 @@ get_header(); ?>
             <span class="grid_btn active"><i class="icon-grid-sq"></i></span> <span class="list_btn"><i class="icon-list-sq"></i></span>
         </div>
     </section>
-<!--     <div class="cat_description">
-        <div>
-            <p>
-                <span>Commercial</span>
-                We understand the need to leverage your real estate investment or acquisition to its fullest architectural and economical potential. By tailoring our work to embody the specific needs of each client and their stakeholders, we create solutions that not only embolden their commercial presence or market dominance, but also efficiently and economically fit within their projected means for a successful return on investment.
-            </p>
-        </div>
-    </div> -->
     <div class="list_header list_header_hidden">
         <div>
             <p class="alpha-btn active" data-state="1">

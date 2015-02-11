@@ -1,12 +1,14 @@
 jQuery(document).ready(function($) {
-    var wait = $(".wait");
+    var wait   = $(".wait");
     var fadein = $(".fadein");
+    var loader = $(".loader");
 
     fadein.delay(500).removeClass("global_hidden").addClass("global_visible");
 
     $(window).load(function() {
 
         wait.delay(500).removeClass("global_hidden").addClass("global_visible");
+        loader.animate({opacity: 0}, 300 );
 
         $.waitForImages.hasImgProperties = ['backgroundImage'];
 

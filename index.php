@@ -26,9 +26,7 @@
                 <?php endif;  ?>
         </article>
         <div class="home_logo_container">
-            <div class="home_logo">
-                <!-- <img src="<?php bloginfo('stylesheet_directory'); ?>/images/pbdw_logo.png"> -->
-            </div>
+            <div class="home_logo"></div>
         </div>
         <aside class="home_footer">
             <div>

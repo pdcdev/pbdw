@@ -15,7 +15,7 @@ get_header(); ?>
                 <?php while ( have_rows('pp_projects_featured') ) : the_row(); ?>
                 <?php $project = get_sub_field("pp_featured_project"); ?>
                 <li class="slide">
-                    <a href="<?php the_permalink(); ?>">
+                    <a href="<?php echo get_permalink( $project->ID ); ?>"></a>
                         <div class="featured_project" style="background-image: url('<?php echo get_image( get_sub_field("pp_project_image"), "full"); ?>');">
                             <div class="featured_title_container">
                                 <div>
@@ -30,7 +30,6 @@ get_header(); ?>
                             </div>
                             <div class="gradient"></div>
                         </div>
-                    </a>
                 </li>
                 <?php endwhile; ?>
             </ul>

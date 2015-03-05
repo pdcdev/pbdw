@@ -3,7 +3,6 @@
     Template Name: Office Page
 */
 get_header(); ?>
-<div>
     <div class="context vertical_center_parent">
         <div class="vertical_center">
             <div class="dot profile_btn current"></div>
@@ -102,7 +101,6 @@ get_header(); ?>
                     <?php endwhile; ?>
                 <?php endif; ?>
                 </div>
-
             </div>
         </div>
     </aside>
@@ -111,7 +109,6 @@ get_header(); ?>
         <div id="awards_anchor" class="subsection_title">
             <h2>Awards</h2>
         </div>
-
         <section id="awards">
             <?php if ( have_posts() ) : while( have_posts() ) : the_post(); ?>
                 <?php if( get_field('award_list') ) : ?>
@@ -140,6 +137,7 @@ get_header(); ?>
                 <?php endif ?>
             <?php endwhile; endif; ?>
         </section>
+
     </div> <!-- end gray container -->
     
     <div id="pub_anchor" class="subsection_title">
@@ -167,6 +165,7 @@ get_header(); ?>
         <?php endwhile; endif; ?>
         </div>
     </section>
-</div>
+
+
 
 <?php get_footer(); ?>

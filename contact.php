@@ -3,7 +3,6 @@
     Template Name: Contact Page
 */
 get_header(); ?>
-
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
     <article class="contact_map">
         <div id="map-canvas"></div>
@@ -32,14 +31,13 @@ get_header(); ?>
                         <p><a href="<?php the_field( 'map_link' ); ?>" target="_blank"><?php the_field( 'address' ); ?></a></p>
                         <p><?php the_field( 'phone' ); ?></p>
                     <?php endwhile; endif; ?>
+                </div>
             </article>
         <?php if ( have_posts() ) : while( have_posts() ) : the_post(); ?>
         <?php if( get_field('artwork_credit') ) : ?>
         <article class="credits">
         <h4>Artist Credits</h4><h4>Website Development</h4>
-
         <div class="artists">
-
         <?php
             $artist_string = [];
             while( has_sub_field('artwork_credit') ) {
@@ -66,7 +64,8 @@ get_header(); ?>
         <?php while( has_sub_field('website_credit') ): ?>
             <li>
                 <?php if(get_sub_field('website_credit_name')): ?>
-                    <a href="<?php the_sub_field('website_credit_url'); ?>" target="_blank"><?php the_sub_field('website_credit_name'); ?></a>
+                    <a href="<?php the_sub_field('website_credit_url'); ?>" target="_blank">
+                        <?php the_sub_field('website_credit_name'); ?></a>
                 <?php else: ?>
                     <?php the_sub_field('website_credit_name'); ?>
                 <?php endif; ?>

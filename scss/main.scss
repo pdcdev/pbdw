@@ -379,13 +379,14 @@ header {
     height: 50px;
     h1 {
         -webkit-font-smoothing: antialiased;
-        @include span-columns(4);
+        @include span-columns(8);
+        position: relative;
         font-weight: 700;
         line-height: $header_height;
         letter-spacing: $nav-spacing;
-        /*z-index: 100;*/
+        z-index: 9999;
         @include media($tablet) {
-            @include span-columns(8);
+            @include span-columns(6);
         }
         span {
             margin-left: .25em;
@@ -400,7 +401,6 @@ header {
     }
     nav.main_nav {
         @include span-columns(8);
-        @include shift(4);
         @include transition (all .3s ease-in-out);
         &.inactive {
             @include media($tablet) {
@@ -526,6 +526,9 @@ header {
                             font-size: 2em;
                         }
                         &:hover {
+                            color: #000;
+                        }
+                        &:active {
                             color: #000;
                         }
                     }
@@ -662,14 +665,6 @@ header {
         }
     }
     position: relative;
-/*    @include media($tablet) {
-        @include span-columns(8);
-        @include shift(0);
-    }
-    @include media($mobile) {
-        @include span-columns(4);
-        @include pad(1em 0);
-    }*/
     p.cat_title {
         width: 100%;
         text-align: center;
@@ -751,25 +746,20 @@ header {
                 width: 100%;
                 height: 100%;
                 div.project_title {
-                    /*@include outer-container;*/
-                    /*@include pad(30px);*/
                     position: relative;
-                    /*display: none;*/
                     @include media($tablet) {
                         @include pad(0);
                     }
                     a {
                         position: absolute;
                         bottom: 0;
-                        /*margin: 30px;*/
                         width: 100%;
-                        @include pad(2em);
                         text-align: center;
+                        @include pad(2em);
                         @include media($tablet) {
                             @include pad(1em);
                             background-color: rgba(#000, .275);
                         }
-                                
                         h3 {
                             display: inline-block;
                             text-align: center;
@@ -793,14 +783,12 @@ header {
                                 text-align: left;
                                 margin: 0;
                             }
-                            
                             cursor: pointer;
                             display: inline;
                             text-align: center;
                             font-weight: 600;
                             font-size: 1em;
                             color: #fff;
-                            
                         }
                     }
                 }
@@ -825,7 +813,6 @@ header {
         }
     }
 }
-
 .project_categories {
     display: none;
     @include outer-container;
@@ -889,10 +876,12 @@ header {
         @include clearfix;
         position: relative;
         a {
+            z-index: 1000;
             position: absolute;
             display: block;
             width: 100%;
-            height: 95%;
+            height: 94%;
+            cursor: pointer;
         }
         .featured_project {
             background-size: cover;
@@ -939,6 +928,10 @@ header {
                         p.cats {
                             text-transform: capitalize;
                             font-weight: 600;
+                            @include media($mobile) {
+                                display: none;
+                            }
+                                    
                         }
                         p.project_title {
                             @include transition (all .2s ease-in-out);
@@ -968,9 +961,6 @@ header {
         }
     }
     .featured_nav {
-        @include media($tablet) {
-            display: none;
-        }
         position: absolute;
         top: 0;
         width: 100%;
@@ -987,6 +977,9 @@ header {
             height: 100%;
             @include pad(1em);
             cursor: pointer;
+            @include media($tablet) {
+                display: none;
+            }
         }
         .prev {
             float: left;
@@ -1090,13 +1083,14 @@ header {
     div.project_info {
         @include transition (all .3s ease-in-out);
         @include media($tablet) {
-            background-color: rgba(255,255,255,.85);
+            background-color: rgba(0,0,0,.25);
+            color: #fff;
             height: auto;
             border-top: none !important;
             @include pad(0 0 .5em 0);
         }
         @include media($mobile) {
-            background-color: rgba(255,255,255,.85);
+            background-color: rgba(0,0,0,.25);
         }
         position: relative;
         height: 100%;
@@ -1116,12 +1110,12 @@ header {
             color: transparent;
             text-transform: capitalize;
             @include media($tablet) {
-                color: #000;
+                color: #fff;
                 text-shadow: none;
                 font-weight: 500;
             }
             @include media($mobile) {
-                color: #000;
+                color: #fff;
                 text-shadow: none;
                 font-weight: 500;
             }
@@ -1134,18 +1128,10 @@ header {
             background-color: rgba(0,0,0,.3);
             color: #FFF;
             @include media($tablet) {
-                background-color: rgba(255,255,255,.85);
+                background-color: rgba(0,0,0,.5);
             }
             p {
                 color: #FFF;
-                @include media($tablet) {
-                    color: #000;
-                    text-shadow: none;
-                }
-                @include media($mobile) {
-                    color: #000;
-                    text-shadow: none;
-                }
             }
         }
     }
@@ -1653,7 +1639,7 @@ ol.flex-control-nav {
     @include outer-container();
     @include pad(0 30px 30px 30px);
     @include media($mobile) {
-        @include pad(0 10px);
+        @include pad(0 1em .5em 1em);
     }
     h6 {
         @include pad(10px 0);
@@ -1822,7 +1808,7 @@ ol.flex-control-nav {
         @include pad(100px 30px 0 30px);
     }
     @include media($mobile) {
-        @include pad(60px 10px 0 10px);
+        @include pad(60px 1em 0 1em);
     }
     .project_breadcrumbs {
         h3 {
@@ -2035,7 +2021,7 @@ article.section_anchor {
 }
 .gray_container {
     background-color: #eee;
-    @include clearfix;
+    display: block;
 }
 .dark_gray_container {
     background-color: $gray;
@@ -2046,7 +2032,6 @@ article.section_anchor {
         @include span-columns(4);
         @include pad(0 10px);
     }
-    background-color: #eee;
     h3 {
         font-weight: 600;
         color: $gray;

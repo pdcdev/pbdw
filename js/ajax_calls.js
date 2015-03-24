@@ -78,44 +78,44 @@ jQuery(document).ready(function($) {
         $("#cat_showing").attr("data-state","hidden");
         objects.remove();
     }
- 
+
     all_btn.click(function(){
-        remove_objects($("#projects_grid > div"));
+        remove_objects($(".project_item"));
         $(this).text("").append(loader_mark);
         get_projects();
         $(".cats ul li").not($(this)).removeClass("selected");
         $(this).addClass("selected");
     });
     cultural_btn.click(function(){
-        remove_objects($("#projects_grid > div"));
+        remove_objects($(".project_item"));
         $(this).text("").append(loader_mark);
         get_projects("cultural");
         $(".cats ul li").not($(this)).removeClass("selected");
         $(this).addClass("selected");
     });
     commercial_btn.click(function(){
-        remove_objects($("#projects_grid > div"));
+        remove_objects($(".project_item"));
         $(this).text("").append(loader_mark);
         get_projects("commercial");
         $(".cats ul li").not($(this)).removeClass("selected");
         $(this).addClass("selected");
     });
     education_btn.click(function(){
-        remove_objects($("#projects_grid > div"));
+        remove_objects($(".project_item"));
         $(this).text("").append(loader_mark);
         get_projects("education");
         $(".cats ul li").not($(this)).removeClass("selected");
         $(this).addClass("selected");
     });
     preservation_btn.click(function(){
-        remove_objects($("#projects_grid > div"));
+        remove_objects($(".project_item"));
         $(this).text("").append(loader_mark);
         get_projects("preservation");
         $(".cats ul li").not($(this)).removeClass("selected");
         $(this).addClass("selected");
     });
     residential_btn.click(function(){
-        remove_objects($("#projects_grid > div"));
+        remove_objects($(".project_item"));
         $(this).text("").append(loader_mark);
         get_projects("residential");
         $(".cats ul li").not($(this)).removeClass("selected");

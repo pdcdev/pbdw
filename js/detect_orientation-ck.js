@@ -1,0 +1,1 @@
+jQuery(document).ready(function(e){function n(){if(e(window).height()>e(window).width()){t.addClass("portrait");t.removeClass("landscape")}else{t.addClass("landscape");t.removeClass("portrait")}}var t=e(".watch-orientation");e(window).resize(function(){n()});n()});

@@ -85,7 +85,7 @@ function initialize() {
               }, {
                   weight: 0.4
               }, {
-                  color: "#f9f9f9"
+                  color: "#444444"
               }]
           }, {
               featureType: "road.highway",
@@ -123,7 +123,7 @@ function initialize() {
               stylers: [{
                   visibility: "on"
               }, {
-                  color: "#ffffff"
+                  color: "#44444"
               }]
           }, {
               featureType: "poi.medical",
@@ -187,7 +187,6 @@ function initialize() {
 google.maps.event.addDomListener(window, 'load', initialize);
  
   google.maps.event.addDomListener(window, "resize", function() {
-    // $('#map-canvas').css({height:'700px'}); 
     var center = map.getCenter();
 
     google.maps.event.trigger(map, "resize");

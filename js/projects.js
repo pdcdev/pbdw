@@ -72,7 +72,7 @@ var asc = false,
             list_header.removeClass('list_header_visible').addClass("list_header_hidden");
             size_foursix();
             sortProjects("data-order", asc, true);
-
+            $(".cat_box").show();
         } else {
             // grid to list
             project_item.removeClass("grid").addClass("list");
@@ -87,7 +87,7 @@ var asc = false,
 
             alpha_btn.removeClass("descending").addClass("ascending").attr("data-state", 0);
             sortProjects("title", asc);
-
+            $(".cat_box").hide();
         }
     }
 

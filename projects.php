@@ -93,6 +93,7 @@ get_header(); ?>
             </div>
         </div>
     </section>
+
     <div id="category_stage">
         <div id="cultural_box" class="foursix cat_box">
             <div class="project_info">

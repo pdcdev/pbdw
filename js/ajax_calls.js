@@ -9,55 +9,6 @@ jQuery(document).ready(function($) {
         education_btn = $("#proj_education_btn"),
         preservation_btn = $("#proj_preservation_btn"),
         residential_btn = $("#proj_residential_btn");
-        
-    var all_descripton = "<div id=\"all_box\" class=\"foursix cat_box\">"+
-            "<div class=\"project_info\">"+
-                "<p class=\"cat_box_title\">All Projects</p>"+
-                "<p class=\"cat_box_description\">"+
-                    "PBDW's work on many of New York's most significant historic buildings has earned it a respected place in the preservation field. Projects range in scale from large to small, and include preservation, restoration, adaptive reuse, and carefully considered additions to landmarks and within landmark districts. Our skilled staff performs research, field work, master planning, conservation planning, design, and the careful integration of the latest building technologies to help ensure that these built treasures endure for future generations."+
-                "</p>"+
-            "</div>"+
-        "</div>",
-        cultural_description = "<div id=\"cultural_box\" class=\"foursix cat_box\">"+
-            "<div class=\"project_info\">"+
-                "<p class=\"cat_box_title\">Cultural</p>"+
-                "<p class=\"cat_box_description\">"+
-                    "PBDW's work on many of New York's most significant historic buildings has earned it a respected place in the preservation field. Projects range in scale from large to small, and include preservation, restoration, adaptive reuse, and carefully considered additions to landmarks and within landmark districts. Our skilled staff performs research, field work, master planning, conservation planning, design, and the careful integration of the latest building technologies to help ensure that these built treasures endure for future generations."+
-                "</p>"+
-            "</div>"+
-        "</div>",
-        commercial_description = "<div id=\"commercial_box\" class=\"foursix cat_box\">"+
-            "<div class=\"project_info\">"+
-                "<p class=\"cat_box_title\">Commercial</p>"+
-                "<p class=\"cat_box_description\">"+
-                    "Whether it be a small capital improvement for a private entity or a large commercial development for a high profile client, PBDW understands the need to leverage your real estate investment or acquisition to its fullest architectural and economical potential. By tailoring our work to embody the specific needs of each client and their stakeholders, we create solutions that not only embolden their commercial presence or market dominance, but also efficiently and economically fit within their projected means for a successful return on investment."+
-                "</p>"+
-            "</div>"+
-        "</div>",
-        education_description = "<div id=\"education_box\" class=\"foursix cat_box\">"+
-            "<div class=\"project_info\">"+
-                "<p class=\"cat_box_title\">Education</p>"+
-                "<p class=\"cat_box_description\">"+
-                    "PBDW's work on many of New York's most significant historic buildings has earned it a respected place in the preservation field. Projects range in scale from large to small, and include preservation, restoration, adaptive reuse, and carefully considered additions to landmarks and within landmark districts. Our skilled staff performs research, field work, master planning, conservation planning, design, and the careful integration of the latest building technologies to help ensure that these built treasures endure for future generations."+
-                "</p>"+
-            "</div>"+
-        "</div>",
-        preservation_description = "<div id=\"preservation_box\" class=\"foursix cat_box\">"+
-            "<div class=\"project_info\">"+
-                "<p class=\"cat_box_title\">Preservation</p>"+
-                "<p class=\"cat_box_description\">"+
-                    "PBDW's work on many of New York's most significant historic buildings has earned it a respected place in the preservation field. Projects range in scale from large to small, and include preservation, restoration, adaptive reuse, and carefully considered additions to landmarks and within landmark districts. Our skilled staff performs research, field work, master planning, conservation planning, design, and the careful integration of the latest building technologies to help ensure that these built treasures endure for future generations."+
-                "</p>"+
-            "</div>"+
-        "</div>",
-        residential_description = "<div id=\"residential_box\" class=\"foursix cat_box\">"+
-            "<div class=\"project_info\">"+
-                "<p class=\"cat_box_title\">Residential</p>"+
-                "<p class=\"cat_box_description\">"+
-                    "PBDW's work on many of New York's most significant historic buildings has earned it a respected place in the preservation field. Projects range in scale from large to small, and include preservation, restoration, adaptive reuse, and carefully considered additions to landmarks and within landmark districts. Our skilled staff performs research, field work, master planning, conservation planning, design, and the careful integration of the latest building technologies to help ensure that these built treasures endure for future generations."+
-                "</p>"+
-            "</div>"+
-        "</div>";
 
     function redefine_vars() {
         project_item = $(".project_item"),
@@ -83,11 +34,10 @@ jQuery(document).ready(function($) {
 
         if(requested_cat) {
             $("#proj_" + requested_cat + "_btn").text(requested_cat);
-            $("#" + requested_cat + "_box").css({opacity:0,display:"block"}).animate({opacity:1}, 200);
-            projects_container.append(eval(requested_cat + "_description"));
+            $("#" + requested_cat + "_box").appendTo(projects_container);
         } else {
             all_btn.text("All");
-            projects_container.append(all_descripton);
+            $("#all_box").appendTo(projects_container);
         }
 
         $.each(data, function(i, val) {
@@ -114,11 +64,13 @@ jQuery(document).ready(function($) {
             });
     }
     var loader_mark = "<p class=\"loaderdots\"><span class=\"ldr ldr1\"></span><span class=\"ldr ldr2\"></span><span class=\"ldr ldr3\"></span><span class=\"ldr ldr4\"></span></p>";
- 
+
+    var category_stage = $("#category_stage");
+
     function remove_objects(objects) {
         $(".project_categories_container").removeClass("active").addClass("hidden");
         $("#cat_showing").attr("data-state","hidden");
-        $(".cat_box").remove();
+        $(".cat_box").appendTo(category_stage);
         objects.remove();
     }
 

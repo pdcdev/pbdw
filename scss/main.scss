@@ -16,12 +16,16 @@ $mobile_nav_height: 580px;
 $logo_in_black: .5;
 $logo_in_white: .8;
 
-$white_on_black_bg: rgba(255,255,255,.8);
+$white_on_black_bg: rgba(255,255,255,0.8);
 $nav-spacing: .03em;
 
 $arch-spacing: .25em;
 
 $header_height: 50px;
+
+$desk_banner_height: 650px;
+$tablet_banner_height: 500px;
+$mobile_banner_height: 400px;
 
 .global_hidden {
     opacity: 0;
@@ -152,7 +156,7 @@ header, section, aside, .project_breadcrumbs, #team_page {
             a {
                 @include pad(8px 10px);
                 color: #000;
-                background-color: rgba(255,255,255,.8);
+                background-color: rgba(255,255,255,0.8);
                 margin-bottom: 1px;
                 text-align: left;
                 font-weight: 500;
@@ -207,7 +211,7 @@ header, section, aside, .project_breadcrumbs, #team_page {
     position: fixed;
     @include transition (all .3s ease-in-out);
     &:hover {
-        background-color: rgba(#fff, .75);
+        background-color: rgba(#fff, 0.75);
     }
     background-color: rgba(#fff, .75);
     @include media($tablet) {
@@ -216,7 +220,7 @@ header, section, aside, .project_breadcrumbs, #team_page {
     &.dark_transparent {
         background-color: transparent;
         @include media($tablet) {
-            background-color: rgba(#000, .25);
+            background-color: rgba(#000, 0.25);
         }
         h1 {
             color: #fff;
@@ -256,7 +260,7 @@ header, section, aside, .project_breadcrumbs, #team_page {
             }
         }
         &:hover {
-            background-color: rgba(#000, .25);
+            background-color: rgba(#000, 0.25);
         }
     }
     &.home {
@@ -299,7 +303,7 @@ header, section, aside, .project_breadcrumbs, #team_page {
             }
         }
         &:hover {
-            background-color: rgba(#000, .25);
+            background-color: rgba(#000, 0.25);
         }
     }
     &.dark {
@@ -353,7 +357,7 @@ header, section, aside, .project_breadcrumbs, #team_page {
             }
         }
         &:hover {
-            background-color: rgba(#000, .6);
+            background-color: rgba(#000, 0.6);
         }
     }
     &.absolute {
@@ -569,14 +573,30 @@ header {
 }
 #notfound {
     @include outer-container;
-    @include pad(200px 30px 0 30px);
+    @include pad(150px 30px 0 30px);
     article {
-        border-top: 1px solid $gray;
-        p {
-            @include pad(.5em 0);
-            font-size: 1.5em;
+        @include span-columns(8);
+        @include shift(8);
+        @include media($tablet) {
+            @include span-columns(8);
+            @include shift(0);
+        }
+        h4 {
+            font-size: 2em;
             font-weight: 700;
-            text-align: center;
+            color: $gray;
+            @include pad(0 0 .5em 0);
+        }
+        p {
+            font-size: 1.1em;
+            font-weight: 500;
+            line-height: 1.4;
+            a {
+                @include transition (all .2s ease-in-out);
+                &:hover {
+                    color: $gray;
+                }
+            }
         }
     }
 }
@@ -670,7 +690,8 @@ header {
         text-align: center;
         font-weight: 600;
         @include pad(0 0 1em 0);
-        color: $random_gray;
+        /*color: $random_gray;*/
+        color: black;
     }
     div.cats {
         @include span-columns(12);
@@ -783,12 +804,16 @@ header {
                                 text-align: left;
                                 margin: 0;
                             }
+                            @include transition (all .3s ease-in-out);
                             cursor: pointer;
                             display: inline;
                             text-align: center;
                             font-weight: 600;
                             font-size: 1em;
                             color: #fff;
+                            &:hover {
+                                background-color: #000;
+                            }
                         }
                     }
                 }
@@ -868,6 +893,7 @@ header {
     display: none;
     opacity: 0;
 }
+$landscape_height: 260px;
 .featured_projects_container {
     position: relative;
     .featured_projects_flexslider {
@@ -888,12 +914,18 @@ header {
             background-position: center;
             width: 100%;
             position: relative;
-            height: 700px;
+            height: $desk_banner_height;
             @include media($tablet) {
-                height: 500px;
+                height: $tablet_banner_height;
+                &.landscape {
+                    height: $landscape_height;
+                }
             }
             @include media($mobile) {
-                height: 400px;
+                height: $mobile_banner_height;
+                &.landscape {
+                    height: $landscape_height;
+                }
             }
             .featured_title_container {
                 @include outer-container;
@@ -901,14 +933,23 @@ header {
                     @include span-columns(16);
                     position: relative;
                     width: 100%;
-                    height: 700px;
+                    height: $desk_banner_height;
                     @include media($tablet) {
-                        height: 500px;
+                        height: $tablet_banner_height;
+                        &.landscape {
+                            height: $landscape_height;
+                        }
                     }
                     @include media($mobile) {
-                        height: 400px;
+                        height: $mobile_banner_height;
+                        &.landscape {
+                            height: $landscape_height;
+                        }
                     }
                     div.featured_project_title {
+                        &:hover {
+                        
+                        }
                         @include pad(0 30px);
                         @include media($mobile) {
                             bottom: 1em;
@@ -928,22 +969,37 @@ header {
                         p.cats {
                             text-transform: capitalize;
                             font-weight: 600;
-                            @include media($mobile) {
-                                display: none;
-                            }
-                                    
                         }
                         p.project_title {
-                            @include transition (all .2s ease-in-out);
-                            @include pad(.20em 0 .25em 0);
-                            margin: 0 auto;
+                            margin: .2em auto .25em auto;
+                            width: auto;
                             cursor: pointer;
                             display: block;
                             text-align: center;
-                            font-weight: 600;
                             font-size: 2.5em;
+                            span {
+                                font-weight: 600;
+                                /*border-bottom: 2px solid transparent;*/ 
+                                @include transition (all .15s ease-in-out);
+                                padding-bottom: 1px;
+                            }
                             @include media($mobile) {
                                 font-size: 1.5em;
+                            }
+                            /*&:hover {
+                                span {
+                                    border-bottom: 2px solid #fff;
+                                }
+                            }*/
+                        }
+                        div.go_to_arrow {
+                            text-align: center;
+                            @include pad(1em 0 0 0);
+                            opacity: 0;
+                            @include transition (all .3s ease-in-out);
+                            i {
+                                color: #fff;
+                                font-size: 2em;
                             }
                         }
                     }
@@ -1041,6 +1097,71 @@ header {
     @include media($mobile) {
         @include pad(10px);
     }
+    div.cat_box {
+        @include span-columns(4 of 16);
+        @include omega(4n);
+        @include media($tablet) {
+            @include span-columns(4 of 8);
+            @include omega(2n);
+        }
+        @include media($mobile) {
+            @include span-columns(4 of 4);
+            @include omega(2n);
+        }
+        position: relative;
+        height: 493/16 * 1em;
+        background-size: cover;
+        background-position: center;
+        border-top: none !important;
+        @include media($tablet) {
+            height: auto;
+        }
+        @include media($mobile) {
+            margin-bottom: 10px;
+        }
+        div.project_info {
+            @include transition (all .3s ease-in-out);
+            @include media($tablet) {
+                color: #fff;
+                height: 100%;
+                border-top: none !important;
+            }
+            position: relative;
+            height: 100%;
+            background-color: rgba(0,0,0,1);
+            color: #FFF;
+            @include pad(1em);
+            p {
+                color: #FFF;
+            }
+            p {
+                @include transition (all .3s ease-in-out);
+                font-weight: normal;
+                @include media($tablet) {
+                    color: #fff;
+                    text-shadow: none;
+                    font-weight: 500;
+                }
+                @include media($mobile) {
+                    color: #fff;
+                    text-shadow: none;
+                    font-weight: 500;
+                }
+                &:first-child {
+                    padding: 8px 0 0 8px;
+                    font-weight: 500;
+                }
+            }
+            p.cat_box_title {
+                @include pad(0 0 .5em 0);
+                font-size: 1.25em;
+                font-weight: 700;
+            }
+            p.cat_box_description {
+                font-weight: 500;
+            }
+        }
+    }
     div.project_item {
         a {
             @include media($tablet) {
@@ -1087,7 +1208,8 @@ header {
             color: #fff;
             height: auto;
             border-top: none !important;
-            @include pad(0 0 .5em 0);
+            /*@include pad(0 0 .5em 0);*/
+            @include pad(1em);
         }
         @include media($mobile) {
             background-color: rgba(0,0,0,.25);
@@ -1095,6 +1217,7 @@ header {
         position: relative;
         height: 100%;
         background-color: rgba(0,0,0,0);
+        @include pad(1em);
         .title {
             font-weight: 600 !important;
         }
@@ -1105,7 +1228,7 @@ header {
         }
         p {
             @include transition (all .3s ease-in-out);
-            padding: 0 0 0 8px;
+            /*padding: 0 0 0 8px;*/
             font-weight: normal;
             color: transparent;
             text-transform: capitalize;
@@ -1120,7 +1243,7 @@ header {
                 font-weight: 500;
             }
             &:first-child {
-                padding: 8px 0 0 8px;
+                /*padding: 8px 0 0 8px;*/
                 font-weight: 500;
             }
         }
@@ -1362,6 +1485,9 @@ header {
     .up {
         background-position: 0 0;
     }
+}
+#category_stage {
+    display: none;
 }
 .truncate {
   white-space: nowrap;
@@ -1966,14 +2092,20 @@ aside.staff_container {
     }
 }
 article.section_anchor {
-    height: 750px;
+    height: $desk_banner_height + $header_height;
     background-size: cover;
     background-position: center center;
-    @include media($mobile) {
-        height: 500px;
+    @include media($tablet) {
+        height: $tablet_banner_height;
+        &.landscape {
+            height: $landscape_height + $header_height;
+        }
     }
     @include media($mobile) {
-        height: 450px;
+        height: $mobile_banner_height;
+        &.landscape {
+            height: $landscape_height + $header_height;
+        }
     }
     > div {
         height: 100%;
@@ -2256,9 +2388,18 @@ article.contact_map {
     @include clearfix;
     #map-canvas {
         width: 100%;
-        height: 700px;
+        height: $desk_banner_height;
+        @include media($tablet) {
+            height: $tablet_banner_height;
+            &.landscape {
+                height: $landscape_height + $header_height;
+            }
+        }
         @include media($mobile) {
-            height: 300px;
+            height: $mobile_banner_height;
+            &.landscape {
+                height: $landscape_height + $header_height;
+            }
         }
     }
 }

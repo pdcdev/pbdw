@@ -12,7 +12,7 @@ get_header(); ?>
         </div>
         <div class="divhelper"></div>
     </div>
-    <article id="profile_anchor" class="section_anchor" style="background-image: url('<?php echo get_image(get_field('banner_bg_image'),"full"); ?>')">
+    <article id="profile_anchor" class="section_anchor watch-orientation" style="background-image: url('<?php echo get_image(get_field('banner_bg_image'),"full"); ?>')">
         <div class="vertical_center_parent">
             <p class="vertical_center"><?php the_field("banner_title") ?></p>
             <div class="divhelper"></div>

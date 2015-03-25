@@ -12,7 +12,7 @@ var asc = false,
     gallery_nav = $(".flex-control-nav");
 
     function size_foursix() {
-        foursix.each(function(){
+        $(".foursix").each(function(){
             $(this).css("height", Math.round($(this).width()*1.5) + "px");
         });
     }

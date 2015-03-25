@@ -5,7 +5,7 @@
 get_header(); ?>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
     <article class="contact_map">
-        <div id="map-canvas"></div>
+        <div id="map-canvas" class="watch-orientation"></div>
     </article>
     <section id="contact">
             <article class="contact_info">
@@ -39,7 +39,7 @@ get_header(); ?>
         <h4>Artist Credits</h4><h4>Website Development</h4>
         <div class="artists">
         <?php
-            $artist_string = [];
+            $artist_string = array();
             while( has_sub_field('artwork_credit') ) {
                 if( get_sub_field('artist_url') ) {
                     $artist_string[] = "<a href=" . get_sub_field('artist_url') . " target='_blank'>" . get_sub_field('name-entity') . "</a>";

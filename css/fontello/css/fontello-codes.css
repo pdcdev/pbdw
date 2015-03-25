@@ -40,3 +40,7 @@
 .icon-menu-1:before { content: '\e826'; } /* '' */
 .icon-close:before { content: '\e827'; } /* '' */
 .icon-list-sq:before { content: '\e828'; } /* '' */
+.icon-circle_arrow_right:before { content: '\e829'; } /* '' */
+.icon-gallery_prev:before { content: '\e82a'; } /* '' */
+.icon-gallery_next:before { content: '\e82b'; } /* '' */
+.icon-circle_arrow_down:before { content: '\e82c'; } /* '' */

@@ -27,7 +27,7 @@
             );
         }
 
-        $projects_array = [];
+        $projects_array = array();
 
         $args = array(
             'post_type' => 'projects',

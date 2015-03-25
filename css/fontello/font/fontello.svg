@@ -47,6 +47,10 @@
 <glyph glyph-name="menu-1" unicode="&#xe826;" d="m0 412h1000v-125h-1000v125z m0 313h1000v-125h-1000v125z m0-625h1000v-126h-1000v126z" horiz-adv-x="1000" />
 <glyph glyph-name="close" unicode="&#xe827;" d="m919 681l-88 88-331-330-331 330-88-88 331-331-331-331 88-88 331 331 331-331 88 88-331 331 331 331z" horiz-adv-x="1000" />
 <glyph glyph-name="list-sq" unicode="&#xe828;" d="m1000 650h-1000v200h1000v-200z m0-200h-1000v-200h1000v200z m0-400h-1000v-200h1000v200z" horiz-adv-x="1000" />
+<glyph glyph-name="circle_arrow_right" unicode="&#xe829;" d="m641 382l-166 166h90l198-197-198-198h-90l166 166h-371v63h371z m-141 449c265 0 480-216 480-480s-215-481-480-481-480 216-480 481 215 480 480 480z m0-54c-235 0-426-191-426-426s191-427 426-427 426 191 426 427-191 426-426 426z" horiz-adv-x="1000" />
+<glyph glyph-name="gallery_prev" unicode="&#xe82a;" d="m707-125h62l-475 475 475 475h-62l-475-475 475-475z" horiz-adv-x="1000" />
+<glyph glyph-name="gallery_next" unicode="&#xe82b;" d="m294 825h-62l475-475-475-475h62l475 475-475 475z" horiz-adv-x="1000" />
+<glyph glyph-name="circle_arrow_down" unicode="&#xe82c;" d="m532 210l166 166v-90l-198-198-198 198v90l167-166v370h63v-370z m448 141c0-265-215-481-480-481s-480 216-480 481 215 480 480 480 480-216 480-480z m-54 0c0 235-191 426-426 426s-426-191-426-426 191-427 426-427 426 191 426 427z" horiz-adv-x="1000" />
 </font>
 </defs>
 </svg>

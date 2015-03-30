@@ -5,18 +5,34 @@ var asc = false,
     list_header = $(".list_header"),
     alpha_btn = $(".alpha-btn"),
     category_btn = $(".category-btn"),
-    grid_list_btn = $("#grid-list-btn"),
     year_btn = $(".year-btn"),
     list_btn = $(".list_btn"),
-    grid_btn = $(".grid_btn"),
-    gallery_nav = $(".flex-control-nav");
+    grid_btn = $(".grid_btn");
 
     function size_foursix() {
         $(".foursix").each(function(){
             $(this).css("height", Math.round($(this).width()*1.5) + "px");
         });
     }
-    
+    function size_cat() {
+        $(".cat_size").each(function(){
+            if( $(window).width() < 480 ) {
+                $(this).removeClass(".foursix");
+                $(".cat_size").css("height","auto");
+            } else {
+                $(this).css("height", Math.round($(this).width()*1.5) + "px");
+            }
+        });
+    }
+
+    $(window).resize(function(){
+        size_foursix();
+        size_cat();
+    });
+
+    size_foursix();
+    size_cat();
+
     function sortProjects(attribute, order, number) {
 
         var mylist = $('#projects_grid');
@@ -51,7 +67,7 @@ var asc = false,
 
         $(".list_header p").not(element_btn).removeClass("active ascending descending").addClass("inactive").attr("data-state", 1);
 
-        state = element_btn.attr("data-state") == 1 ? true : false ;
+        var state = element_btn.attr("data-state") === 1 ? true : false ;
 
         if (state) {
             element_btn.removeClass("descending").addClass("ascending").attr("data-state", 0);
@@ -65,17 +81,17 @@ var asc = false,
     function listToggle(state) {
         if (state) {
             // list to grid
-            project_item.removeClass("list").addClass("grid");
+            $(".project_item").removeClass("list").addClass("grid");
             list_btn.removeClass("active");
             grid_btn.addClass("active");
 
             list_header.removeClass('list_header_visible').addClass("list_header_hidden");
+            $(".cat_box").show();
             size_foursix();
             sortProjects("data-order", asc, true);
-            $(".cat_box").show();
         } else {
             // grid to list
-            project_item.removeClass("grid").addClass("list");
+            $(".project_item").removeClass("grid").addClass("list");
             grid_btn.removeClass("active");
             list_btn.addClass("active");
 

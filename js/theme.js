@@ -49,6 +49,7 @@ jQuery(document).ready(function($) {
     var preload = $(".preload");
     var mobile_project_header = $(".mobile_project_header");
     var sixteen_nine = $(".sixteen-nine");
+    
     $('#homeslider').waitForImages(function() {
         $(this).removeClass("preload");
     });

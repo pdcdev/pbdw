@@ -23,7 +23,7 @@ $arch-spacing: .25em;
 
 $header_height: 50px;
 
-$desk_banner_height: 650px;
+$desk_banner_height: 630px;
 $tablet_banner_height: 500px;
 $mobile_banner_height: 400px;
 
@@ -789,8 +789,14 @@ header {
                             &:active {
                                 background-color: rgba(#000, .5em);
                             }
+                            &:hover {
+                                background-color: #000;     
+                            }
                             @include media($tablet) {
-                                background-color: rgba(#000, 0);
+                                background-color: transparent;
+                                &:hover {
+                                    background-color: transparent;
+                                }
                                 &:after {
                                     content: "\e808"; 
                                     font-family: fontello;
@@ -811,9 +817,6 @@ header {
                             font-weight: 600;
                             font-size: 1em;
                             color: #fff;
-                            &:hover {
-                                background-color: #000;
-                            }
                         }
                     }
                 }
@@ -952,7 +955,7 @@ $landscape_height: 260px;
                         }
                         @include pad(0 30px);
                         @include media($mobile) {
-                            bottom: 1em;
+                            bottom: 3em;
                         }
                         width: 100%;
                         position: absolute;
@@ -986,11 +989,6 @@ $landscape_height: 260px;
                             @include media($mobile) {
                                 font-size: 1.5em;
                             }
-                            /*&:hover {
-                                span {
-                                    border-bottom: 2px solid #fff;
-                                }
-                            }*/
                         }
                         div.go_to_arrow {
                             text-align: center;
@@ -1114,9 +1112,9 @@ $landscape_height: 260px;
         background-position: center;
         border-top: none !important;
         @include media($tablet) {
-            height: auto;
         }
         @include media($mobile) {
+            height: auto;
             margin-bottom: 10px;
         }
         div.project_info {
@@ -1159,6 +1157,13 @@ $landscape_height: 260px;
             }
             p.cat_box_description {
                 font-weight: 500;
+                @include media($largescreen) {
+                    font-size: 1.125em;
+                }
+                @include media($mobile) {
+                    @include pad(0 0 1em 0);
+                }
+                        
             }
         }
     }
@@ -1576,8 +1581,7 @@ $landscape_height: 260px;
         @include span-columns(4);
         @include media($tablet) {
             @include span-columns(8);       
-        }
-                
+        }    
         @include media($mobile) {
             @include span-columns(4);
         }
@@ -1841,13 +1845,14 @@ ol.flex-control-nav {
 }
 #team_grid {
     @include outer-container;
-    @include pad(0 30px 1em 30px);
+    @include pad(0 30px);
     @include media($tablet) {
-        @include pad(1em 30px);
+        @include pad(0 30px);
     }
     @include media($mobile) {
         @include pad(0 10px);
     }
+            
     article {
         height: auto;
         h4 {
@@ -2005,28 +2010,23 @@ ol.flex-control-nav {
         }
     }
 }
-
-.staff_rule {
-    border-top: 1px solid $gray;
-    @include pad(1.5em 0 0 0);
+.rule_across {
+    height: 20px;
 }
 aside.staff_container {
     @include outer-container;
-    @include pad(0 30px 30px 30px);
-    @include media($mobile) {
-        @include span-columns(4);
-        @include shift(0);
+    @include pad(0 30px 3em 30px);
+    /*@include media($mobile) {
         @include pad(2em);
-    }
+    }*/
     > div {
         border-top: 1px solid $gray;
         @include pad(0 0 2.5em 0);
         @include media($mobile) {
             @include pad(1em 0 1em 0);
         }
-        @include clearfix;
         h4 {
-            margin: .5em 0 .5em 0;
+            margin: .5em 0 .25em 0;
             color: $gray;
             font-weight: 600;
         }
@@ -2043,7 +2043,7 @@ aside.staff_container {
         .staff_architects, .staff_architects_spillover, .staff_communications,.staff_operations {
             .list_container {
                 .list_item {
-                    @include pad(.5em 0);
+                    @include pad(.3em 0);
                     font-weight: 600;
                 }
             }
@@ -2161,8 +2161,7 @@ article.section_anchor {
 #awards {
     @include pad(0 30px 3em 30px);
     @include media($mobile) {
-        @include span-columns(4);
-        @include pad(0 10px);
+        @include pad(0 30px 30px 30px);
     }
     h3 {
         font-weight: 600;
@@ -2173,9 +2172,10 @@ article.section_anchor {
     .award_group {
         @include span-columns(16 of 16);
         border-top: 1px solid $gray;
-        margin: 0 0 .5em 0;
+        margin: 0 0 0 0;
         &:last-child {
             border-bottom: 1px solid $gray;
+            margin: 0 0 .5em 0;
         }
         > h4 {
             @include span-columns(8 of 16);
@@ -2192,6 +2192,11 @@ article.section_anchor {
             }
             > div {
                 height: auto;
+                &:last-child {
+                    p {
+                        margin: .5em 0 .5em 0;
+                    }
+                }
                 p {
                     a {
                         @include transition (all .3s ease-in-out);
@@ -2462,6 +2467,9 @@ article.contact_map {
         }
                 
     }
+}
+div.staff_title {
+    @include pad(0em 30px 3em 30px);
 }
 footer {
     background-color: #222;

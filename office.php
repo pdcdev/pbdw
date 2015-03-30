@@ -57,12 +57,14 @@ get_header(); ?>
             <?php endwhile; ?>
         </article>
     </section> <!-- end team_grid -->
-
+    <div class="rule_across"></div>
     <?php endif; ?>
     <?php if ( have_posts() ) : while( have_posts() ) : the_post(); ?>
+
     <div class="subsection_title staff_title">
         <h2 class="staff_rule">Staff</h2>
     </div>
+
     <aside class="staff_container">
         <div>
             <div class="staff_architects">

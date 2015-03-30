@@ -9,7 +9,6 @@ get_header(); ?>
     ?>
 
     <div class="featured_projects_container">
-
         <div class="featured_projects_flexslider">
             <ul class="slides">
                 <?php while ( have_rows('pp_projects_featured') ) : the_row(); ?>
@@ -84,54 +83,78 @@ get_header(); ?>
         </div>
     </div>
     <section id="projects_grid" data-view="grid">
-        <div id="all_box" class="foursix cat_box">
+        <div id="all_box" class="cat_size cat_box">
             <div class="project_info">
                 <p class="cat_box_title">All Projects</p>
                 <p class="cat_box_description">
-                    PBDW's work on many of New York's most significant historic buildings has earned it a respected place in the preservation field. Projects range in scale from large to small, and include preservation, restoration, adaptive reuse, and carefully considered additions to landmarks and within landmark districts. Our skilled staff performs research, field work, master planning, conservation planning, design, and the careful integration of the latest building technologies to help ensure that these built treasures endure for future generations.
+                    <?php
+                        if( get_field('all_projects_description') ) {
+                            the_field('all_projects_description');
+                        }
+                    ?>
                 </p>
             </div>
         </div>
     </section>
 
     <div id="category_stage">
-        <div id="cultural_box" class="foursix cat_box">
+        <div id="cultural_box" class="cat_size cat_box">
             <div class="project_info">
                 <p class="cat_box_title">Cultural</p>
                 <p class="cat_box_description">
-                    "PBDW's work on many of New York's most significant historic buildings has earned it a respected place in the preservation field. Projects range in scale from large to small, and include preservation, restoration, adaptive reuse, and carefully considered additions to landmarks and within landmark districts. Our skilled staff performs research, field work, master planning, conservation planning, design, and the careful integration of the latest building technologies to help ensure that these built treasures endure for future generations."
+                    <?php
+                        if( get_field('cultural_projects_description') ) {
+                            the_field('cultural_projects_description');
+                        }
+                    ?>
                 </p>
             </div>
         </div>
-        <div id="commercial_box" class="foursix cat_box">
+        <div id="commercial_box" class="cat_size cat_box">
             <div class="project_info">
                 <p class="cat_box_title">Commercial</p>
                 <p class="cat_box_description">
-                    "Whether it be a small capital improvement for a private entity or a large commercial development for a high profile client, PBDW understands the need to leverage your real estate investment or acquisition to its fullest architectural and economical potential. By tailoring our work to embody the specific needs of each client and their stakeholders, we create solutions that not only embolden their commercial presence or market dominance, but also efficiently and economically fit within their projected means for a successful return on investment."
+                    <?php
+                        if( get_field('commercial_projects_description') ) {
+                            the_field('commercial_projects_description');
+                        }
+                    ?>
                 </p>
             </div>
         </div>
-        <div id="education_box" class="foursix cat_box">
+        <div id="education_box" class="cat_size cat_box">
             <div class="project_info">
                 <p class="cat_box_title">Education</p>
                 <p class="cat_box_description">
-                    "PBDW's work on many of New York's most significant historic buildings has earned it a respected place in the preservation field. Projects range in scale from large to small, and include preservation, restoration, adaptive reuse, and carefully considered additions to landmarks and within landmark districts. Our skilled staff performs research, field work, master planning, conservation planning, design, and the careful integration of the latest building technologies to help ensure that these built treasures endure for future generations."
+                    <?php
+                        if( get_field('education_projects_description') ) {
+                            the_field('education_projects_description');
+                        }
+                    ?>
                 </p>
             </div>
         </div>
-        <div id="preservation_box" class="foursix cat_box">
+        <div id="preservation_box" class="cat_size cat_box">
             <div class="project_info">
                 <p class="cat_box_title">Preservation</p>
                 <p class="cat_box_description">
-                    "PBDW's work on many of New York's most significant historic buildings has earned it a respected place in the preservation field. Projects range in scale from large to small, and include preservation, restoration, adaptive reuse, and carefully considered additions to landmarks and within landmark districts. Our skilled staff performs research, field work, master planning, conservation planning, design, and the careful integration of the latest building technologies to help ensure that these built treasures endure for future generations."
+                    <?php
+                        if( get_field('preservation_projects_description') ) {
+                            the_field('preservation_projects_description');
+                        }
+                    ?>
                 </p>
             </div>
         </div>
-        <div id="residential_box" class="foursix cat_box">
+        <div id="residential_box" class="cat_size cat_box">
             <div class="project_info">
                 <p class="cat_box_title">Residential</p>
                 <p class="cat_box_description">
-                    "PBDW's work on many of New York's most significant historic buildings has earned it a respected place in the preservation field. Projects range in scale from large to small, and include preservation, restoration, adaptive reuse, and carefully considered additions to landmarks and within landmark districts. Our skilled staff performs research, field work, master planning, conservation planning, design, and the careful integration of the latest building technologies to help ensure that these built treasures endure for future generations."
+                    <?php
+                        if( get_field('residential_projects_description') ) {
+                            the_field('residential_projects_description');
+                        }
+                    ?>
                 </p>
             </div>
         </div>

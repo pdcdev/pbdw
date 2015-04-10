@@ -28,7 +28,7 @@
               $nav_class = "dark_transparent";
             } else if ( $the_post_type == "team" ) {
               $nav_class = "projects";
-            } else if ( is_page("home") ) {
+            } else if ( is_page("home") || is_page("expertise") ) {
               $nav_class = "home";
             } else if ( is_page("projects") ) {
               $nav_class = "projects";

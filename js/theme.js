@@ -49,7 +49,8 @@ jQuery(document).ready(function($) {
     var preload = $(".preload");
     var mobile_project_header = $(".mobile_project_header");
     var sixteen_nine = $(".sixteen-nine");
-    
+    var window_height = $(".window-height");
+
     $('#homeslider').waitForImages(function() {
         $(this).removeClass("preload");
     });
@@ -61,6 +62,11 @@ jQuery(document).ready(function($) {
             $(window).load(function() {
                 $(this).animate({opacity: 1}, 1000);
             });
+        });
+    }
+    function size_window_height(){
+        window_height.each(function(){
+            $(this).css( "height", Math.round( $(window).height() ) + "px");
         });
     }
     function size_sixteen_nine(){
@@ -188,6 +194,7 @@ jQuery(document).ready(function($) {
         position_gallery_nav();
         heavy_object();
         size_sixteen_nine();
+        size_window_height();
     });
 
     preload_in();
@@ -200,5 +207,6 @@ jQuery(document).ready(function($) {
     position_gallery_nav();
     heavy_object();
     size_sixteen_nine();
+    size_window_height();
 
 });

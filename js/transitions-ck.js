@@ -1,0 +1,1 @@
+jQuery(document).ready(function(e){var t=e(".wrap");e(window).load(function(){t.delay(500).removeClass("global_hidden").addClass("global_visible")})});

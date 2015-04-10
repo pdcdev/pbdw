@@ -6,6 +6,4 @@ jQuery(document).ready(function($) {
         wrap.delay(500).removeClass("global_hidden").addClass("global_visible");
     });
 
-    console.log("transition");
-
 });

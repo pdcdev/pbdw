@@ -2126,6 +2126,164 @@ article.section_anchor {
         }
     }
 }
+.expertise_description {
+    h2, > div {
+        @include span-columns(8);
+    }
+    h2 {
+        font-size: 2em;
+        font-weight: 600;
+        color: $gray;
+    }
+    > div {
+        p {
+            @include pad(0 0 1em 0);
+            font-size: 1.25em;
+            color: $gray;
+        }
+    }
+}
+.expertise_container {
+    background-color: $gray;
+}
+#exp_menu {
+    #expertise_btn {
+        display: none;
+    }
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    pointer-events: none;
+    @extend .vertcent_parent;
+    div.menu_container {
+        @include outer-container;
+        @include pad(6em 30px);
+        width: 100%;
+        ul {
+            @include span-columns(8);
+            /*@include shift(1);*/
+            display: block;
+            @include media($tablet) {
+                display: none;
+            }
+            li {
+                @include transition (all .2s ease-in-out);
+                display: block;
+                font-size: 2em;
+                color: rgba(#fff, .6);
+                cursor: pointer;
+                font-weight: 600;
+                &.active {
+                    color: #fff;
+                }
+                &:hover {
+                    color: #fff;
+                }
+                a {
+                    pointer-events: all;
+                }
+            }
+        }
+    }
+}
+#expertise {
+    max-width: none;
+    margin: 0;
+    article.exp_intro {
+        background-image: url('../images/group_9.jpg');
+        background-size: cover;
+        div.exp_description {
+            h2 {
+                font-size: 2em;
+                font-weight: 600;
+            }
+            p {
+                font-size: 1.25em;
+                @include pad(1.5em 0);
+            }
+        }
+    }
+    article.exp_item {
+        color: #fff;
+        position: relative;
+        background-size: cover;
+        background-position: center center;
+        &.arch {
+            background-image: url('../images/expertise/arch.jpg');
+        }
+        &.pres {
+            background-image: url('../images/expertise/pres.jpg');
+        }
+        &.urba {
+            background-image: url('../images/expertise/urba.jpg');
+        }
+        &.adap {
+            background-image: url('../images/expertise/adap.jpg');
+        }
+        &.rese {
+            background-image: url('../images/expertise/rese.jpg');
+        }
+        &.sust {
+            background-image: url('../images/expertise/sust.jpg');
+        }
+        &.desi {
+            background-image: url('../images/expertise/desi.jpg');
+        }
+        &.proj {
+            background-image: url('../images/expertise/proj.jpg');
+        }
+        @include media($tablet) {
+            @include pad(3em 30px);
+        }
+        
+        div.exp_description {
+            @include outer-container;
+            @include span-columns(7);
+            @include shift(8);
+            @include media($tablet) {
+                @include span-columns(8);
+                @include shift(0);
+            }
+            h3 {
+                display: none;
+                @include media($tablet) {
+                    display: block;
+                    font-size: 2em;
+                    font-weight: 600;
+                    @include pad(0 0 .5em 0);
+                }
+            }
+            p.abridged {
+                font-size: 2em;
+                @include media($mobile) {
+                    font-size: 1.75em;
+                }
+            }
+            p.unabridged {
+                font-size: 1.25em;
+                @include pad(1.5em 0);
+                @include transition (all .3s ease-in-out);
+            }
+            div.exp_projects {
+                @include pad(1em 0 0 0);
+                div {
+                    @include span-columns(1 of 7);
+                    @include media($mobile) {
+                        @include span-columns(1 of 4);
+                        @include omega(4n);
+                    }
+                    img {
+                        width: 100%;
+                    }
+                    overflow: hidden;
+                    box-shadow: 0 0 50px 10px rgba(#000, .75);
+
+                }
+            }
+        }
+    }
+}
 #profile {
     @include outer-container;
     @include pad(.5em 30px);
@@ -2591,4 +2749,14 @@ footer, .push {
     display: inline-block;
     vertical-align: middle;
     height: 100%;
+}
+.vertcent_parent {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    align-items: center;
+    justify-content: center;
 }

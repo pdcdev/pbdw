@@ -164,7 +164,7 @@ jQuery(document).ready(function($) {
         }
     });
 
-    var desktop_map_link = "http://goo.gl/maps/9DOvO";
+    var desktop_map_link = "https://www.google.com/maps/place/PBDW+Architects/@40.751512,-73.985486,17z/data=!3m1!4b1!4m2!3m1!1s0x89c259a38659c76d:0xbf6bd067e5fa6151";
     var mobile_map_link = "http://maps.apple.com/?q=Platt+Byard+Dovell+White+Architects";
     var the_map_link = desktop_map_link;
 
@@ -174,7 +174,7 @@ jQuery(document).ready(function($) {
         the_map_link = desktop_map_link;
     }
 
-    $("#menu-primary-navigation > li:nth-of-type(3)").append("<div class=\"contact_info\"><address><p class=\"address\"><a href="+the_map_link+" target=\"_blank\">20 W 22nd Street<br />New York, NY 10010</a></p></address><p class=\"phone\"><br /><a href=\"tel:212-691-2440\">212 691 2440</a></p><p class=\"email\"><br /><a href=\"tel:212-691-2440\">info@pbdw.com</a></p></div>");
+    $("#menu-primary-navigation > li:nth-of-type(3)").append("<div class=\"contact_info\"><address><p class=\"address\"><a href="+the_map_link+" target=\"_blank\">49 West 37th Street, 4th Floor<br />New York, NY 10018</a></p></address><p class=\"phone\"><br /><a href=\"tel:212-691-2440\">212 691 2440</a></p><p class=\"email\"><br /><a href=\"tel:212-691-2440\">info@pbdw.com</a></p></div>");
 
     $(".mobile_down").click(function(){
         $('html, body').animate({

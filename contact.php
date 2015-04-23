@@ -3,6 +3,7 @@
     Template Name: Contact Page
 */
 get_header(); ?>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 <div class="wait global_hidden">
     <header class="contact-nav tablet_nav_shrunk">
         <h1><a href="<?php echo home_url(); ?>">PBDW <span>ARCHITECTS</span></a></h1>
@@ -25,9 +26,13 @@ get_header(); ?>
         </div>
     </div>
     <section id="contact">
-        <a href="<?php the_field( 'map_link' ); ?>" target="_blank">
-            <article class="contact_map"></article>
-        </a>
+        <!-- <a href="<?php the_field( 'map_link' ); ?>" target="_blank"> -->
+            <article class="contact_map">
+                <div id="map-canvas"></div>
+                <!-- <iframe frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAyuSLkn1lXz8j1J7gXv-yvzSjXd4j30G8&q=PBDW+Architects,New+York+NY"> 
+                </iframe> -->
+            </article>
+        <!-- </a> -->
         <div class="toprule">
             <article class="contact_info">
                 <div class="contact_web">

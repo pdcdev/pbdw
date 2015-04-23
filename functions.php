@@ -19,6 +19,8 @@ function theme_js() {
     wp_enqueue_script( 'easing', get_template_directory_uri() . '/js/jquery.easing.js', array('jquery'), '', true );
     wp_enqueue_script( 'theme_js', get_template_directory_uri() . '/js/theme.js', array('jquery'), '', true );
     wp_enqueue_script( 'waitforimages', get_template_directory_uri() . '/js/jquery.waitforimages.min.js', array('jquery'), '', true );
+    wp_register_script( 'map', get_template_directory_uri() . '/js/map.js', array('jquery'), '', true );
+
     wp_register_script( 'projects', get_template_directory_uri() . '/js/projects.js', array('jquery','theme_js'), '', true );
     wp_register_script( 'single-projects', get_template_directory_uri() . '/js/single-projects.js', array('jquery','theme_js','modernizr'), '', true );
 
@@ -32,6 +34,9 @@ function theme_js() {
     }
     if(!is_page('projects') && !is_page('all')  && !is_page('cultural')  && !is_page('commercial')  && !is_page('education')  && !is_page('preservation')  && !is_page('residential')) {
         wp_enqueue_script( 'transitions' );
+    }
+    if( is_page("contact") ) {
+        wp_enqueue_script("map");
     }
     if( is_front_page() ) {
         wp_enqueue_script( 'home_js' );

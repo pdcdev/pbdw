@@ -14,8 +14,8 @@
                     ?>
                 </nav>
                 <address>
-                    <p>20 West 22nd Street, 17th Floor</p>
-                    <p>New York, NY 10010</p>
+                    <p>49 West 37th Street, 4th Floor</p>
+                    <p>New York, NY 10018</p>
                     <p>212 691 2440</p>
                 </address>
             </div>

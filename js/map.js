@@ -1,7 +1,7 @@
 jQuery(document).ready(function($) {
     
 var map;
-var loc = new google.maps.LatLng(40.741387,-73.991672);
+var loc = new google.maps.LatLng(40.751512,-73.985486);
 
 var MY_MAPTYPE_ID = 'custom_style';
 

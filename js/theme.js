@@ -1,12 +1,14 @@
 jQuery(document).ready(function($) {
-    var wait = $(".wait");
+    var wait   = $(".wait");
     var fadein = $(".fadein");
+    var loader = $(".loader");
 
     fadein.delay(500).removeClass("global_hidden").addClass("global_visible");
 
     $(window).load(function() {
 
         wait.delay(500).removeClass("global_hidden").addClass("global_visible");
+        loader.animate({opacity: 0}, 300 );
 
         $.waitForImages.hasImgProperties = ['backgroundImage'];
 
@@ -16,14 +18,14 @@ jQuery(document).ready(function($) {
             keyboard: true,
             animation: "fade",
             slideshow: true,
-            slideshowSpeed: 3000,
+            slideshowSpeed: 5000,
             animationSpeed: 1000,
             touch: Modernizr.touch ? "true" : "false",
             video: false,
             controlNav: false,
             directionNav: false,
-            useCSS: true,
-            startAt: 0,
+            useCSS: false,
+            startAt: 0
         });
 
     });
@@ -46,20 +48,30 @@ jQuery(document).ready(function($) {
     var heavy = $(".heavy");
     var preload = $(".preload");
     var mobile_project_header = $(".mobile_project_header");
+    var sixteen_nine = $(".sixteen-nine");
+    var window_height = $(".window-height");
 
     $('#homeslider').waitForImages(function() {
         $(this).removeClass("preload");
     });
-
     projectslider.waitForImages(function() {
         $(".load_symbol").animate({"opacity": 0}, 800);
     });
-
     function preload_in() {
         preload.each(function(){
             $(window).load(function() {
                 $(this).animate({opacity: 1}, 1000);
             });
+        });
+    }
+    function size_window_height(){
+        window_height.each(function(){
+            $(this).css( "height", Math.round( $(window).height() ) + "px");
+        });
+    }
+    function size_sixteen_nine(){
+        sixteen_nine.each(function(){
+            $(this).css( "height", Math.round( $(this).width() * 0.5625 ) + "px");
         });
     }
     function heavy_object() {
@@ -74,7 +86,8 @@ jQuery(document).ready(function($) {
     }
     function size_foursix() {
         foursix.each(function(){
-            $(this).css("height", Math.round($(this).width()/0.6667) + "px");
+            // $(this).css("height", Math.round($(this).width()) + "px");
+            $(this).css("height", Math.round($(this).width()*1.5) + "px");
         });
     }
     function size_sixfive() {
@@ -164,25 +177,14 @@ jQuery(document).ready(function($) {
         }
     });
 
-    var desktop_map_link = "https://www.google.com/maps/place/PBDW+Architects/@40.751512,-73.985486,17z/data=!3m1!4b1!4m2!3m1!1s0x89c259a38659c76d:0xbf6bd067e5fa6151";
-    var mobile_map_link = "http://maps.apple.com/?q=Platt+Byard+Dovell+White+Architects";
-    var the_map_link = desktop_map_link;
-
-    if($(window).width() < 768) {
-        the_map_link = mobile_map_link;
-    } else {
-        the_map_link = desktop_map_link;
-    }
-
-    $("#menu-primary-navigation > li:nth-of-type(3)").append("<div class=\"contact_info\"><address><p class=\"address\"><a href="+the_map_link+" target=\"_blank\">49 West 37th Street, 4th Floor<br />New York, NY 10018</a></p></address><p class=\"phone\"><br /><a href=\"tel:212-691-2440\">212 691 2440</a></p><p class=\"email\"><br /><a href=\"tel:212-691-2440\">info@pbdw.com</a></p></div>");
-
     $(".mobile_down").click(function(){
         $('html, body').animate({
             scrollTop: $("#projectslider").height() + 48
         }, 1000, "easeInOutQuart");
     });
 
-    $(window).resize(function(){
+    // $(window).resize(function(){
+    $(window).on('resize', function(){
         size_square();
         size_foursix();
         size_sixfive();
@@ -190,8 +192,9 @@ jQuery(document).ready(function($) {
         size_half_window();
         position_below_window();
         position_gallery_nav();
-        // activate_flexslider();
         heavy_object();
+        size_sixteen_nine();
+        size_window_height();
     });
 
     preload_in();
@@ -202,7 +205,8 @@ jQuery(document).ready(function($) {
     size_half_window();
     position_below_window();
     position_gallery_nav();
-    // activate_flexslider();
     heavy_object();
+    size_sixteen_nine();
+    size_window_height();
 
 });

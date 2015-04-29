@@ -1,44 +1,53 @@
 <?php get_header(); ?>
-<script type="text/javascript">
-    if (screen.width <= 320) {
-        document.location = "/mobile-home";
-    }
-</script>
     <div class="wait global_hidden">
-        <div id="header_container" class="header_gradient">
-            <header class="home-nav tablet_nav_shrunk">
-                <h1><a href="<?php echo home_url(); ?>">PBDW <span>ARCHITECTS</span></a></h1>
-                <div class="mobile_menu_btn">
-                    <div class="menu_icon"></div>
-                </div>
-                <nav data-visibility="0" class="nav_hidden">
+        <article id="home">
+            <?php if ( have_posts() ) : ?>
+                <?php $images = get_field('home_slider');
+                    if( $images ): ?>
+                        <div id="homeslider" class="home-flexslider preload">
+                            <ul class="slides">
+                                <?php while ( have_rows('home_featured') ) : the_row(); ?>
+                                    <li class="slide">
+                                        <?php $project = get_sub_field("project"); ?>
+                                        <div class="" style="background-image: url( <?php echo get_image( get_sub_field('home_page_image'), "cover_nocrop"); ?> );">
+                                            <div class="project_title">
+                                                <a href="<?php echo get_permalink( $project->ID ); ?>">
+                                                    <h3>
+                                                        <?php echo $project->post_title; ?>
+                                                    </h3>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                <?php endwhile; ?>
+                            </ul>
+                        </div>
+                    <?php endif;?>
+                <?php endif;  ?>
+        </article>
+        <div class="home_logo_container">
+            <div class="home_logo"></div>
+        </div>
+        <aside class="home_footer">
+            <div>
+                <p class="name">Platt Byard Dovell White Architects LLP <br /> All rights reserved, <?php echo date("Y"); ?><p>
+                <nav class="footer_nav">
                     <?php
                         $args = array(
                             'menu' => 'main-menu',
+                            'depth' => '1',
                             'echo' => false
                         );
                         echo wp_nav_menu( $args );
                     ?>
                 </nav>
-            </header>
-        </div>
-        <article id="home">
-            <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-                <?php $images = get_field('home_slider');
-                    if( $images ): ?>
-                        <div id="homeslider" class="home-flexslider preload">
-                            <ul class="slides">
-                                <?php foreach( $images as $image ): ?>
-                                    <li class="slide">
-                                        <div class="window_size" style="background-image: url( <?php echo $image['url']; ?> );"></div>
-                                    </li>
-                                <?php endforeach; ?>
-                            </ul>
-                        </div>
-                    <?php endif;?>
-                <?php endwhile; endif;  ?>
-        </article>
-        <div class="home_logo window_size">
-        </div>
+                <address>
+                    <p>20 West 22nd Street, 17th Floor</p>
+                    <p>New York, NY 10010</p>
+                    <p>212 691 2440</p>
+                </address>
+            </div>
+
+        </aside>
     </div>
         <?php wp_footer(); ?>

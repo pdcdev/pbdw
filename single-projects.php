@@ -1,30 +1,19 @@
     <?php get_header(); ?>
+    <div class="loader">
+        <p class="loaderdots">
+            <span class="ldr ldr1"></span>
+            <span class="ldr ldr2"></span>
+            <span class="ldr ldr3"></span>
+            <span class="ldr ldr4"></span>
+        </p>
+    </div>
     <div class="wait global_hidden">
-        <div id="header_container" class="header_gradient">
-            <header class="project-single-nav tablet_nav_shrunk">
-                <h1><a href="<?php echo home_url(); ?>">PBDW <span>ARCHITECTS</span></a></h1>
-                <div class="mobile_menu_btn">
-                    <div class="menu_icon"></div>
-                </div>
-                <nav data-visibility="0" class="nav_hidden">
-                    <?php
-                        $args = array(
-                            'menu' => 'main-menu',
-                            'echo' => false
-                        );
-                        echo wp_nav_menu( $args );
-                    ?>
-                </nav>
-            </header>
-        </div>
         <div id="projectslider" class="window_size">
             <div class="mobile_project_header">
-                <!-- <div class="mobile_project_header_inner "> -->
-                    <h2 class="truncate"><?php the_title(); ?></h2>
-                    <div class="mobile_down">
-                        <img src="<?php bloginfo('stylesheet_directory'); ?>/images/mobile_down.svg">
-                    </div>
-                <!-- </div> -->
+                <h2 class="truncate"><?php the_title(); ?></h2>
+                <div class="mobile_down">
+                    <img src="<?php bloginfo('stylesheet_directory'); ?>/images/mobile_down.svg">
+                </div>
             </div>
             <div class="prev flexbtn"><i class="icon-left-open-big"></i><span></span></div>
             <div class="next flexbtn"><i class="icon-right-open-big"></i><span></span></div>
@@ -52,7 +41,7 @@
                     <?php endforeach; ?>
                 </ul>
             </div>
-                <div class="gallery_nav_container"></div>
+            <div class="gallery_nav_container"></div>
         <?php endif;?>
         </div>
         <div class="expand_view_container">
@@ -61,7 +50,7 @@
         <section id="project_page"><!-- class="underworld" -->
             <div class="project_breadcrumbs">
                 <h3>
-                <?php echo implode(' and ', get_field( 'project_category' )); ?>
+                <?php echo implode(' &amp; ', get_field( 'project_category' )); ?>
                 </h3>
             </div>
 
@@ -101,79 +90,29 @@
             <?php if (get_field( 'project_pdf' )) : ?>
                 <h5><a href="<?php the_field( 'project_pdf' ); ?>" class="download_pdf" target="_blank">Project PDF <i class="icon-download"></i> </a></h5>
             <?php endif; ?>
-            
             </div>
-            <?php endwhile; endif; ?>
         </section>
-            <?php
-                $categories = get_field( 'project_category' );
 
-                if( $categories ):
-            ?>
-
-        <section class="cat_thumbs">
-            <h6>Similar Projects</h6>
-            <div class="more_cat_thumbs">
-            <?php
-
-                global $wp_query;
-                $thePostID = $wp_query->post->ID;
-
-                if(count($categories) > 1) {
-                    $cats = array(
-                        'relation' => 'OR',
-                        array(
-                            'key'     => 'project_category',
-                            'value'   => $categories[0],
-                            'compare' => 'LIKE'
-                        ),
-                        array(
-                            'key'     => 'project_category',
-                            'value'   => $categories[1],
-                            'compare' => 'LIKE'
-                        )
-                    );
-                } else {
-                    $cats = array(
-                        'relation' => 'OR',
-                        array(
-                            'key'     => 'project_category',
-                            'value'   => $categories[0],
-                            'compare' => 'LIKE'
-                        )
-                    );
-                }
-
-                $args = array(
-                    'post_type' => 'projects',
-                    'post__not_in' => array($thePostID),
-                    'meta_query' => $cats
-                );
-
-                $the_query = new WP_Query( $args );
-
-            ?>
-                <?php if ( $the_query->have_posts() ) : ?>
-
-                    <?php while( $the_query->have_posts() ) : $the_query->the_post(); ?>
-                    <?php
-                        $attachment_id = get_field('featured_image');
-                        $size = "thumbnail";
-
-                        $image = wp_get_attachment_image_src( $attachment_id, $size );
-                    ?>
+        <?php if( get_field('similar_projects') ) : ?>
+        <?php $related_posts = get_field('similar_projects'); ?>
+            <?php if( $related_posts ): ?>
+                <section class="cat_thumbs">
+                    <h6>Similar Projects</h6>
+                    <div class="more_cat_thumbs">
+                <?php foreach( $related_posts as $related_post ): ?>
+                <?php $post = $related_post; setup_postdata($post); ?>
                     <div>
-                        <div class="cat_cube square" style="background-image: url(<?php echo $image[0]; ?>)">
-                            <a href="<?php the_permalink(); ?>">
-                                <div class="cat_cube_info">
-                                    <p><?php the_title(); ?></p>
-                                </div>
-                            </a>
+                        <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+                        <div class="cat_cube square" style="background-image: url(<?php echo get_image( get_field("featured_image"), "cube"); ?>);">
                         </div>
+                        </a>
                     </div>
-                <?php endwhile; endif; ?>
-            </div>
-        </section>
-    <?php endif; ?>
+                <?php endforeach; ?>
+                    </div>
+                </section>
+            <?php endif; ?>
+        <?php endif; ?>
+
+        <?php endwhile; endif; ?>
 </div>
 <?php get_footer(); ?>

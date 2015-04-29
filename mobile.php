@@ -43,13 +43,13 @@ get_header(); ?>
 
                     $image = wp_get_attachment_image_src( $attachment_id, $size );
                 ?>
-                <a href="<?php the_permalink(); ?>">
                 <div class="featured_project_item foursix <?php echo implode(' ', get_field('project_category')) ; ?>" title="<?php the_title(); ?>" data-completed="<?php the_field( 'date_completed' ); ?>" style="background-image: url(<?php echo $image[0]; ?>)">
+                    <a href="<?php the_permalink(); ?>">
                         <div class="featured_project_info header_gradient">
                             <p><?php the_title(); ?></p>
                         </div>
+                    </a>
                 </div>
-                </a>
             <?php endwhile; endif; ?>
         </div>
     </section>

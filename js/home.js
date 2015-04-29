@@ -1,22 +1,18 @@
 jQuery(document).ready(function($) {
-
-    // var nav_height = $("nav").height();
-
-        if($('.home-flexslider')) {
-            $('.home-flexslider').flexslider({
-                keyboard: true,
-                // animation: Modernizr.touch ? "slide" : "fade",
-                animation: "fade",
-                slideshow: true,
-                slideshowSpeed: 3000,
-                animationSpeed: 1000,
-                // touch: Modernizr.touch ? "true" : "false",
-                touch: "true",
-                video: false,
-                controlNav: false,
-                directionNav: false,
-                startAt: 0,
-            });
+    $(window).load(function() {
+        $('.home-flexslider').flexslider({
+            keyboard: true,
+            animation: "fade",
+            slideshow: true,
+            slideshowSpeed: 5000,
+            animationSpeed: 1000,
+            touch: Modernizr.touch ? "true" : "false",
+            video: false,
+            controlNav: false,
+            directionNav: false,
+            useCSS: false,
+            startAt: 0
+        });
 
     });
 

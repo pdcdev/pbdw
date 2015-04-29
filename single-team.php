@@ -1,52 +1,64 @@
 <?php get_header(); ?>
-
-    <header class="team-single-nav tablet_nav_shrunk">
-        <h1><a href="<?php echo home_url(); ?>">PBDW <span>ARCHITECTS</span></a></h1>
-                <div class="mobile_menu_btn">
-                    <div class="menu_icon"></div>
-                </div>
-        <nav data-visibility="0" class="nav_hidden">
-            <?php
-                $args = array(
-                    'menu' => 'main-menu',
-                    'echo' => false
-                );
-                echo wp_nav_menu( $args );
-            ?>
-        </nav>
-    </header>
-    <div class="team_breadcrumbs">
-        <div>
-            <p><span>TEAM</span> / <span><?php wp_title( '', true ); ?></span></p>
-        </div>
-    </div>
     <section id="team_page">
-            <article class="member_item">
+        <div class="bread">
+            <div class="project_breadcrumbs">
+                <h3>
+                    Leadership Team
+                </h3>
+            </div>
+        </div>
+            <article class="member">
             <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-                <div class="member_info">
-                    <div class="member_header">
-                        <div>
-                            <h3><?php the_title(); ?> <span><?php the_field( 'designation' ); ?></span></h3>
-                            <p class="position"><?php the_field( 'position' ); ?></p>
-                            <!-- <p class="email"><a href="mailto:<?php the_field( 'member_email' ); ?>"><?php the_field( 'member_email' ); ?></a></p> -->
-                        </div>
-                    </div>
-                    <div class="member_description">
-                        <?php if (get_field('member_copy')) : the_field( 'member_copy' ); endif; ?>
-                        <?php if (get_field('member_bio_pdf')) : ?>
-                            <a href="<?php the_field("member_bio_pdf") ?>" target="_blank">Download Bio <i class="icon-download"></i></a>
-                        <?php endif; ?>
-                    </div>
-                    <div class="member_projects"></div>
+
+                <div class="member_header">
+                    <h3><?php the_title(); ?> <span><?php the_field( 'designation' ); ?></span></h3>
+                    <p class="position"><?php the_field( 'position' ); ?></p>
                 </div>
-                
-                <div class="member_image sixfive" style="background-image: url('<?php the_field( 'member_image' ); ?>');">
+
+                <div class="member_description">
+                    <?php if (get_field('member_copy')) : the_field( 'member_copy' ); endif; ?>
+                    <?php if (get_field('member_bio_pdf')) : ?>
+                        <a href="<?php the_field("member_bio_pdf") ?>" target="_blank">Download Bio <i class="icon-download"></i></a>
+                    <?php endif; ?>
+                </div>
+
+                <div class="member_image square" style="background-image: url('<?php the_field( 'member_image' ); ?>');">
                 </div>
 
             <?php endwhile; endif; ?>
 
             </article>
     </section>
+    <?php rewind_posts(); ?>
+    <?php wp_reset_query(); ?>
+        <section class="cat_thumbs">
+            <h6>Leaders</h6>
+            <div class="more_cat_thumbs">
+                <?php
+                    global $wp_query;
+                    $thePostID = $wp_query->post->ID;
+
+                    $args = array(
+                        'post_type' => 'team',
+                        'post__not_in' => array($thePostID)
+                    );
+
+                    $the_query = new WP_Query( $args );
+                ?>
+                <?php while( $the_query->have_posts() ) : $the_query->the_post(); ?>
+                    <div>
+                        <div class="cat_cube square" style="background-image: url(<?php the_field( 'member_image' ); ?>)">
+                            <a href="<?php the_permalink(); ?>">
+                                <div class="cat_cube_info">
+                                    <p><?php the_title(); ?></p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                <?php endwhile; ?>
+            </div>
+        </section>
+
     <script type="text/javascript">
 
     </script>

@@ -3,37 +3,11 @@
     Template Name: Contact Page
 */
 get_header(); ?>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
-<div class="wait global_hidden">
-    <header class="contact-nav tablet_nav_shrunk">
-        <h1><a href="<?php echo home_url(); ?>">PBDW <span>ARCHITECTS</span></a></h1>
-        <div class="mobile_menu_btn">
-            <div class="menu_icon"></div>
-        </div>
-        <nav data-visibility="0" class="nav_hidden">
-            <?php
-                $args = array(
-                    'menu' => 'main-menu',
-                    'echo' => false
-                );
-                echo wp_nav_menu( $args );
-            ?>
-        </nav>
-    </header>
-    <div class="contact_breadcrumbs">
-        <div>
-            <p><span><?php wp_title( '', true ); ?></span></p>
-        </div>
-    </div>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    <article class="contact_map">
+        <div id="map-canvas" class="watch-orientation"></div>
+    </article>
     <section id="contact">
-        <!-- <a href="<?php the_field( 'map_link' ); ?>" target="_blank"> -->
-            <article class="contact_map">
-                <div id="map-canvas"></div>
-                <!-- <iframe frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAyuSLkn1lXz8j1J7gXv-yvzSjXd4j30G8&q=PBDW+Architects,New+York+NY"> 
-                </iframe> -->
-            </article>
-        <!-- </a> -->
-        <div class="toprule">
             <article class="contact_info">
                 <div class="contact_web">
                     <h4>Connect With Us</h4>
@@ -62,23 +36,36 @@ get_header(); ?>
         <?php if ( have_posts() ) : while( have_posts() ) : the_post(); ?>
         <?php if( get_field('artwork_credit') ) : ?>
         <article class="credits">
-        <h4>Artist Credits</h4><h4>Website Design</h4>
-        <ul class="artists">
-        <?php while( has_sub_field('artwork_credit') ): ?>
-            <li>
-                <?php if(get_sub_field('artist_url')): ?>
-                    <a href="<?php the_sub_field('artist_url'); ?>" target="_blank"><?php the_sub_field('name-entity'); ?></a>
-                <?php else: ?>
-                    <?php the_sub_field('name-entity'); ?>
-                <?php endif; ?>
-            </li>
-        <?php endwhile; ?>
-        </ul>
+        <h4>Artist Credits</h4><h4>Website Development</h4>
+        <div class="artists">
+        <?php
+            $artist_string = array();
+            while( has_sub_field('artwork_credit') ) {
+                if( get_sub_field('artist_url') ) {
+                    $artist_string[] = "<a href=" . get_sub_field('artist_url') . " target='_blank'>" . get_sub_field('name-entity') . "</a>";
+                } else {
+                    $artist_string[] = get_sub_field('name-entity');
+                }
+            }
+
+            $arist_count = count($artist_string);
+            $i = 0;
+            foreach( $artist_string as $artist ) {
+                if(++$i != $arist_count) {
+                    echo $artist . ", ";
+                } else {
+                    echo $artist . ".";
+                }
+            }
+        ?>
+        </div>
+
         <ul class="website">
         <?php while( has_sub_field('website_credit') ): ?>
             <li>
                 <?php if(get_sub_field('website_credit_name')): ?>
-                    <a href="<?php the_sub_field('website_credit_url'); ?>" target="_blank"><?php the_sub_field('website_credit_name'); ?></a>
+                    <a href="<?php the_sub_field('website_credit_url'); ?>" target="_blank">
+                        <?php the_sub_field('website_credit_name'); ?></a>
                 <?php else: ?>
                     <?php the_sub_field('website_credit_name'); ?>
                 <?php endif; ?>
@@ -93,20 +80,19 @@ get_header(); ?>
             <?php if( get_field('opportunities') ) : ?>
         <div class="contact_breadcrumbs">
             <div>
-                <p><span></span><span>Opportunities</span></p>
+                <p><span>Opportunities</span></p>
             </div>
         </div>
         <section id="jobs">
             <?php while( has_sub_field('opportunities') ): ?>
             <article class="jobs_item">
-                    <h4 class="pos_name"><?php the_sub_field('position_name'); ?></h4>
-                    <p><?php the_sub_field('position_description'); ?></p>
-                    <h4 class="qualifications">Qualifications</h4>
-                    <p><?php the_sub_field('position_qualifications'); ?></p>
+                <h4 class="pos_name"><?php the_sub_field('position_name'); ?></h4>
+                <p><?php the_sub_field('position_description'); ?></p>
+                <h4 class="qualifications">Qualifications</h4>
+                <p><?php the_sub_field('position_qualifications'); ?></p>
             </article>
             <?php endwhile; ?>
         </section>
     <?php endif ?>
 <?php endwhile; endif; ?>
-</div>
 <?php get_footer(); ?>

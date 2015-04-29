@@ -8,7 +8,6 @@ jQuery(document).ready(function($) {
     }
 
     function init_flex(){
-
         $('.projects-flexslider').flexslider({
             keyboard: true,
             animation: "fade",

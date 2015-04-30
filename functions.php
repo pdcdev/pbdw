@@ -64,7 +64,6 @@ function theme_js() {
     if ( is_single() ) {
         wp_enqueue_script( 'single-projects' );
     }
-
 }
 
 // ajax begin
@@ -103,6 +102,6 @@ add_theme_support( 'menus' );
 add_theme_support( 'post-thumbnails' );
 
 add_image_size( "grid", 0, 800, false );
-add_image_size( "cube" , 0, 400 );
-
+add_image_size( "cube", 0, 400 );
+add_image_size( "medium", 500, 0, false );
 ?>

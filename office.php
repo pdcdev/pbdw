@@ -46,8 +46,7 @@ get_header(); ?>
         <?php while( $the_query->have_posts() ) : $the_query->the_post(); ?>
                 <div class="team_item">
                     <a href="<?php the_permalink(); ?>"> 
-                        <div class="team_item_image square" style="background-image: url(<?php echo the_field( 'member_image' ); ?>)"></div>
-
+                        <div class="team_item_image square" style="background-image: url(<?php echo get_image(get_field( 'member_image' ), "medium"); ?>)"></div>
                         <div class="team_item_info">
                             <p><?php the_title(); ?> <span><?php the_field( 'designation' ); ?></span></p>
                             <p class="title"><?php the_field( 'position' ); ?></p>
@@ -153,7 +152,7 @@ get_header(); ?>
                     <div class="pub_item">
                         <a href="<?php the_sub_field('url'); ?>" target="_blank">
                             <div class="pub_cover">
-                                <img src="<?php the_sub_field('publication_image'); ?>" />
+                                <img src="<?php get_image(the_sub_field('publication_image'), "medium") ?>" />
                             </div>
                             <ul class="pub_info">
                                 <li><?php the_sub_field('book_name'); ?></li>
@@ -167,7 +166,4 @@ get_header(); ?>
         <?php endwhile; endif; ?>
         </div>
     </section>
-
-
-
 <?php get_footer(); ?>

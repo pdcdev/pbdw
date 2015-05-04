@@ -9,7 +9,7 @@
                                <li class="slide">
                                     <div class="" style="background-image: url( '<?php bloginfo('stylesheet_directory'); ?>/images/pbdw-move.jpg' );">
                                         <div class="project_title">
-                                            <a href="/pbdw.com/contact/"><h3>We've Moved!</h3></a>
+                                            <a href="/contact/"><h3>We've Moved!</h3></a>
                                         </div>
                                     </div>
                                 </li>

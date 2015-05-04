@@ -342,6 +342,7 @@ header, section, aside, .project_breadcrumbs, #team_page {
                 ul#menu-primary-navigation {
                     > li {
                         @include span-columns(2 of 8);
+                        @include omega();
                         &.current-menu-parent, &.current-menu-item {
                             > a {
                                 color: #000;
@@ -502,7 +503,9 @@ header {
                     a {
                         @include transition (all .1s ease-in-out);
                         @include pad(0 2.5em 0 0);
-                        @include span-columns(2 of 8);
+                        /*@include span-columns(2 of 8);*/
+                        margin-right: 2em;
+                        float: left;
                         font-weight: 600;
                         font-size: 1em;
                         cursor: pointer;
@@ -2133,7 +2136,7 @@ article.section_anchor {
     }
     h2 {
         font-size: 2em;
-        font-weight: 600;
+        font-weight: 500;
         color: $gray;
     }
     > div {
@@ -2196,7 +2199,7 @@ article.section_anchor {
         div.exp_description {
             h2 {
                 font-size: 2em;
-                font-weight: 600;
+                font-weight: 500;
             }
             p {
                 font-size: 1.25em;

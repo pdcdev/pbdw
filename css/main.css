@@ -299,7 +299,8 @@ header, section, aside, .project_breadcrumbs, #team_page {
         display: block;
         float: left;
         margin-right: 1.26582%;
-        width: 24.05063%; }
+        width: 24.05063%;
+        margin-right: 0; }
         #header_container.transparent nav div ul#menu-primary-navigation > li:last-child {
           margin-right: 0; }
         #header_container.transparent nav div ul#menu-primary-navigation > li.current-menu-parent > a, #header_container.transparent nav div ul#menu-primary-navigation > li.current-menu-item > a {
@@ -467,18 +468,15 @@ header {
           -moz-transition: all 0.1s ease-in-out;
           transition: all 0.1s ease-in-out;
           padding: 0 2.5em 0 0;
-          display: block;
+          /*@include span-columns(2 of 8);*/
+          margin-right: 2em;
           float: left;
-          margin-right: 1.26582%;
-          width: 24.05063%;
           font-weight: 600;
           font-size: 1em;
           cursor: pointer;
           line-height: 50px;
           color: #a3a9ac;
           margin-left: .7em; }
-          header nav.main_nav .nav_container ul li a:last-child {
-            margin-right: 0; }
           @media screen and (max-width: 768px) {
             header nav.main_nav .nav_container ul li a {
               padding: 0.5em 0;
@@ -2382,7 +2380,7 @@ article.section_anchor {
     margin-right: 0; }
 .expertise_description h2 {
   font-size: 2em;
-  font-weight: 600;
+  font-weight: 500;
   color: #a3a9ac; }
 .expertise_description > div p {
   padding: 0 0 1em 0;
@@ -2447,7 +2445,7 @@ article.section_anchor {
     background-size: cover; }
     #expertise article.exp_intro div.exp_description h2 {
       font-size: 2em;
-      font-weight: 600; }
+      font-weight: 500; }
     #expertise article.exp_intro div.exp_description p {
       font-size: 1.25em;
       padding: 1.5em 0; }

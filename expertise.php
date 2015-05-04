@@ -34,8 +34,8 @@ get_header(); ?>
         <section id="expertise">
             <article class="exp_item section exp_intro">
                 <div class="exp_item exp_description">
-                    <h2>Our Expertise</h2>
-                    <p>Our work is energized by the dichotomy between original designs for new buildings and the conscientious restoration of major historic landmarks. Consequently, much of our work explores the interplay between the new and the old, and the notion that each can invigorate the other. We have extensive experience creating new designs in historic contexts, and a special reputation for the design of contemporary additions to historic buildings.</p>
+                    <h2>Our work is energized by the dichotomy between original designs for new buildings and the conscientious restoration of major historic landmarks. Consequently, much of our work explores the interplay between the new and the old, and the notion that each can invigorate the other.</h2>
+                    <!-- <p>Our work is energized by the dichotomy between original designs for new buildings and the conscientious restoration of major historic landmarks. Consequently, much of our work explores the interplay between the new and the old, and the notion that each can invigorate the other. We have extensive experience creating new designs in historic contexts, and a special reputation for the design of contemporary additions to historic buildings.</p> -->
                 </div>
             </article>
 <!--             <article class="section expertise_description">

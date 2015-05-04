@@ -24,7 +24,7 @@
         <div class="wrap">
           <?php 
             $the_post_type = get_post_type();
-            if ( $the_post_type == "projects" ) {
+            if ( $the_post_type == "projects" || is_page("expertise") ) {
               $nav_class = "dark_transparent";
             } else if ( $the_post_type == "team" ) {
               $nav_class = "projects";

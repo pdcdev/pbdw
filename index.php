@@ -10,6 +10,7 @@
                                     <li class="slide">
                                         <?php $project = get_sub_field("project"); ?>
                                         <div class="" style="background-image: url( <?php echo get_image( get_sub_field('home_page_image'), "cover_nocrop"); ?> );">
+                                            <?php if($project): ?>
                                             <div class="project_title">
                                                 <a href="<?php echo get_permalink( $project->ID ); ?>">
                                                     <h3>
@@ -17,6 +18,7 @@
                                                     </h3>
                                                 </a>
                                             </div>
+                                            <?php endif; ?>
                                         </div>
                                     </li>
                                 <?php endwhile; ?>

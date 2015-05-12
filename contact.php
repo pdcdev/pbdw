@@ -78,12 +78,8 @@ get_header(); ?>
         <?php rewind_posts(); ?>
         <?php if ( have_posts() ) : while( have_posts() ) : the_post(); ?>
             <?php if( get_field('opportunities') ) : ?>
-        <div class="contact_breadcrumbs">
-            <div>
-                <p><span>Opportunities</span></p>
-            </div>
-        </div>
         <section id="jobs">
+        <h2>Opportunities</h2>
             <?php while( has_sub_field('opportunities') ): ?>
             <article class="jobs_item">
                 <h4 class="pos_name"><?php the_sub_field('position_name'); ?></h4>

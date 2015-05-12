@@ -2947,7 +2947,7 @@ article.contact_map {
   max-width: 87.5em;
   margin-left: auto;
   margin-right: auto;
-  padding: 0 30px 30px 30px; }
+  padding: 2em 30px 30px 30px; }
   #jobs:before, #jobs:after {
     content: " ";
     display: table; }
@@ -2959,6 +2959,19 @@ article.contact_map {
   @media screen and (max-width: 480px) {
     #jobs {
       padding: 10px; } }
+  #jobs h2 {
+    *zoom: 1;
+    max-width: 87.5em;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 2em;
+    font-weight: 300;
+    border-top: 1px solid #a3a9ac; }
+    #jobs h2:before, #jobs h2:after {
+      content: " ";
+      display: table; }
+    #jobs h2:after {
+      clear: both; }
   #jobs article.jobs_item {
     display: block;
     float: left;
@@ -2981,6 +2994,8 @@ article.contact_map {
         #jobs article.jobs_item:last-child {
           margin-right: 0; } }
     #jobs article.jobs_item .pos_name {
+      padding: 1em 0;
+      font-size: 1.25em;
       font-weight: 600; }
     #jobs article.jobs_item .qualifications {
       padding: 1em 0 0.5em 0;

@@ -22,7 +22,7 @@
                     <?php endif; ?>
                 </div>
 
-                <div class="member_image square" style="background-image: url('<?php the_field( 'member_image' ); ?>');">
+                <div class="member_image square" style="background-image: url('<?php echo get_image( get_field( 'member_image'), 'medium'); ?>');">
                 </div>
 
             <?php endwhile; endif; ?>
@@ -47,7 +47,7 @@
                 ?>
                 <?php while( $the_query->have_posts() ) : $the_query->the_post(); ?>
                     <div>
-                        <div class="cat_cube square" style="background-image: url(<?php the_field( 'member_image' ); ?>)">
+                        <div class="cat_cube square" style="background-image: url(<?php echo get_image( get_field( 'member_image'), 'thumbnail'); ?>)">
                             <a href="<?php the_permalink(); ?>">
                                 <div class="cat_cube_info">
                                     <p><?php the_title(); ?></p>
